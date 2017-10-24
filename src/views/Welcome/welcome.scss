@@ -1,0 +1,171 @@
+@import '../../styles/styles.scss';
+
+.welcome-container {
+  position: relative;
+  background-color: $white;
+  height: 100vh;
+  width: 100% !important;
+}
+
+.welcome-main {
+  height: 100%;
+}
+
+.welcome-main-user {
+  background-color: $dark-gray;
+}
+
+.welcome-main-admin {
+  background-color: $brand-color-blue;
+}
+
+.welcome-logo {
+  cursor: pointer;
+  width: 180px;
+  position: absolute;
+  top: 3%;
+  left: 3%;
+
+  img {
+    width: 40px;
+    float: left;
+    margin-right: 15px;
+  }
+
+  h3 {
+    color: $white;
+    font-size: 50px;
+    font-family: $header-font;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  @media (max-width: 400px) {
+    img {
+      width: 30px;
+    }
+    h3 {
+      font-size: 34px;
+    }
+  }
+}
+
+.welcome-admin {
+  cursor: pointer;
+  position: absolute;
+  text-align: right;
+  top: 3%;
+  right: 3%;
+
+  p {
+    margin-left: 20px;
+    display: inline-block;
+    color: $white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  p:hover {
+    color: $brand-color-green;
+  }
+}
+
+.welcome-header-message {
+  color: $white;
+  width: 80%;
+  left: 10%;
+  height: 20px;
+  z-index: 20;
+  font-size: 28px;
+  position: absolute;
+  font-family: $header-font;
+  top: 18%;
+  text-align: center;
+
+  p {
+    margin-top: 10px;
+  }
+
+  span {
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 600px) {
+    width: 50%;
+    left: 25%;
+  }
+}
+
+.signup-header-message {
+  color: $white;
+  width: 80%;
+  left: 10%;
+  height: 20px;
+  z-index: 20;
+  font-size: 28px;
+  position: absolute;
+  font-family: $header-font;
+  top: 15%;
+  text-align: center;
+
+  a {
+    color: $white;
+    transition: all 0.3s ease;
+  }
+
+  a:hover {
+    color: $brand-color-green;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+
+  span {
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+  }
+
+  @media (max-width: 600px) {
+    width: 90%;
+    left: 5%;
+    font-size: 22px;
+  }
+
+  @media (max-width: 400px) {
+    width: 90%;
+    left: 5%;
+    font-size: 18px;
+
+    span {
+      font-size: 12px;
+    }
+  }
+}
+
+.back-icon {
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.welcome-just-joined {
+  cursor: pointer;
+  position: absolute;
+  top: 75%;
+  width: 100%;
+  text-align: center;
+  font-family: $main-font;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.welcome-just-joined:hover {
+  color: $brand-color-green;
+}

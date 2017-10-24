@@ -1,0 +1,134 @@
+@import '../../../styles/styles.scss';
+
+.login-container {
+  position: absolute;
+  width: 80%;
+  top: 20%;
+  left: 10%;
+  color: $dark-gray;
+  font-family: $header-font;
+  border-radius: 3px;
+
+  @media (min-width: 600px) {
+    width: 50%;
+    left: 25%;
+  }
+}
+
+.login-form-container {
+  margin-top: 90px;
+}
+
+.create-form-container {
+  margin-top: 60px;
+
+  @media (max-width: 600px) {
+    margin-top: 50px;
+  }
+}
+
+.login-form-container, .create-form-container {
+  padding: 20px;
+
+  .email-field, .password-field, .code-field {
+    width: 80%;
+    margin-left: 10%;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    background-color: $white;
+    font-size: 14px;
+
+    @media (max-width: 400px) {
+      height: 30px;
+      width: 90%;
+      margin-left: 5%;
+    }
+  }
+
+  .login-forgot-password {
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    color: $white;
+    transition: all 0.3s ease;
+  }
+
+  .login-forgot-password:hover {
+    color: $brand-color-green;
+  }
+
+  .login-button {
+    cursor: pointer;
+    margin-top: 25px;
+    width: 83%;
+    margin-left: 10%;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    background-color: $brand-color-green;
+    color: $white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+
+    @media (max-width: 400px) {
+      width: 95%;
+      margin-left: 5%;
+      font-size: 12px;
+      height: 30px;
+    }
+  }
+
+  .login-button:hover {
+    background-color: $brand-green-dark;
+  }
+}
+
+
+.login-info {
+  background-color: $brand-color-blue;
+  text-align: center;
+  padding-top: 50px;
+
+  img {
+    width: 50px;
+  }
+
+  h3 {
+    color: $white;
+    margin: 20px;
+  }
+}
+
+.login-create-account {
+  margin-top: 15px;
+  text-align: center;
+
+  p {
+    cursor: pointer;
+    color: $white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  p:hover {
+    color: $brand-color-green;
+  }
+}
+
+.form-submit-error, .auth-error {
+  font-size: 12px;
+  color: $brand-color-orange;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.auth-error {
+  margin-top: 5px;
+}

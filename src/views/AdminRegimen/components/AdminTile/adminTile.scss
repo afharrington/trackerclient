@@ -1,0 +1,88 @@
+@import '../../../../styles/styles.scss';
+
+.admin-tile {
+  box-shadow: $med-shadow;
+  position: relative;
+  width: 175px;
+  height: 175px;
+  margin: 10px;
+  padding: 10px;
+  background-color: $white;
+  overflow: hidden;
+  // border: 1px solid $med-gray;
+}
+
+.admin-tile-name {
+  overflow-wrap: break-word;
+  width: 100%;
+  text-align: center;
+  margin-right: 5px;
+  text-transform: uppercase;
+  font-family: $header-font;
+  font-weight: bold;
+  font-size: 16px;
+  color: $dark-gray;
+}
+
+.admin-menu-icon {
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute !important;
+  top: 70%;
+  right: 0%;
+
+  svg {
+    color: $dark-gray !important;
+  }
+}
+
+.admin-tile-goal {
+  position: absolute;
+  top: 27%;
+  color: $dark-gray;
+
+  .goal-label {
+    color: $med-gray;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.admin-tile-activities {
+  position: absolute;
+  width: 90%;
+  top: 25%;
+
+  .activities-label {
+    color: $med-gray;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+
+  .admin-tile-activity-item {
+    font-size: 12px;
+    padding: 2px;
+    margin: 1px;
+
+    background-color: $brand-color-orange;
+    color: $white;
+    border-radius: 2px;
+    text-transform: capitalize;
+  }
+}
+
+.admin-tile-activity-items {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}

@@ -1,0 +1,53 @@
+@import './partials/colors';
+@import './partials/fonts';
+@import './partials/reset';
+@import './partials/shadows';
+
+.dev-label {
+  position: absolute;
+  top: 1%;
+  right: 2%;
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-family: $header-font;
+  background-color: yellow;
+}
+
+.exit {
+  cursor: pointer;
+  font-size: 20px;
+  color: $dark-gray;
+  position: absolute;
+  display: inline-block;
+  top: 3%;
+  right: 3%;
+  transition: font 0.5s ease;
+}
+
+.exit:hover {
+  color: $white;
+}
+
+.list-title {
+  font-family: $header-font;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 50px;
+  padding-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: $dark-gray;
+}
+
+a:visited {
+  color: $dark-gray;
+}
+
+.dialog-text {
+  font-size: 18px;
+  margin-bottom: 10px;
+}

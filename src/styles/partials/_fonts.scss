@@ -1,0 +1,29 @@
+$header-font: 'Montserrat', sans-serif;
+$main-font: 'Abel', sans-serif;
+
+p {
+  font-size: 20px;
+  font-family: $main-font;
+}
+
+h1 {
+  font-size: 48px;
+  font-family: $header-font;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 40px;
+  font-family: $header-font;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 32px;
+  font-family: $header-font;
+}
+
+h4 {
+  font-size: 24px;
+  font-family: $header-font;
+}

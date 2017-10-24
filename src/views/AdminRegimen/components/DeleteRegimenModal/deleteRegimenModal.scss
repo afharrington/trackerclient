@@ -1,0 +1,25 @@
+@import '../../../../styles/styles.scss';
+
+.delete-regimen-modal {
+  font-family: $main-font;
+}
+
+.regimen-delete-button {
+  cursor: pointer;
+  padding: 5px 15px 5px 15px;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: $header-font;
+  height: 25px;
+  background-color: $dark-red;
+  color: $white;
+
+  @media (max-width: 400px) {
+    width: 100px;
+    font-size: 10px;
+    padding: 5px;
+    margin-right: 5px;
+  }
+}

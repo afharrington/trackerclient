@@ -1,0 +1,16 @@
+@import '../../styles/styles.scss';
+
+.info-button {
+  cursor: pointer;
+  // font-family: $main-font;
+  font-weight: bold;
+  color: $white;
+  background-color: $med-gray;
+  font-size: 12px;
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  text-align: center;
+  padding: 2px;
+  border-radius: 1000px;
+}

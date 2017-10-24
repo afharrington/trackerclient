@@ -1,0 +1,68 @@
+@import '../../../../styles/styles.scss';
+
+.create-user-form {
+  z-index: 5;
+  padding: 25px;
+  margin-top: -50px;
+  text-transform: capitalize !important;
+
+  @media (max-width: 500px) {
+    width: 80%;
+    left: 5%;
+  }
+}
+
+.create-user-fields {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.create-user-name {
+  .text-field {
+    width: 150px !important;
+    margin-right: 25px;
+    margin-top: 0px !important;
+  }
+
+  input {
+    text-transform: capitalize !important;
+  }
+}
+
+.create-user-contact {
+  .text-field {
+    width: 150px !important;
+    margin-right: 25px;
+  }
+}
+
+.create-user-email, .create-user-code {
+  .text-field {
+    width: 325px !important;
+
+    @media (max-width: 500px) {
+      width: 250px !important;
+    }
+  }
+}
+
+
+.create-user-sport, .create-user-regimen {
+  text-transform: capitalize;
+  margin-top: 25px;
+
+  .select-field {
+    width: 150px !important;
+    margin-right: 25px;
+  }
+}
+
+.sport-item, .regimen-item {
+  text-transform: capitalize;
+}
+
+.user-form-buttons {
+  display: block;
+  text-align: center;
+  margin-top: 25px;
+}

@@ -1,0 +1,61 @@
+@import '../../styles/styles.scss';
+
+// Shares styles with adminRegimen.scss
+
+.user-home {
+  width: 100%;
+  margin-top: -30px;
+  color: $dark-gray;
+}
+
+
+.user-home-header {
+  font-family: $header-font;
+  margin-top: 60px;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: $brand-color-green;
+
+  .user-home-regimen {
+    font-size: 34px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  span {
+    color: $dark-gray;
+  }
+}
+
+
+.user-regimen-instructions {
+  margin: 5%;
+
+  h3, span {
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    color: $brand-color-blue;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+
+  span {
+    color: $brand-color-green;
+    font-size: 18px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  li {
+    font-size: 18px;
+    font-family: $main-font;
+    margin-bottom: 5px;
+  }
+}

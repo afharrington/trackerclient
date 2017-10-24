@@ -1,0 +1,71 @@
+@import '../../styles/styles.scss';
+
+.admin-menu {
+  width: 50%;
+}
+
+.menu-divider {
+  margin: 30px 15px 10px 15px;
+}
+
+.menu-brand {
+  position: absolute;
+  display: flex;
+  width: 75%;
+  margin-left: 5%;
+  margin-top: 4%;
+
+
+  .menu-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  p {
+    width: 10px;
+    line-height: 35px;
+    margin-left: 10px;
+    color: $brand-color-green;
+    text-transform: uppercase;
+    font-family: $header-font;
+    font-size: 40px;
+    display: inline-block;
+    float: right;
+  }
+}
+
+
+.hamburger-open, .hamburger-closed {
+  cursor: pointer;
+  width: 60px;
+  height: 50px;
+  border: none;
+  font-size: 28px;
+  color: $dark-gray;
+}
+
+.hamburger-closed {
+  background-color: $background-gray;
+}
+
+.hamburger-open {
+  position: absolute;
+  right: 0px;
+  color: $dark-gray;
+  background-color: $white;
+}
+
+.menu-items {
+  position: absolute;
+  width: 100%;
+  top: 10%;
+}
+
+.menu-icon {
+  font-size: 16px;
+  margin-right: 25px;
+}
+
+.menu-logout {
+  margin-top: 150px;
+}

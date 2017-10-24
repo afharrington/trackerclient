@@ -1,0 +1,36 @@
+@import '../../styles/styles.scss';
+
+.new-button {
+  button {
+    cursor: pointer;
+    padding: 5px 15px 5px 15px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: $header-font;
+    height: 25px;
+    background-color: $brand-color-orange;
+    color: $white;
+    transition: background-color .5s ease;
+    margin-right: 20px;
+    box-shadow: $small-shadow;
+
+    .plus {
+      font-size: 12px;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 400px) {
+      width: 125px;
+      font-size: 10px;
+      padding: 5px;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+  }
+
+  button:hover {
+    background-color: $brand-orange-dark;
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../styles/styles.scss';
+
+.admin-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.welcome-message {
+  text-align: right;
+  margin-right: 10%;
+  width: 100%;
+  font-size: 20px;
+  text-transform: capitalize !important;
+  display: block;
+  color: $dark-gray;
+}

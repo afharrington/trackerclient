@@ -1,0 +1,63 @@
+@import '../../../../styles/styles.scss';
+
+.user-row {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  height: 35px;
+  display: flex;
+  border-bottom: 1px solid $light-gray;
+
+  p {
+    text-transform: capitalize;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+}
+
+.user-row-name {
+  width: 20% !important;
+  height: 25px;
+}
+.user-row-cycle {
+  width: 15%;
+  height: 25px;
+}
+.user-row-progress {
+  width: 35%;
+  height: 25px;
+}
+.user-row-last3 {
+  width: 30%;
+  height: 25px;
+}
+
+.previous-cycle {
+  color: $white;
+  margin-right: 10px;
+  margin-top: -10px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  background-color: blue;
+
+  p {
+    line-height: 40px;
+    margin-left: -1px;
+  }
+}
+
+.user-row-progress {
+  position: relative;
+  height: 25px;
+
+  .progress-percent {
+    position: absolute;
+    color: $white;
+    z-index: 100;
+    top: 1px;
+  }
+}
+
+.progress-bar {
+  height: 20px;
+}

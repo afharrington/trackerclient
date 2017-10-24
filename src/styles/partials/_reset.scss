@@ -1,0 +1,17 @@
+@import './colors.scss';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #e3e2e2;
+  background: -webkit-linear-gradient(to right, #e3e2e2, #ffffff);
+  background: linear-gradient(to right, #e3e2e2, #ffffff);
+}
+
+.container {
+
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}

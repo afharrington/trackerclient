@@ -1,0 +1,18 @@
+@import '../../styles/styles.scss';
+
+.get-to-green {
+  margin: 10px;
+  width: 225px;
+  height: 30px;
+  background-color: #32A83A;
+  background: -webkit-linear-gradient(to right, #A81D1F, #A83E20, #A85F22, #A87F24, #A89E26, #95A829, #79A82B, #5DA82D, #42A82F, #32A83A);
+  background: linear-gradient(to right, #A81D1F, #A83E20, #A85F22, #A87F24, #A89E26, #95A829, #79A82B, #5DA82D, #42A82F, #32A83A);
+
+  p {
+    font-size: 14px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: white;
+    margin-left: 25px;
+  }
+}

@@ -1,0 +1,78 @@
+@import '../../styles/styles.scss';
+
+.regimen {
+  width: 100%;
+  color: $dark-gray;
+}
+
+.regimen-button-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 5%;
+
+  button {
+    box-shadow: $small-shadow;
+  }
+}
+
+.admin-regimen-instructions {
+  margin: 5%;
+
+  h3, span {
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    color: $brand-color-blue;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+
+  span {
+    color: $brand-color-green;
+    font-size: 18px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  li {
+    font-size: 18px;
+    font-family: $main-font;
+    margin-bottom: 5px;
+  }
+}
+
+.regimen-header {
+  padding-top: 25px;
+  margin-left: 60px;
+  margin-right: 60px;
+  padding-bottom: 10px;
+}
+
+.regimen-tiles-container {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+@media only screen and (max-width: 806px) {
+  .regimen-tiles-container {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .regimen-tiles-container {
+    margin-top: 10px !important;
+  }
+}

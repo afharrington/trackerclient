@@ -1,0 +1,37 @@
+@import '../../styles/styles.scss';
+
+.breadcrumb-header {
+  width: 100%;
+
+  p {
+    margin-left: 10%;
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: $header-font;
+    text-transform: uppercase;
+
+    @media (max-width: 400px) {
+      font-size: 18px !important;
+      margin-left: 5%;
+    }
+  }
+
+  .fa {
+    font-size: 18px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  a {
+    color: $brand-color-orange !important;
+  }
+}
+
+.breadcrumb-subheading {
+  text-align: center;
+  margin-left: 0px !important;
+  // text-transform: uppercase !important;
+  margin-top: 25px !important;
+  font-size: 26px !important;
+}

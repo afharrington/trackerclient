@@ -1,0 +1,26 @@
+@import '../../styles/styles.scss';
+
+.show-button {
+  button {
+    cursor: pointer;
+    padding: 5px 15px 5px 15px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: $header-font;
+    height: 25px;
+    background-color: $brand-color-blue;
+    color: $white;
+    transition: background-color .5s ease;
+
+    .down {
+      font-size: 12px;
+      margin-right: 10px;
+    }
+  }
+
+  button:hover {
+    background-color: $dark-gray;
+  }
+}
