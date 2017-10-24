@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 // ADD THIS
-import './userTile.scss';
+import './userTile.css';
 
 class UserTile extends Component {
   constructor(props) {

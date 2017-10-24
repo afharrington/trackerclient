@@ -27,7 +27,7 @@ import AdminUserEntries from './views/AdminUserEntries';
 import UserHome from './views/UserHome';
 import UserEntries from './views/UserEntries';
 
-import './styles/styles.scss';
+import './styles/styles.css';
 
 const muiTheme = getMuiTheme({
     textField: {

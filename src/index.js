@@ -9,7 +9,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { LOGIN_ADMIN, LOGIN_USER } from './actions/authActions';
 import reducers from './reducers';
-import './index.css';
 
 const createStoreWithMiddleware = applyMiddleware(promise, thunk, logger)(createStore);
 const store = createStoreWithMiddleware(reducers);

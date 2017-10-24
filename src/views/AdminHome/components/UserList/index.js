@@ -6,7 +6,7 @@ import CreateUserForm from '../CreateUserForm';
 import UserItem from '../UserItem';
 import { connect } from 'react-redux';
 import { adminFetchUsers, adminDeleteUser } from '../../../../actions/adminUserActions';
-import './userList.scss';
+import './userList.css';
 
 // Same pattern as UserEntries > CreateEntryForm
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RegimenList from './components/RegimenList';
 import UserList from './components/UserList';
 
-import './adminHome.scss';
+import './adminHome.css';
 
 class AdminHome extends Component {
 

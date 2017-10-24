@@ -4,7 +4,7 @@ import NewButton from '../../components/NewButton';
 import CreateEntryForm from './components/CreateEntryForm';
 import UserCycle from './components/UserCycle';
 import { fetchUserTile } from '../../actions/userActions';
-import './userEntries.scss';
+import './userEntries.css';
 
 // Same pattern as UserList > CreateUserForm
 

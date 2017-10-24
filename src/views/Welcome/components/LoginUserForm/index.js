@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from "react-redux";
 import { loginUser, authError } from '../../../../actions/authActions';
-import './loginUserForm.scss';
-import '../loginForms.scss';
+import './loginUserForm.css';
+import '../loginForms.css';
 
 class LoginUserForm extends Component {
 

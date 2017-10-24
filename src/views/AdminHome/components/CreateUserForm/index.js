@@ -8,7 +8,7 @@ import SelectField from 'material-ui/SelectField'
 import FormButtons from '../../../../components/FormButtons';
 import { fetchRegimens } from '../../../../actions/adminRegimenActions';
 import { adminCreateUser, adminUpdateUser } from '../../../../actions/adminUserActions';
-import './createUserForm.scss';
+import './createUserForm.css';
 
 const customStyles = {
   underlineStyle: {

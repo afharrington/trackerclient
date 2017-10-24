@@ -5,7 +5,7 @@ import { adminFetchUserRegimens } from '../../actions/adminUserActions';
 import BreadcrumbHeader from '../../components/BreadcrumbHeader';
 import TileSummary from './components/TileSummary';
 
-import './adminRegimenCharts.scss';
+import './adminRegimenCharts.css';
 
 class AdminRegimenCharts extends Component {
   constructor(props) {

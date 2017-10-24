@@ -4,7 +4,7 @@ import FontAwesome from 'react-fontawesome';
 import LoginUserForm from './components/LoginUserForm';
 import LoginAdminForm from './components/LoginAdminForm';
 import RegisterAccountForm from './components/RegisterAccountForm';
-import './welcome.scss';
+import './welcome.css';
 
 class Welcome extends Component {
 

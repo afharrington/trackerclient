@@ -6,7 +6,7 @@ import CreateRegimenForm from '../CreateRegimenForm';
 import RegimenItem from '../RegimenItem';
 import { connect } from 'react-redux';
 import { fetchRegimens, deleteRegimen } from '../../../../actions/adminRegimenActions';
-import './regimenList.scss';
+import './regimenList.css';
 
 class RegimenList extends Component {
   constructor(props) {

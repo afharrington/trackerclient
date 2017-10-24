@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from "react-redux";
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
 import { registerAdmin, registerUser, authError } from '../../../../actions/authActions';
-import './registerAccountForm.scss';
+import './registerAccountForm.css';
 
 class RegisterAccountForm extends Component {
 

@@ -6,7 +6,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router-dom';
 
-import './userItem.scss';
+import './userItem.css';
 
 class UserItem extends Component {
 

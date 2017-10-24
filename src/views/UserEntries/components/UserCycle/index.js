@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import Divider from 'material-ui/Divider';
 import Entry from '../Entry';
 
-import './userCycle.scss';
+import './userCycle.css';
 
 class UserCycle extends Component {
 

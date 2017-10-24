@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { loginAdmin, authError } from '../../../../actions/authActions';
-import './loginAdminForm.scss';
-import '../loginForms.scss';
+import './loginAdminForm.css';
+import '../loginForms.css';
 
 class LoginAdminForm extends Component {
 

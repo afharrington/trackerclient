@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserRow from '../UserRow';
 // ADD THIS
-import './tileSummary.scss';
+import './tileSummary.css';
 
 // A Tile Summary is a list of user info (User Row) for a single Regimen Tile
 // i.e. a list of each user's progress for Mobility

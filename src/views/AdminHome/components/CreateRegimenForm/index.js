@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import { connect } from 'react-redux';
 import { createRegimen } from '../../../../actions/adminRegimenActions';
-import './createRegimenForm.scss';
+import './createRegimenForm.css';
 
 const customStyles = {
   underlineStyle: {

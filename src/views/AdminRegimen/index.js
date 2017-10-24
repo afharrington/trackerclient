@@ -5,7 +5,7 @@ import BreadcrumbHeader from '../../components/BreadcrumbHeader';
 import CreateTileForm from './components/CreateTileForm';
 import AdminTile from './components/AdminTile';
 import { fetchRegimen } from '../../actions/adminRegimenActions';
-import './adminRegimen.scss';
+import './adminRegimen.css';
 
 class AdminRegimen extends Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import _ from 'lodash';
 import BreadcrumbHeader from '../../components/BreadcrumbHeader';
 import UserTile from '../UserHome/components/UserTile';
 import { adminFetchUser } from '../../actions/adminUserActions';
-import './adminUserDetail.scss';
+import './adminUserDetail.css';
 
 class AdminUserDetail extends Component {
   constructor(props) {

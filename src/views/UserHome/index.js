@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import UserTile from './components/UserTile';
 import { fetchUser } from '../../actions/userActions';
-import './userHome.scss';
+import './userHome.css';
 
 class UserHome extends Component {
   constructor(props) {

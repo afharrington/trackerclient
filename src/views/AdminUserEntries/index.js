@@ -5,7 +5,7 @@ import FontAwesome from 'react-fontawesome';
 import UserCycle from '../UserEntries/components/UserCycle';
 import { adminFetchUserTile, adminFetchUser } from '../../actions/adminUserActions';
 
-import './adminUserEntries.scss';
+import './adminUserEntries.css';
 
 class AdminUserEntries extends Component {
   constructor(props) {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { Line } from 'rc-progress';
 
-import './userRow.scss';
+import './userRow.css';
 
 class UserRow extends Component {
 

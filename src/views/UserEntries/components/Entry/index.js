@@ -7,7 +7,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Moment from 'react-moment';
 import { deleteEntry } from '../../../../actions/userActions';
 
-import './entry.scss';
+import './entry.css';
 
 class Entry extends Component {
 

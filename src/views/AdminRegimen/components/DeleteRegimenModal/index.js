@@ -3,7 +3,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
 import { deleteRegimen } from '../../../../actions/adminRegimenActions';
-import './deleteRegimenModal.scss';
+import './deleteRegimenModal.css';
 
 class DeleteRegimenModal extends Component {
   state = {

@@ -5,7 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { Link } from 'react-router-dom';
 
-import './regimenItem.scss';
+import './regimenItem.css';
 
 class RegimenItem extends Component {
 

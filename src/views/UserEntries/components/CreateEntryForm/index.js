@@ -8,7 +8,7 @@ import SelectField from 'material-ui/SelectField'
 import Slider from 'material-ui/Slider';
 import FormButtons from '../../../../components/FormButtons';
 import { createEntry, updateEntry } from '../../../../actions/userActions';
-import './createEntryForm.scss';
+import './createEntryForm.css';
 
 const customStyles = {
   underlineStyle: {

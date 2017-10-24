@@ -7,7 +7,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import FormButtons from '../../../../components/FormButtons';
 import { createTile, updateTile } from '../../../../actions/adminRegimenActions';
-import './createTileForm.scss';
+import './createTileForm.css';
 
 
 const customStyles = {
