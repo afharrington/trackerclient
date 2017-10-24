@@ -5,7 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { connect } from 'react-redux';
 import { deleteTile } from '../../../../actions/adminRegimenActions';
-import './adminTile.scss';
+import './adminTile.css';
 
 class AdminTile extends Component {
   constructor(props) {
