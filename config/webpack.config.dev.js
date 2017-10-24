@@ -109,11 +109,13 @@ module.exports = {
 
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
-      {
-        test: /\.scss$/,
-        include: paths.appSrc,
-        loaders: ["style-loader", "css-loader", "sass-loader"]
-      },
+
+      // {
+      //   test: /\.scss$/,
+      //   include: paths.appSrc,
+      //   loaders: ["style-loader", "css-loader", "sass-loader"]
+      // },
+
       {
         test: /\.(js|jsx)$/,
         enforce: 'pre',
