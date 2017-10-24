@@ -1,0 +1,184 @@
+.color-0 {
+  background-color: #A81D1F; }
+
+.color-1 {
+  background-color: #A83E20; }
+
+.color-2 {
+  background-color: #A85F22; }
+
+.color-3 {
+  background-color: #A87F24; }
+
+.color-4 {
+  background-color: #A89E26; }
+
+.color-5 {
+  background-color: #95A829; }
+
+.color-6 {
+  background-color: #79A82B; }
+
+.color-7 {
+  background-color: #5DA82D; }
+
+.color-8 {
+  background-color: #42A82F; }
+
+.color-9 {
+  background-color: #32A83A; }
+
+p {
+  font-size: 20px;
+  font-family: "Abel", sans-serif; }
+
+h1 {
+  font-size: 48px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase; }
+
+h2 {
+  font-size: 40px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase; }
+
+h3 {
+  font-size: 32px;
+  font-family: "Montserrat", sans-serif; }
+
+h4 {
+  font-size: 24px;
+  font-family: "Montserrat", sans-serif; }
+
+.color-0 {
+  background-color: #A81D1F; }
+
+.color-1 {
+  background-color: #A83E20; }
+
+.color-2 {
+  background-color: #A85F22; }
+
+.color-3 {
+  background-color: #A87F24; }
+
+.color-4 {
+  background-color: #A89E26; }
+
+.color-5 {
+  background-color: #95A829; }
+
+.color-6 {
+  background-color: #79A82B; }
+
+.color-7 {
+  background-color: #5DA82D; }
+
+.color-8 {
+  background-color: #42A82F; }
+
+.color-9 {
+  background-color: #32A83A; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #e3e2e2;
+  background: -webkit-linear-gradient(to right, #e3e2e2, #ffffff);
+  background: linear-gradient(to right, #e3e2e2, #ffffff); }
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
+
+.dev-label {
+  position: absolute;
+  top: 1%;
+  right: 2%;
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-family: "Montserrat", sans-serif;
+  background-color: yellow; }
+
+.exit {
+  cursor: pointer;
+  font-size: 20px;
+  color: #333;
+  position: absolute;
+  display: inline-block;
+  top: 3%;
+  right: 3%;
+  transition: font 0.5s ease; }
+
+.exit:hover {
+  color: #fff; }
+
+.list-title {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 50px;
+  padding-bottom: 10px; }
+
+a {
+  text-decoration: none;
+  color: #333; }
+
+a:visited {
+  color: #333; }
+
+.dialog-text {
+  font-size: 18px;
+  margin-bottom: 10px; }
+
+.caution-modal {
+  z-index: 1000;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 100vw;
+  height: 1000px;
+  background-color: rgba(126, 126, 126, 0.5); }
+
+.caution-modal-container {
+  position: absolute;
+  background-color: #fff;
+  top: 20%;
+  width: 90%;
+  left: 5%;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .caution-modal-container p {
+    margin: 20px; }
+
+.warning {
+  color: #8b0000;
+  font-size: 22px !important;
+  font-weight: bold;
+  text-align: center; }
+
+.caution-modal-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px !important;
+  margin-bottom: 5px;
+  justify-content: center;
+  width: 100%; }
+  .caution-modal-button-container button {
+    cursor: pointer;
+    padding: 5px 15px 5px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    height: 25px;
+    color: #fff;
+    transition: background-color .5s ease;
+    margin-right: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  .caution-modal-button-container .delete-button {
+    background-color: #8b0000; }
+  .caution-modal-button-container .cancel-button {
+    background-color: #333; }
