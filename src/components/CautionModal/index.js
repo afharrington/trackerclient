@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './cautionModal.scss';
+import './cautionModal.css';
 
 class CautionModal extends Component {
 

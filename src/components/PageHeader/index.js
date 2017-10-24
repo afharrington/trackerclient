@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logoutAdmin, logoutUser } from '../../actions/authActions';
 
-import './pageHeader.scss';
+import './pageHeader.css';
 
 class PageHeader extends Component {
 

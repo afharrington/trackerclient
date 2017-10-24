@@ -1,6 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
-import './newButton.scss';
+import './newButton.css';
 
 const NewButton = props => (
   <div className='new-button'>

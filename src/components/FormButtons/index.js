@@ -1,6 +1,6 @@
 import FontAwesome from 'react-fontawesome';
 import React from 'react'
-import './formButtons.scss';
+import './formButtons.css';
 
 const FormButtons = props => {
   return (

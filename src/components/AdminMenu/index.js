@@ -6,7 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 import FontAwesome from 'react-fontawesome';
 import Divider from 'material-ui/Divider';
 import { logoutAdmin } from '../../actions/authActions';
-import './adminMenu.scss';
+import './adminMenu.css';
 
 class AdminMenu extends Component {
   constructor(props) {

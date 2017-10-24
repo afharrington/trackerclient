@@ -1,7 +1,7 @@
 import FontAwesome from 'react-fontawesome';
 import React from 'react'
 import { Link } from 'react-router-dom';
-import './breadcrumbHeader.scss';
+import './breadcrumbHeader.css';
 
 const BreadcrumbHeader = props => {
   return (

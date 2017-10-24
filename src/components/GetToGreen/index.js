@@ -1,6 +1,6 @@
 import FontAwesome from 'react-fontawesome';
 import React, { Component } from 'react'
-import './getToGreen.scss';
+import './getToGreen.css';
 
 const GetToGreen = props => {
   return (
