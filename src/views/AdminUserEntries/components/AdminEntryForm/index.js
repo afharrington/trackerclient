@@ -8,7 +8,6 @@ import SelectField from 'material-ui/SelectField'
 import Slider from 'material-ui/Slider';
 import FormButtons from '../../../../components/FormButtons';
 import { adminCreateEntry, adminUpdateEntry, adminFetchUserTile } from '../../../../actions/adminUserActions';
-import './createEntryForm.css';
 
 const customStyles = {
   underlineStyle: {
