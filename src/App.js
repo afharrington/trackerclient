@@ -98,11 +98,10 @@ class App extends Component {
               <Route exact path='/user' component={UserAuthentication(UserHome)}/>
               <Route exact path='/user/tile/:tileId' component={UserAuthentication(UserEntries)}/>
               <Route exact path='/user/reg/:regId/tile/:tileId' component={UserAuthentication(UserEntries)}/>
-              <Route exact path='/admin/regimen/:regimenId' render={(props) => <AdminRegimenCharts {...props} /> }/>
-              <Route exact path='/admin/regimen/:regimenId/settings' render={(props) => <AdminRegimen {...props} /> }/>
-              <Route exact path='/admin/user/:userId' render={(props) => <AdminUserDetail {...props} /> }/>
-              <Route exact path='/admin/user/:userId/tile/:userTileId' component={AdminUserEntries}/>
-              <Route exact path='/' render={props => <Welcome {...props} /> } />
+              <Route exact path='/admin/regimen/:regimenId' component={AdminAuthentication(AdminRegimenCharts)}/>
+              <Route exact path='/admin/regimen/:regimenId/settings' component={AdminAuthentication(AdminRegimen)}/>
+              <Route exact path='/admin/user/:userId' component={AdminAuthentication(AdminUserDetail)}/>
+              <Route exact path='/admin/user/:userId/tile/:userTileId' component={AdminAuthentication(AdminUserEntries)}/>
             </Switch>
           </div>
         </MuiThemeProvider>
