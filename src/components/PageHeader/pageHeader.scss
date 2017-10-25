@@ -50,6 +50,14 @@
     text-transform: capitalize;
     text-overflow: ellipsis;
 
+    a {
+      color: $white;
+    }
+
+    a:visited {
+      color: $white;
+    }
+
     .fa {
       font-size: 16px;
       margin-left: 10px;
