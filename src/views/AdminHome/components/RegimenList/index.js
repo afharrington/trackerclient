@@ -42,7 +42,7 @@ class RegimenList extends Component {
           <p>You do not have any regimens yet.</p>
           <h3>What is a Regimen?</h3>
           <p>Think of a regimen as a blueprint you can use for assigning training plans to your players.</p>
-          <p>For example, you might create a different regimen for each position on your team.</p>
+          <p>For example, you could create a different regimen for each position on your team.</p>
           <p>Add a new regimen to get started.</p>
         </div>
       )

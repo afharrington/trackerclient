@@ -134,8 +134,11 @@ a:visited {
 
 .radio-button-container {
   display: flex;
+  width: 100px;
   color: white;
   margin-left: 30%; }
+  .radio-button-container div {
+    margin-right: 20px; }
   .radio-button-container p {
     margin-top: 10px;
     font-family: "Abel", sans-serif;
@@ -147,8 +150,8 @@ a:visited {
       margin-left: 25px; } }
 
 .account-field {
-  margin-left: 20%;
-  width: 100px;
+  margin-left: 15%;
+  width: 150px;
   font-size: 14px !important;
   margin-bottom: 20px; }
 

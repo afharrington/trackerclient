@@ -11,23 +11,22 @@ class UserRow extends Component {
   }
 
   renderLast3Cycles() {
-    let previousCycles = this.props.cycles;
+    let previousCycles = this.props.cycles.slice(1);
 
-    for (var i=1; i<3; i++) {
-      let cycle = previousCycles[i];
+    return previousCycles.map(cycle => {
       let className;
       if (cycle) {
         className = `previous-cycle color-${Math.floor(cycle.color)}`;
         return (
-          <div className={className}>
+          <div key={cycle._id} className={className}>
             <p>{cycle.cyclePercent}%</p>
           </div>
         )
       } else {
-        return <div></div>
-      }
+          return <div></div>
+        }
+      });
     }
-  }
 
   renderProgressBar() {
     let color = Math.floor(this.props.color);

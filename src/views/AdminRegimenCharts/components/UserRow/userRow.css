@@ -156,6 +156,7 @@ a:visited {
   height: 25px; }
 
 .user-row-last3 {
+  display: flex;
   width: 30%;
   height: 25px; }
 

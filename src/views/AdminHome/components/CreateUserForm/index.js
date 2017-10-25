@@ -27,7 +27,7 @@ class CreateUserForm extends Component {
         email: user.email,
         code: user.code,
         sport: user.sport,
-        regimen: user.regimen.regimen
+        regimen: user.regimen
       }
       this.props.initialize(initialData);
     }

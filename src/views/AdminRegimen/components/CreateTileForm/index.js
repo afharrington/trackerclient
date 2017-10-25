@@ -120,8 +120,10 @@ class CreateTileForm extends Component {
   }
 
   onSubmit(values) {
-    values.activityOptions = values.activityOptions.filter((activity) => { return activity !== undefined });
-
+    if (values.activityOptions) {
+      values.activityOptions = values.activityOptions.filter((activity) => { return activity !== undefined });
+    }
+    
     if (!this.props.tile) {
       this.props.createTile(this.props.regimenId, values);
     } else {

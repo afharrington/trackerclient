@@ -38,19 +38,6 @@ class AdminRegimen extends Component {
     if (isEmpty(this.props.regimen.tiles) ) {
       return (
         <div className='admin-regimen-instructions'>
-          <p>Add your first tile.</p>
-          <h3>What is a Tile?</h3>
-          <p>A Tile represents a category of training activities that you want players to log.</p>
-          <p>When you create a tile, you must configure its <span>goal</span> settings:</p>
-          <ul>
-            <li>The number of <span>hours</span> players should spend on the tile per cycle</li>
-            <li>The length of a <span>cycle</span></li>
-          </ul>
-          <p>You may optionally define a list of activities for players to select from.</p>
-          <h3>Example</h3>
-          <p><span>Tile name:</span> Cardio</p>
-          <p><span>Goal:</span> 2 hours per 5-day cycle</p>
-          <p><span>Activities:</span> Running, rowing, elliptical</p>
         </div>
       )
     }

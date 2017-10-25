@@ -33,7 +33,7 @@ export function createAdmin({ firstName, lastName, email, password}, callback) {
       })
       .then(() => callback()) // redirect
       .catch((err) => {
-        dispatch(authError(err));
+        console.log(err);
       });
   }
 }
@@ -69,7 +69,7 @@ export function loginAdmin({ email, password}, callback) {
       })
       .then(() => callback()) // redirect
       .catch((err) => {
-        dispatch(authError(err));
+        dispatch(authError('Incorrect email or password'));
       });
   }
 }
