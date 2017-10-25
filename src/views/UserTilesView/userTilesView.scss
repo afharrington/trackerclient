@@ -2,21 +2,20 @@
 
 // Shares styles with adminRegimen.scss
 
-.user-home {
+.user-tiles-view {
   width: 100%;
   margin-top: -30px;
   color: $dark-gray;
 }
 
-
-.user-home-header {
+.user-tiles-view-header {
   font-family: $header-font;
   margin-top: 60px;
   margin-left: 5%;
   margin-right: 5%;
   color: $brand-color-green;
 
-  .user-home-regimen {
+  .user-tiles-view-regimen {
     font-size: 34px;
     font-weight: bold;
     text-transform: uppercase;

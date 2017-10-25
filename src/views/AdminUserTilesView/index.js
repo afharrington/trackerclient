@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import BreadcrumbHeader from '../../components/BreadcrumbHeader';
-import UserTile from '../UserHome/components/UserTile';
+import AdminUserTile from './components/AdminUserTile';
 import { adminFetchUser } from '../../actions/adminUserActions';
-import './adminUserDetail.css';
+import './adminUserTilesView.css';
 
-class AdminUserDetail extends Component {
+// Shows all tiles for a single user
+class AdminUserTilesView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,8 +44,8 @@ class AdminUserDetail extends Component {
       if (userTiles) {
         return _.map(userTiles, tile => {
           return (
-            <Link key={tile._id} to={`/admin/user/${this.state.userId}/tile/${tile._id}`}>
-              <UserTile tile={tile} />
+            <Link key={tile._id} to={`/admin/user/${this.state.userId}/reg/${regimen._id}/tile/${tile._id}`}>
+              <AdminUserTile tile={tile} />
             </Link>
           )
         });
@@ -54,7 +55,7 @@ class AdminUserDetail extends Component {
 
   render() {
     return (
-      <div className='admin-user-detail'>
+      <div className='admin-user-tiles-view'>
         {this.renderHeader()}
         <div className='regimen-tiles-container'>
           { this.renderTiles() }
@@ -68,4 +69,4 @@ function mapStateToProps(state) {
   return { user: state.adminUsers.user};
 }
 
-export default connect(mapStateToProps, { adminFetchUser })(AdminUserDetail);
+export default connect(mapStateToProps, { adminFetchUser })(AdminUserTilesView);

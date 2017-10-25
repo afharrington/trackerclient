@@ -20,11 +20,11 @@ import AdminRegimen from './views/AdminRegimen';
 import AdminRegimenCharts from './views/AdminRegimenCharts';
 
 // Admin User View
-import AdminUserDetail from './views/AdminUserDetail';
+import AdminUserTilesView from './views/AdminUserTilesView';
 import AdminUserEntries from './views/AdminUserEntries';
 
 // User Regimen View
-import UserHome from './views/UserHome';
+import UserTilesView from './views/UserTilesView';
 import UserEntries from './views/UserEntries';
 
 import './styles/styles.css';
@@ -95,13 +95,12 @@ class App extends Component {
             <Switch>
               <Route exact path='/' render={props => <Welcome {...props} /> } />
               <Route exact path='/admin' component={AdminAuthentication(AdminHome)}/>
-              <Route exact path='/user' component={UserAuthentication(UserHome)}/>
-              <Route exact path='/user/tile/:tileId' component={UserAuthentication(UserEntries)}/>
+              <Route exact path='/user' component={UserAuthentication(UserTilesView)}/>
               <Route exact path='/user/reg/:regId/tile/:tileId' component={UserAuthentication(UserEntries)}/>
               <Route exact path='/admin/regimen/:regimenId' component={AdminAuthentication(AdminRegimenCharts)}/>
               <Route exact path='/admin/regimen/:regimenId/settings' component={AdminAuthentication(AdminRegimen)}/>
-              <Route exact path='/admin/user/:userId' component={AdminAuthentication(AdminUserDetail)}/>
-              <Route exact path='/admin/user/:userId/tile/:userTileId' component={AdminAuthentication(AdminUserEntries)}/>
+              <Route exact path='/admin/user/:userId' component={AdminAuthentication(AdminUserTilesView)}/>
+              <Route exact path='/admin/user/:userId/reg/:regId/tile/:tileId' component={AdminAuthentication(AdminUserEntries)}/>
             </Switch>
           </div>
         </MuiThemeProvider>

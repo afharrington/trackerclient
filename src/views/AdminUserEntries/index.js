@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import NewButton from '../../components/NewButton';
-import CreateEntryForm from './components/CreateEntryForm';
+import AdminEntryForm from './components/AdminEntryForm';
 import FontAwesome from 'react-fontawesome';
-import UserCycle from '../UserEntries/components/UserCycle';
+import AdminUserCycle from './components/AdminUserCycle';
 import { adminFetchUserTile, adminFetchUser } from '../../actions/adminUserActions';
 
 import './adminUserEntries.css';
 
-// Same as UserEntries right now, will refactor later
 class AdminUserEntries extends Component {
   constructor(props) {
     super(props);
@@ -22,13 +21,14 @@ class AdminUserEntries extends Component {
       showEditForm: false,
       entry: {},
       cycleId: '',
+      userId: this.props.match.params.userId,
       regId: this.props.match.params.regId,
       tileId: this.props.match.params.tileId
     }
   }
 
   componentDidMount() {
-    this.props.adminFetchUserTile(this.props.match.params.userId, this.props.match.params.userTileId);
+    this.props.adminFetchUserTile(this.props.match.params.userId, this.props.match.params.tileId);
     this.props.adminFetchUser(this.props.match.params.userId);
   }
 
@@ -40,6 +40,7 @@ class AdminUserEntries extends Component {
     }
   }
 
+  // Pass down to AdminUserCycle which passes down to AdminEntry
   toggleEditForm(entry, cycleId) {
     if(this.state.showEditForm === false) {
       this.setState({ showEditForm: true });
@@ -65,10 +66,11 @@ class AdminUserEntries extends Component {
         return tile.cycles.map(cycle => {
           let expanded = (cycle._id === tile.cycles[0]._id) ? true : false;
 
-          return <UserCycle
+          return <AdminUserCycle
             expanded={expanded}
             key={cycle._id}
             cycle={cycle}
+            userId={this.state.userId}
             regId={this.state.regId}
             tileId={this.state.tileId}
             toggleEditForm={this.toggleEditForm}
@@ -96,7 +98,7 @@ class AdminUserEntries extends Component {
 
   render() {
     return (
-      <div className='admin-user-entries'>
+      <div className='user-entries'>
         { this.renderHeader() }
         <div className='new-entry-button'>
           <NewButton onClick={this.toggleNewForm.bind(this)} text='new entry'/>
@@ -104,16 +106,17 @@ class AdminUserEntries extends Component {
         <div className='user-entries-container'>
 
         { this.state.showNewForm ?
-          <CreateEntryForm
+          <AdminEntryForm
             toggleNewForm={this.toggleNewForm.bind(this)}
+            userId={this.state.userId}
             regId={this.state.regId}
             tileId={this.state.tileId}
             closeForm={this.closeForm}
             /> : null }
 
         { this.state.showEditForm ?
-          <CreateEntryForm
-            tile={this.props.tile}
+          <AdminEntryForm
+            userId={this.state.userId}
             regId={this.state.regId}
             tileId={this.state.tileId}
             closeForm={this.closeForm}

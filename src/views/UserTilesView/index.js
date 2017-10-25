@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import UserTile from './components/UserTile';
 import { fetchUser } from '../../actions/userActions';
-import './userHome.css';
+import './userTilesView.css';
 
-class UserHome extends Component {
+// Shows all tiles for a single user
+class UserTilesView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,8 +25,8 @@ class UserHome extends Component {
 
     if (regimen) {
       return (
-        <div className='user-home-header'>
-          <p className='user-home-regimen'><span>Your Regimen:</span> {regimen.regimenName}</p>
+        <div className='user-tiles-view-header'>
+          <p className='user-tiles-view-regimen'><span>Your Regimen:</span> {regimen.regimenName}</p>
         </div>
       )
     } else {
@@ -53,7 +54,7 @@ class UserHome extends Component {
 
   render() {
     return (
-      <div className='user-home'>
+      <div className='user-tiles-view'>
         { this.renderHeader()}
         <div className='regimen-tiles-container'>
           { this.renderTiles() }
@@ -67,4 +68,4 @@ function mapStateToProps(state) {
   return { user: state.user };
 }
 
-export default connect(mapStateToProps, { fetchUser })(UserHome);
+export default connect(mapStateToProps, { fetchUser })(UserTilesView);

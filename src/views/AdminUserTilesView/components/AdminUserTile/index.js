@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
-// ADD THIS
-import './userTile.css';
 
-class UserTile extends Component {
+// Right now styles are coming from UserTilesView/components/UserTile/userTile.scss
+
+class AdminUserTile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -88,4 +88,4 @@ class UserTile extends Component {
 };
 
 
-export default UserTile;
+export default AdminUserTile;

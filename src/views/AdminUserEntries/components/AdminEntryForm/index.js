@@ -7,7 +7,7 @@ import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField'
 import Slider from 'material-ui/Slider';
 import FormButtons from '../../../../components/FormButtons';
-import { createEntry, updateEntry } from '../../../../actions/userActions';
+import { adminCreateEntry, adminUpdateEntry, adminFetchUserTile } from '../../../../actions/adminUserActions';
 import './createEntryForm.css';
 
 const customStyles = {
@@ -16,11 +16,13 @@ const customStyles = {
   }
 }
 
-class CreateEntryForm extends Component {
+// styles from UserEntries/components/CreateEntryForm/createEntryForm.scss
+class AdminEntryForm extends Component {
   constructor(props) {
     super(props);
 
     if (this.props.entry) {
+
       this.state = {
         initialData: {
           hours: Math.floor(this.props.entry.minutes / 60),
@@ -33,7 +35,6 @@ class CreateEntryForm extends Component {
     } else {
       this.state = {
         initialData: {
-          entryDate: new Date(),
           hours: 0,
           minutes: 0,
           activity: '',
@@ -80,11 +81,11 @@ class CreateEntryForm extends Component {
       <DatePicker
         {...custom}
         underlineStyle={{display: 'none'}}
-        className="entry-date-field"
+        className='entry-date-field'
         hintText={label}
         onChange={(e, val) => {return input.onChange(val)}}
         shouldDisableDate={(date) => {return date > new Date()}}
-        value={input.value}
+        value={input.value ? input.value : new Date()}
         />
     )
   }
@@ -155,10 +156,21 @@ class CreateEntryForm extends Component {
       notes: values.notes
     }
 
+    // Callbacks are necessary for new cycle totals to update (calculated in API)
     if (!this.props.entry) {
-      this.props.createEntry(this.props.regId, this.props.tileId, entry);
+      this.props.adminCreateEntry(
+        this.props.userId,
+        this.props.regId,
+        this.props.tileId,
+        entry, () => this.props.adminFetchUserTile(this.props.userId, this.props.tileId));
     } else {
-      this.props.updateEntry(this.props.regId, this.props.tileId, this.props.cycleId, this.props.entry._id, entry);
+      this.props.adminUpdateEntry(
+        this.props.userId,
+        this.props.regId,
+        this.props.tileId,
+        this.props.cycleId,
+        this.props.entry._id,
+        entry, () => this.props.adminFetchUserTile(this.props.userId, this.props.tileId));
     }
     this.props.closeForm();
   }
@@ -170,7 +182,6 @@ class CreateEntryForm extends Component {
     return (
       <div className='create-entry-container'>
         <form className='create-entry-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-
           <div className='create-entry-date-activity'>
             <Field name='entryDate' component={this.renderDatePicker} label='Date' />
             <Field name='activity' style={{ width: 258 }} component={this.renderSelectField} label='Activity'>
@@ -230,12 +241,12 @@ function validate(values) {
 }
 
 function mapStateToProps(state) {
-  return { tile: state.user.tile };
+  return { tile: state.adminUsers.tile };
 }
 
 export default reduxForm({
   validate,
-  form: 'CreateEntryForm'
+  form: 'AdminEntryForm'
 })(
-  connect(mapStateToProps, { createEntry, updateEntry })(CreateEntryForm)
+  connect(mapStateToProps, { adminCreateEntry, adminUpdateEntry, adminFetchUserTile })(AdminEntryForm)
 );

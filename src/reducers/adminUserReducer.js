@@ -1,5 +1,14 @@
 import _ from 'lodash';
-import { ADMIN_FETCH_USER, ADMIN_UPDATE_USER, ADMIN_DELETE_USER, ADMIN_FETCH_USER_REGIMENS, ADMIN_FETCH_USER_TILE, ADMIN_FETCH_USERS, ADMIN_CREATE_USER } from '../actions/adminUserActions';
+import { ADMIN_FETCH_USER,
+  ADMIN_UPDATE_USER,
+  ADMIN_DELETE_USER,
+  ADMIN_FETCH_USER_REGIMENS,
+  ADMIN_FETCH_USER_TILE,
+  ADMIN_FETCH_USERS,
+  ADMIN_CREATE_USER,
+  ADMIN_CREATE_ENTRY,
+  ADMIN_UPDATE_ENTRY,
+  ADMIN_DELETE_ENTRY } from '../actions/adminUserActions';
 
 // adminUsers - convert array to an object, where keys are _id of each user
 export default function(state = {}, action) {
@@ -18,6 +27,12 @@ export default function(state = {}, action) {
       return {...state, tile: action.payload };
     case ADMIN_CREATE_USER:
       return _.mapKeys(action.payload, '_id');
+    case ADMIN_CREATE_ENTRY:
+      return {...state, tile: action.payload };
+    case ADMIN_UPDATE_ENTRY:
+      return {...state, tile: action.payload };
+    case ADMIN_DELETE_ENTRY:
+      return {...state, tile: action.payload };
     default:
       return state;
     }

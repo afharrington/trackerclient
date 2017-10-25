@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import Moment from 'react-moment';
 import Divider from 'material-ui/Divider';
-import Entry from '../Entry';
+import AdminEntry from '../AdminEntry';
 
 import './userCycle.css';
 
-class UserCycle extends Component {
+class AdminUserCycle extends Component {
 
   constructor(props) {
     super(props);
@@ -15,7 +15,6 @@ class UserCycle extends Component {
     }
   }
 
-  // collapse or expand entries NEXT
   componentDidMount() {
     this.setState({ expanded: this.props.expanded });
   }
@@ -53,7 +52,8 @@ class UserCycle extends Component {
       return cycle.cycleEntries.map(entry => {
         return (
           <div key={entry._id} >
-            <Entry
+            <AdminEntry
+              userId={this.props.userId}
               tileId={this.props.tileId}
               cycleId={cycle._id}
               regId={this.props.regId}
@@ -97,4 +97,4 @@ class UserCycle extends Component {
 };
 
 
-export default UserCycle;
+export default AdminUserCycle;

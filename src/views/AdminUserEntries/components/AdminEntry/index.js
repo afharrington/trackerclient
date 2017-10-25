@@ -5,24 +5,25 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Moment from 'react-moment';
-import { deleteEntry } from '../../../../actions/userActions';
+import { adminDeleteEntry } from '../../../../actions/adminUserActions';
 
-import './entry.css';
+import './adminEntry.css';
 
-class Entry extends Component {
+class AdminEntry extends Component {
 
   constructor(props) {
     super(props);
     this.showEditFormWithInitialValues = this.showEditFormWithInitialValues.bind(this);
   }
 
-  // Pass the entry and cycleId back up to the parent for editing in createEntryForm
+  // Pass the entry and cycleId back up to the parent for editing in AdminEntryForm
   showEditFormWithInitialValues() {
     this.props.toggleEditForm(this.props.entry, this.props.cycleId);
   }
 
   deleteEntry() {
-    this.props.deleteEntry(this.props.regId, this.props.tileId, this.props.cycleId, this.props.entry._id);
+    console.log(this.props.entry);
+    this.props.adminDeleteEntry(this.props.userId, this.props.regId, this.props.tileId, this.props.cycleId, this.props.entry._id);
   }
 
   render() {
@@ -60,4 +61,4 @@ class Entry extends Component {
   }
 };
 
-export default connect(null, { deleteEntry } )(Entry);
+export default connect(null, { adminDeleteEntry } )(AdminEntry);

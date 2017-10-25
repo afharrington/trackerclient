@@ -6,7 +6,7 @@ import UserCycle from './components/UserCycle';
 import { fetchUserTile } from '../../actions/userActions';
 import './userEntries.css';
 
-// Same pattern as UserList > CreateUserForm
+// Displays All Entries for a Single User's Tile
 
 class UserEntries extends Component {
   constructor(props) {
