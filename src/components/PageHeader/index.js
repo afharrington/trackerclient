@@ -25,7 +25,7 @@ class PageHeader extends Component {
           <div className='page-header-links'>
             <div className='page-header-img-container'>
               <NavLink to='/admin'>
-                <img src='./img/3up-logo-white.png' alt='3up logo'/>
+                <img src='/img/3up-logo-white.png' alt='3up logo'/>
               </NavLink>
             </div>
             <div className='page-header-link'>

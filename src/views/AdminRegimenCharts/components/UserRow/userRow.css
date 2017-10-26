@@ -133,44 +133,46 @@ a:visited {
   margin-bottom: 10px; }
 
 .user-row {
-  margin-top: 15px;
-  margin-bottom: 5px;
-  height: 35px;
+  height: 45px;
   display: flex;
-  border-bottom: 1px solid #d6d6d6; }
-  .user-row p {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+  .user-row .row-text {
+    height: 45px;
+    margin-top: 10px;
     text-transform: capitalize;
     font-size: 14px;
     margin-left: 5px; }
 
 .user-row-name {
-  width: 20% !important;
-  height: 25px; }
+  width: 20% !important; }
 
 .user-row-cycle {
-  width: 15%;
-  height: 25px; }
+  width: 15%; }
 
 .user-row-progress {
   width: 35%;
-  height: 25px; }
+  margin-left: 5px; }
 
 .user-row-last3 {
   display: flex;
-  width: 30%;
-  height: 25px; }
+  width: 30%; }
 
 .previous-cycle {
-  color: #fff;
+  color: #333;
+  margin-top: 5px;
   margin-right: 10px;
-  margin-top: -10px;
-  height: 40px;
-  width: 40px;
+  height: 25px;
   text-align: center;
-  background-color: blue; }
+  border-radius: 5px; }
   .previous-cycle p {
-    line-height: 40px;
+    font-family: "Abel", sans-serif;
+    font-size: 14px;
+    margin-top: 7px;
     margin-left: -1px; }
+    @media screen and (max-width: 350px) {
+      .previous-cycle p {
+        font-size: 12px; } }
 
 .user-row-progress {
   position: relative;
@@ -182,4 +184,6 @@ a:visited {
     top: 1px; }
 
 .progress-bar {
+  margin-top: 10px;
+  width: 100px;
   height: 20px; }

@@ -33,10 +33,10 @@ class RegimenItem extends Component {
             targetOrigin={{horizontal: 'left', vertical: 'bottom'}}
           >
             <Link to={`/admin/regimen/${regimen._id}`}>
-              <MenuItem primaryText='Scoreboard'/>
+              <MenuItem primaryText='Player Progress'/>
             </Link>
             <Link to={`/admin/regimen/${regimen._id}/settings`}>
-              <MenuItem primaryText='Settings' />
+              <MenuItem primaryText='Regimen Settings' />
             </Link>
 
             <MenuItem onClick={this.showModalWithRegimenId} primaryText={`Delete Regimen`} />

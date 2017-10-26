@@ -46,7 +46,7 @@ class UserItem extends Component {
             targetOrigin={{horizontal: 'left', vertical: 'bottom'}}
           >
             <Link to={`/admin/user/${user._id}`}>
-              <MenuItem primaryText='Tiles' />
+              <MenuItem primaryText='Player Tiles' />
             </Link>
             <MenuItem onClick={this.showEditFormWithInitialValues} primaryText={`Edit Player`} />
             <MenuItem onClick={this.showModalWithUserId} primaryText={`Delete Player`} />

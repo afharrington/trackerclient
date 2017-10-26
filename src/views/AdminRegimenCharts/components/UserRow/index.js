@@ -16,7 +16,8 @@ class UserRow extends Component {
     return previousCycles.map(cycle => {
       let className;
       if (cycle) {
-        className = `previous-cycle color-${Math.floor(cycle.color)}`;
+        // className = `previous-cycle color-${Math.floor(cycle.color)}`;
+        className = `previous-cycle`;
         return (
           <div key={cycle._id} className={className}>
             <p>{cycle.cyclePercent}%</p>
@@ -75,7 +76,7 @@ class UserRow extends Component {
             trailWidth='0'
             className='progress-bar'
           />
-          <p className='progress-percent'>{this.props.progress}%</p>
+          <p className='progress-percent row-text'>{this.props.progress}%</p>
         </div>
       )
     } else {
@@ -90,10 +91,10 @@ class UserRow extends Component {
     return (
       <div className='user-row'>
         <div className='user-row-name'>
-          <Link to={`/admin/user/${this.props.userId}`}><p>{this.props.name}</p></Link>
+          <Link to={`/admin/user/${this.props.userId}`}><p className='row-text'>{this.props.name}</p></Link>
         </div>
         <div className='user-row-cycle'>
-          <p><Moment format='MM/DD' date={this.props.start}/></p>
+          <p className='row-text'><Moment format='MM/DD' date={this.props.start}/></p>
         </div>
           {this.renderProgressBar()}
         <div className='user-row-last3'>

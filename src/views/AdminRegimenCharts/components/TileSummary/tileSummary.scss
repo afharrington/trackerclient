@@ -4,6 +4,7 @@
   background-color: $background-gray;
   width: 80%;
   margin-bottom: 25px;
+  box-shadow: $med-shadow;
 
   @media (max-width: 400px) {
     width: 95%;
@@ -47,12 +48,18 @@
     }
     .user-progress-label {
       width: 35%;
+      margin-left: 5px;
     }
     .user-last3-label {
       width: 30%;
+      margin-left: -5px;
     }
 
   @media (max-width: 400px) {
     font-size: 10px;
   }
+}
+
+.user-rows-container .user-row:nth-child(even) {
+  background: #f1f1f1;
 }

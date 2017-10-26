@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserRow from '../UserRow';
+import _ from 'lodash';
 // ADD THIS
 import './tileSummary.css';
 
@@ -24,7 +25,7 @@ class TileSummary extends Component {
               <p>Player</p>
             </div>
             <div className='user-cycle-label'>
-              <p>Cycle</p>
+              <p>Current Cycle</p>
             </div>
             <div className='user-progress-label'>
               <p>Progress</p>
@@ -39,6 +40,12 @@ class TileSummary extends Component {
 
   renderUserInfo() {
     if (this.props.userTiles) {
+
+      // Sort user rows by current cycle percent;
+      this.props.userTiles.sort(function (a, b) {
+        return b.cycles[0].cyclePercent - a.cycles[0].cyclePercent;
+      });
+
       return this.props.userTiles.map(userTile => {
         if (userTile !== undefined) {
           return (
@@ -66,7 +73,9 @@ class TileSummary extends Component {
         {this.renderTileSummaryHeader()}
         <div className='tile-summary-users-container'>
           {this.renderUserInfoLabels()}
-          {this.renderUserInfo()}
+          <div className='user-rows-container'>
+            {this.renderUserInfo()}
+          </div>
         </div>
       </div>
     )

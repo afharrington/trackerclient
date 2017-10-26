@@ -135,7 +135,8 @@ a:visited {
 .tile-summary {
   background-color: #FFFFFF;
   width: 80%;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
   @media (max-width: 400px) {
     .tile-summary {
       width: 95%; } }
@@ -167,9 +168,14 @@ a:visited {
   .user-info-labels .user-cycle-label {
     width: 15%; }
   .user-info-labels .user-progress-label {
-    width: 35%; }
+    width: 35%;
+    margin-left: 5px; }
   .user-info-labels .user-last3-label {
-    width: 30%; }
+    width: 30%;
+    margin-left: -5px; }
   @media (max-width: 400px) {
     .user-info-labels {
       font-size: 10px; } }
+
+.user-rows-container .user-row:nth-child(even) {
+  background: #f1f1f1; }

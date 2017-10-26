@@ -174,6 +174,10 @@ a:visited {
     transition: all 0.3s ease !important;
     text-transform: capitalize;
     text-overflow: ellipsis; }
+    .page-header-links .page-header-link a {
+      color: #fff; }
+    .page-header-links .page-header-link a:visited {
+      color: #fff; }
     .page-header-links .page-header-link .fa {
       font-size: 16px;
       margin-left: 10px;
