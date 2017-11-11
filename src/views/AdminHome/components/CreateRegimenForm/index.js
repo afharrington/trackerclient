@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import FormWrapper from '../FormWrapper';
+import FormWrapper from '../../../../components/FormWrapper';
 import SubmitButton from '../../../../components/SubmitButton';
 import { connect } from 'react-redux';
 import { createRegimen } from '../../../../actions/adminRegimenActions';
 import './createRegimenForm.css';
 
-const customStyles = {
-  underlineStyle: {
-    borderColor: '#333'
-  }
-}
 
 class CreateRegimenForm extends Component {
   constructor(props) {

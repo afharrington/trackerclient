@@ -7,16 +7,23 @@
   width: 100%;
 }
 
-.form-layer {
-  position: absolute;
-  top: 0%;
-  height: 100vh;
+.form-wrapper-layer {
+  position: fixed;
+  height: 100%;
   width: 100vw;
   background-color: $dark-gray;
   opacity: 0.6;
+  z-index: 2;
 }
 
-.form-content {
+.form-wrapper-close {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  cursor: pointer;
+}
+
+.form-wrapper-box {
   box-shadow: $large-shadow;
   position: absolute;
   background-color: white;
@@ -25,10 +32,14 @@
   top: 15%;
   width: 60%;
   left: 20%;
-  height: 200px;
 
   @media (max-width: 600px) {
     width: 80%;
     left: 10%;
   }
+}
+
+.form-wrapper-content {
+  margin-top: 5%;
+  padding: 15px;
 }

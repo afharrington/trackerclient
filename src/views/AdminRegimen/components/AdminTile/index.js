@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import IconButton from 'material-ui/IconButton';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
 import { deleteTile } from '../../../../actions/adminRegimenActions';
 import './adminTile.css';
@@ -36,8 +33,15 @@ class AdminTile extends Component {
           <p className='admin-tile-name'>{this.props.tile.tileName}</p>
         </div>
 
+        <div className='admin-tile-overlay'>
+          <div className='admin-tile-icons'>
+            <FontAwesome onClick={this.editTile.bind(this)} name='cog'/>
+            <FontAwesome onClick={this.deleteTile.bind(this)} name='trash'/>
+          </div>
+        </div>
+
         <div className='admin-tile-goal'>
-          <p><span className='goal-label'>Goal: </span>{this.props.tile.goalHours} hr / {this.props.tile.goalCycle}-day</p>
+          <p><span className='goal-label'>Goal: </span>{this.props.tile.goalHours} hr / {this.props.tile.goalCycle}-day cycle</p>
         </div>
 
         <div className='admin-tile-activities'>
@@ -47,15 +51,6 @@ class AdminTile extends Component {
             </div>
         </div>
 
-        <IconMenu
-          className='admin-menu-icon'
-          iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-          anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-          targetOrigin={{horizontal: 'left', vertical: 'bottom'}}
-        >
-          <MenuItem onClick={this.editTile.bind(this)} primaryText="Edit" />
-          <MenuItem onClick={this.deleteTile.bind(this)} primaryText="Delete" />
-        </IconMenu>
       </div>
     )
   }

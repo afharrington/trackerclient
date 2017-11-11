@@ -9,7 +9,7 @@ class CardWrapper extends Component {
       <div className='card-wrapper'>
         <div className='card-title'>
           <h2>{this.props.title}</h2>
-          <button onClick={this.props.add}><FontAwesome name='plus'/> Add</button>
+          { this.props.add && <button onClick={this.props.add}>Add</button> }
         </div>
         { this.props.children }
       </div>

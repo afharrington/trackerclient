@@ -9,7 +9,7 @@ class RecentActivity extends Component {
     return (
       <CardWrapper title='Recent Activity'>
         <div className='recent-activity'>
-        Actiity
+        
         </div>
       </CardWrapper>
     )

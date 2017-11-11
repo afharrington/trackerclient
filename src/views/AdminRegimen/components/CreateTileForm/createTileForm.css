@@ -46,7 +46,7 @@ p, h1, h2, h3, h4, h5, h6 {
   width: 200px;
   height: 50px;
   line-height: 50px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Barlow", sans-serif;
   background-color: yellow; }
 
 .exit {
@@ -63,7 +63,7 @@ p, h1, h2, h3, h4, h5, h6 {
   color: #fff; }
 
 .list-title {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Barlow", sans-serif;
   text-transform: uppercase;
   font-size: 20px;
   margin-top: 50px;
@@ -80,59 +80,34 @@ a:visited {
   font-size: 18px;
   margin-bottom: 10px; }
 
-.tile-form-container {
-  width: 100%;
-  position: relative; }
+.create-tile-form {
+  font-family: "Barlow", sans-serif;
+  font-size: 14px; }
 
-.tile-form {
-  padding: 25px; }
+.create-tile-form-field {
+  margin-bottom: 25px;
+  height: 25px;
+  width: 60%;
+  margin-left: 20%; }
+  .create-tile-form-field input {
+    border: 1px solid #d6d6d6;
+    padding: 8px; }
 
-.tile-form-name {
-  width: 80%;
-  margin-left: 10%; }
-  .tile-form-name input {
-    text-transform: capitalize;
-    font-size: 18px !important; }
-  .tile-form-name .text-field {
-    width: 100% !important; }
+.create-tile-form-name {
+  font-size: 14px;
+  width: 100%; }
 
-.tile-form-hours-cycle {
-  width: 80%;
-  margin-left: 10%;
-  display: flex;
-  flex-wrap: wrap; }
+.create-tile-form-hours {
+  width: 25px;
+  margin-right: 10px; }
 
-.tile-form-hours {
-  margin-top: 15px;
-  margin-right: 20px;
-  display: flex; }
-  .tile-form-hours p {
-    line-height: 50px;
-    margin-left: 10px;
-    color: #333;
-    font-size: 18px; }
-  .tile-form-hours .text-field {
-    height: 50px !important;
-    width: 55px !important; }
-  .tile-form-hours label {
-    top: 15px !important; }
-  .tile-form-hours input {
-    margin-top: 0px !important;
-    font-size: 18px !important; }
-  .tile-form-hours div {
-    bottom: 0px !important; }
-
-.tile-form-cycle {
-  margin-top: 15px;
-  display: flex; }
-  .tile-form-cycle p {
-    line-height: 50px;
-    margin-left: 10px;
-    color: #333;
-    font-size: 18px; }
-  .tile-form-cycle .select-field {
-    width: 140px !important;
-    font-size: 18px !important; }
+.create-tile-form-cycle {
+  width: 80px;
+  height: 30px;
+  margin-right: 10px;
+  padding: 8px;
+  border-radius: 0px;
+  border: 1px solid #d6d6d6; }
 
 .tile-activities {
   margin-left: 10%;
@@ -149,19 +124,22 @@ a:visited {
   border: none;
   font-size: 12px;
   text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Barlow", sans-serif;
   border-radius: 3px; }
   .new-activity-button .plus {
     font-size: 12px;
     margin-right: 10px; }
 
 .activities {
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap; }
   .activities input {
-    text-transform: capitalize; }
+    border: 1px solid #d6d6d6;
+    text-transform: capitalize;
+    margin-bottom: 5px; }
 
 .activity-item {
   display: inline-block;

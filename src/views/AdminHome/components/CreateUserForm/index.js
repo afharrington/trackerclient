@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux';
-import MenuItem from 'material-ui/MenuItem';
-import TextField from 'material-ui/TextField';
 import _ from 'lodash';
 import SelectField from 'material-ui/SelectField'
 import FormButtons from '../../../../components/FormButtons';
 import { fetchRegimens } from '../../../../actions/adminRegimenActions';
-import FormWrapper from '../FormWrapper';
+import FormWrapper from '../../../../components/FormWrapper';
 import { adminCreateUser, adminUpdateUser, adminFetchUsers } from '../../../../actions/adminUserActions';
 import './createUserForm.css';
 
@@ -74,7 +72,7 @@ class CreateUserForm extends Component {
 
             <div className='create-user-form-item'>
               <div className='create-user-form-field'>
-                <Field name="code" placeholder='Registration Code' component="input" type="code"/>
+                <Field name="code" placeholder='Registration Code' component="input" type="text"/>
               </div>
             </div>
 

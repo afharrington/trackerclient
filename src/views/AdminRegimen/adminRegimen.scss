@@ -5,45 +5,41 @@
   color: $dark-gray;
 }
 
-.regimen-button-container {
-  width: 100%;
+.regimen-title-container {
   text-align: center;
-  margin-top: 5%;
 
-  button {
-    box-shadow: $small-shadow;
+  h1 {
+    font-family: $main-font;
+    text-transform: uppercase;
+    font-size: 24px;
   }
 }
 
-.admin-regimen-instructions {
-  margin: 5%;
+.regimen-button-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
 
-  h3, span {
-    font-weight: bold;
-    margin-top: 25px;
-    margin-left: 0px;
-    margin-bottom: 10px;
-    color: $brand-color-blue;
-  }
-
-  h3 {
+  button {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 1px solid $dark-gray;
+    border-radius: 5px;
+    background-color: inherit;
+    font-size: 14px;
+    line-height: 18px;
     text-transform: uppercase;
-    font-size: 16px;
-  }
-
-  span {
-    color: $brand-color-green;
-    font-size: 18px;
-  }
-
-  p {
-    margin-bottom: 10px;
-  }
-
-  li {
-    font-size: 18px;
     font-family: $main-font;
-    margin-bottom: 5px;
+    color: $dark-gray;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+
+  button:hover {
+    border: 1px solid $brand-color-green;
+    color: $brand-color-green;
   }
 }
 

@@ -3,10 +3,7 @@
 .regimen-list {
   color: $dark-gray;
   display: inline-block;
-
-  @media (max-width: 500px) {
-    width: 300px;
-  }
+  width: 100%;
 
   h3 {
     margin-bottom: 10px;

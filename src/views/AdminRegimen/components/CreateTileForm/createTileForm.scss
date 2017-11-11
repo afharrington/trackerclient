@@ -1,83 +1,39 @@
 @import '../../../../styles/styles.scss';
 
-.tile-form-container {
+.create-tile-form {
+  font-family: $main-font;
+  font-size: 14px;
+}
+
+.create-tile-form-field {
+  margin-bottom: 25px;
+  height: 25px;
+  width: 60%;
+  margin-left: 20%;
+
+  input {
+    border: 1px solid $light-gray;
+    padding: 8px;
+  }
+}
+
+.create-tile-form-name {
+  font-size: 14px;
   width: 100%;
-  position: relative;
 }
 
-.tile-form {
-  padding: 25px;
+.create-tile-form-hours {
+  width: 25px;
+  margin-right: 10px;
 }
 
-.tile-form-name {
-  width: 80%;
-  margin-left: 10%;
-
-  input {
-    text-transform: capitalize;
-    font-size: 18px !important;
-  }
-
-  .text-field {
-    width: 100% !important;
-  }
-}
-
-.tile-form-hours-cycle {
-  width: 80%;
-  margin-left: 10%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tile-form-hours {
-  margin-top: 15px;
-  margin-right: 20px;
-  display: flex;
-
-  p {
-    line-height: 50px;
-    margin-left: 10px;
-    color: $dark-gray;
-    font-size: 18px;
-  }
-
-  .text-field {
-    height: 50px !important;
-    width: 55px !important;
-  }
-
-  label {
-    top: 15px !important;
-  }
-
-  input {
-    margin-top: 0px !important;
-    font-size: 18px !important;
-  }
-
-  div {
-    bottom: 0px !important;
-  }
-
-}
-
-
-.tile-form-cycle {
-  margin-top: 15px;
-  display: flex;
-
-  p {
-    line-height: 50px;
-    margin-left: 10px;
-    color: $dark-gray;
-    font-size: 18px;
-  }
-
-  .select-field {
-    width: 140px !important;
-    font-size: 18px !important;
-  }
+.create-tile-form-cycle {
+  width: 80px;
+  height: 30px;
+  margin-right: 10px;
+  padding: 8px;
+  border-radius: 0px;
+  border: 1px solid $light-gray;
 }
 
 // Entire Activities container
@@ -108,13 +64,16 @@
 
 // All activities fields
 .activities {
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
 
   input {
+    border: 1px solid $light-gray;
     text-transform: capitalize;
+    margin-bottom: 5px;
   }
 }
 

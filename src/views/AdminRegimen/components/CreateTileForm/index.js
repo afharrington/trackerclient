@@ -6,22 +6,15 @@ import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import FormButtons from '../../../../components/FormButtons';
+import FormWrapper from '../../../../components/FormWrapper';
 import { createTile, updateTile } from '../../../../actions/adminRegimenActions';
 import './createTileForm.css';
-
-
-const customStyles = {
-  underlineStyle: {
-    borderColor: '#333'
-  }
-}
 
 const renderActivityField = ({input}) => (
   <div>
     <TextField
       className='text-field'
       {...input}
-      underlineFocusStyle={customStyles.underlineStyle}
     />
   </div>
 )
@@ -58,36 +51,12 @@ class CreateTileForm extends Component {
     }
   }
 
-  renderTextField({input, label, meta: {touched, error}, ...custom}) {
+  renderCycleLengths() {
+    let cycles = ['2', '3', '5', '7', '14', '30'];
     return (
-      <TextField
-        className='text-field'
-        hintText={label}
-        floatingLabelText={label}
-        errorText={touched && error}
-        {...input}
-        {...custom}
-        underlineFocusStyle={customStyles.underlineStyle}
-      />
-    )
-  }
-
-  renderSelectField({ input,
-                      label,
-                      meta: {touched, error},
-                      children,
-                      ...custom }) {
-    return (
-      <SelectField
-        className='select-field'
-        errorText={touched && error}
-        hintText={label}
-        {...input}
-        onChange={(event, index, value) => input.onChange(value)}
-        children={children}
-        {...custom}
-        underlineFocusStyle={customStyles.underlineStyle}
-      />
+      cycles.sort().map((cycle) => {
+        return <option className='sport-item' key={cycle} value={cycle}>{cycle}-day</option>
+      })
     )
   }
 
@@ -101,7 +70,7 @@ class CreateTileForm extends Component {
               <Field
                 name={activity}
                 type='text'
-                component={renderActivityField} />
+                component='input' />
               <button
                 type="button"
                 title="Remove"
@@ -123,74 +92,59 @@ class CreateTileForm extends Component {
     if (values.activityOptions) {
       values.activityOptions = values.activityOptions.filter((activity) => { return activity !== undefined });
     }
-    
+
     if (!this.props.tile) {
       this.props.createTile(this.props.regimenId, values);
     } else {
       let tileId = this.props.tile._id;
       this.props.updateTile(this.props.regimenId, tileId, values);
     }
-    this.props.closeForm();
+    this.props.exit();
   }
 
   render() {
-    const { handleSubmit, reset } = this.props;
+    const { handleSubmit, reset, submitting, pristine } = this.props;
 
     return (
-      <div className='tile-form-container'>
-        <form className='tile-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <div className='tile-form-name'>
-            <Field
-              name='tileName'
-              component={this.renderTextField}
-              label='Tile Name' />
-          </div>
-          <div className='tile-form-hours-cycle'>
-            <div className='tile-form-hours'>
-              <Field
-                name='goalHours'
-                component={this.renderTextField} >
-              </Field>
-              <p>hours per</p>
+      <FormWrapper exit={this.props.exit}>
+        <div className='create-tile-form'>
+          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+
+            <div className='create-tile-form-field'>
+              <Field className='create-tile-form-name' name='tileName' component="input" type="text"/>
             </div>
-            <div className='tile-form-cycle'>
-              <Field
-                name='goalCycle'
-                component={this.renderSelectField}
-                label='Cycle Length'>
-                <MenuItem value='2' primaryText='2-day'/>
-                <MenuItem value='3' primaryText='3-day'/>
-                <MenuItem value='5' primaryText='5-day'/>
-                <MenuItem value='7' primaryText='7-day'/>
-                <MenuItem value='14' primaryText='14-day' />
-                <MenuItem value='30' primaryText='30-day' />
-              </Field>
-              <p>cycle</p>
+
+            <div className='create-tile-form-field'>
+              <Field className='create-tile-form-hours' name='goalHours' component="input" type="text"/>
+              <label>hours per</label>
             </div>
-          </div>
-          <FieldArray name='activityOptions' component={this.renderActivities}/>
-          <FormButtons
-            onSubmitClick={handleSubmit(this.onSubmit.bind(this))}
-            onClearClick={reset}
-            onCloseClick={this.props.closeForm}
-          />
-        </form>
-      </div>
+
+            <div className='create-tile-form-field'>
+              <Field className='create-tile-form-cycle' name='goalCycle' component='select'>
+                <option></option>
+                {this.renderCycleLengths()}
+              </Field>
+              <label>cycle</label>
+            </div>
+
+
+            <FieldArray name='activityOptions' component={this.renderActivities}/>
+
+            <div className='create-tile-form-buttons'>
+              <button className='submit-button' type="submit" disabled={pristine || submitting}>Submit </button>
+              <button className='clear-button' type="button" disabled={pristine || submitting} onClick={reset}>Clear
+              </button>
+
+            </div>
+          </form>
+        </div>
+      </FormWrapper>
     )
   }
 }
 
 function validate(values) {
   const errors = {}
-  // const requiredFields = [
-  //   'tileName', 'goalHours', 'goalCycle'
-  // ]
-
-  // requiredFields.forEach(field => {
-  //   if (!values[field]) {
-  //     errors[field] = 'Required'
-  //   }
-  // })
 
   if (values.goalHours) {
     if (isNaN(Number(values.goalHours))) {

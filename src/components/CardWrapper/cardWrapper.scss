@@ -28,17 +28,24 @@
   }
 
   button {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
     background-color: inherit;
-    border: none;
-    font-size: 16px;
-    line-height: 35px;
+    font-size: 14px;
+    line-height: 18px;
     text-transform: uppercase;
     font-family: $main-font;
     color: white;
     cursor: pointer;
+    transition: all 0.5s ease;
   }
 
   button:hover {
-    color: $med-gray;
+    border: 1px solid $brand-color-green;
+    color: $brand-color-green;
   }
 }

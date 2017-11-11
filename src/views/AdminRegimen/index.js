@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PageWrapper from '../../components/PageWrapper';
 import NewButton from '../../components/NewButton';
-import BreadcrumbHeader from '../../components/BreadcrumbHeader';
 import CreateTileForm from './components/CreateTileForm';
 import AdminTile from './components/AdminTile';
 import { fetchRegimen } from '../../actions/adminRegimenActions';
@@ -90,38 +90,34 @@ class AdminRegimen extends Component {
 
   render() {
     return (
-      <div className='regimen'>
+      <PageWrapper>
+        <div className='regimen'>
+          <div className='regimen-title-container'><h1>{this.props.regimen.regimenName} Regimen</h1></div>
+          <div className='regimen-button-container'>
+            <button onClick={this.toggleNewForm.bind(this)}>Add Tile</button>
+          </div>
 
-        <BreadcrumbHeader
-          linkLocation='/'
-          link='Regimens'
-          pageTitle={this.props.regimen.regimenName}/>
+          <div className='regimen-tiles-container'>
 
-        <div className='regimen-button-container'  >
-          <NewButton onClick={this.toggleNewForm.bind(this)} text='new tile'/>
+            { this.state.showNewForm ?
+                <CreateTileForm
+                  toggleNewForm={this.toggleNewForm.bind(this)}
+                  regimenId={this.state.regimenId}
+                  closeForm={this.closeForm.bind(this)}
+                  /> : null }
 
+            { this.state.showEditForm ?
+                <CreateTileForm
+                  tile={this.state.tile}
+                  regimenId={this.state.regimenId}
+                  toggleEditForm={this.toggleEditForm.bind(this)}
+                  closeForm={this.closeForm.bind(this)}
+                  /> : null }
+
+            {this.renderTiles()}
+          </div>
         </div>
-        <div className='regimen-tiles-container'>
-
-          { this.state.showNewForm ?
-              <CreateTileForm
-                toggleNewForm={this.toggleNewForm.bind(this)}
-                regimenId={this.state.regimenId}
-                closeForm={this.closeForm.bind(this)}
-                /> : null }
-
-          { this.state.showEditForm ?
-              <CreateTileForm
-                tile={this.state.tile}
-                regimenId={this.state.regimenId}
-                toggleEditForm={this.toggleEditForm.bind(this)}
-                closeForm={this.closeForm.bind(this)}
-                /> : null }
-
-          {this.renderInstructions()}
-          {this.renderTiles()}
-        </div>
-      </div>
+      </PageWrapper>
     )
   }
 };
