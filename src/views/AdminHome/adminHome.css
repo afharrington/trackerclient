@@ -81,6 +81,23 @@ a:visited {
   margin-bottom: 10px; }
 
 .admin-home {
-  display: grid;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "regimens activity" "players activity"; }
+  @media (max-width: 600px) {
+    .admin-home {
+      grid-template-columns: 1fr;
+      grid-template-areas: "regimens" "players" "activity"; } }
+
+.regimens-card {
+  grid-area: regimens; }
+
+.players-card {
+  grid-area: players; }
+
+.activity-card {
+  grid-area: activity; }

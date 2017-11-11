@@ -3,6 +3,7 @@ import PageWrapper from '../../components/PageWrapper';
 import CardWrapper from '../../components/CardWrapper';
 import RegimenList from './components/RegimenList';
 import UserList from './components/UserList';
+import RecentActivity from './components/RecentActivity';
 import CreateRegimenForm from './components/CreateRegimenForm';
 import CreateUserForm from './components/CreateUserForm';
 
@@ -36,8 +37,13 @@ class AdminHome extends Component {
         <div className='admin-home'>
           { this.state.showRegimenForm ? <CreateRegimenForm exit={this.toggleRegimenForm}/> : null }
           { this.state.showUserForm ? <CreateUserForm exit={this.toggleUserForm}/> : null }
-          <RegimenList toggleRegimenForm={this.toggleRegimenForm} />
-          <UserList toggleUserForm={this.toggleUserForm}/>
+
+          <div className='regimens-card'><RegimenList toggleRegimenForm={this.toggleRegimenForm} /></div>
+
+          <div className='players-card'><UserList toggleUserForm={this.toggleUserForm}/></div>
+
+          <div className='activity-card'><RecentActivity/></div>
+
         </div>
       </PageWrapper>
     )

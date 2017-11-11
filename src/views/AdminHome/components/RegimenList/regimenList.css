@@ -81,7 +81,6 @@ a:visited {
   margin-bottom: 10px; }
 
 .regimen-list {
-  width: 400px;
   color: #333;
   display: inline-block; }
   @media (max-width: 500px) {
