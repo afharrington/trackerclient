@@ -6,7 +6,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import AdminMenu from './components/AdminMenu';
 import UserMenu from './components/UserMenu';
-import PageHeader from './components/PageHeader';
 
 import Welcome from './views/Welcome';
 import AdminAuthentication from './components/AdminAuthentication';
@@ -72,11 +71,11 @@ const muiTheme = getMuiTheme({
 
 class App extends Component {
 
-  renderPageHeader() {
-    if (this.props.authenticated) {
-      return <PageHeader/>
-    }
-  }
+  // renderPageHeader() {
+  //   if (this.props.authenticated) {
+  //     return <PageHeader/>
+  //   }
+  // }
 
   renderMenu() {
     if (this.props.authenticated && this.props.userType === 'admin') {
@@ -91,7 +90,6 @@ class App extends Component {
       <BrowserRouter>
         <MuiThemeProvider muiTheme={muiTheme}>
           <div>
-            {this.renderPageHeader()}
             <Switch>
               <Route exact path='/' render={props => <Welcome {...props} /> } />
               <Route exact path='/admin' component={AdminAuthentication(AdminHome)}/>

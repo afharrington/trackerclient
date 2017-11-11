@@ -23,23 +23,22 @@ class AdminUserTilesView extends Component {
   }
 
   renderHeader() {
-    let user = this.props.user;
-    if (user) {
+    if (this.props.user) {
+      const { firstName, lastName, userRegimens, activeRegimen } = this.props.user;
+
       return (
         <BreadcrumbHeader
           linkLocation='/'
           link='Players'
-          pageTitle={`${user.firstName} ${user.lastName}`}
-          subheading={user.userRegimen.userRegimenName}/>
-
+          pageTitle={`${firstName} ${lastName}`}
+          subheading={userRegimens[activeRegimen].userRegimenName}/>
       )
     }
   }
 
   renderTiles() {
-    let user = this.props.user;
-    if (user) {
-      let regimen = this.props.user.userRegimen;
+    if (this.props.user) {
+      let regimen = this.props.user.userRegimens[0];
       let userTiles = _.mapKeys(regimen.userTiles, '_id');
       if (userTiles) {
         return _.map(userTiles, tile => {

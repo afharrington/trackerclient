@@ -3,6 +3,7 @@ import _ from 'lodash';
 import NewButton from '../../../../components/NewButton';
 import CautionModal from '../../../../components/CautionModal';
 import CreateUserForm from '../CreateUserForm';
+import CardWrapper from '../../../../components/CardWrapper';
 import UserItem from '../UserItem';
 import { connect } from 'react-redux';
 import { adminFetchUsers, adminDeleteUser } from '../../../../actions/adminUserActions';
@@ -48,17 +49,6 @@ class UserList extends Component {
     this.setState({ userId: '' });
   }
 
-  renderModal() {
-    if (this.state.showModal) {
-      return (
-        <CautionModal
-          itemToDelete='player'
-          closeModal={this.closeModal.bind(this)}
-          deleteFunction={this.deleteUser.bind(this)}
-        />
-      )
-    }
-  }
 
   toggleNewForm() {
     if (this.state.showNewForm === false) {
@@ -124,30 +114,11 @@ class UserList extends Component {
 
   render() {
     return (
-      <div className='user-list-container'>
-        {this.renderModal()}
-        <h3 className='list-title'>Players</h3>
-        <div className='users-button-container'>
-          <div onClick={this.toggleNewForm.bind(this)}><NewButton text='new player'/></div>
-        </div>
-
-        { this.state.showNewForm ?
-          <CreateUserForm
-            toggleNewForm={this.toggleNewForm}
-            closeForm={this.closeForm}
-            type='new'
-            /> : null }
-
-        { this.state.showEditForm ?
-          <CreateUserForm
-            closeForm={this.closeForm}
-            user={this.state.user}
-            type='edit'
-            /> : null }
+      <CardWrapper title='Players' add={this.props.toggleUserForm}>
         <div className='user-list'>
           {this.renderUsers()}
         </div>
-      </div>
+      </CardWrapper>
     )
   }
 };

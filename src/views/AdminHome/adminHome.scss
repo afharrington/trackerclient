@@ -1,17 +1,9 @@
 @import '../../styles/styles.scss';
 
 .admin-home {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.welcome-message {
-  text-align: right;
-  margin-right: 10%;
+  display: grid;                  
+  // flex-wrap: wrap;
+  // justify-content: space-around;
+  height: 100%;
   width: 100%;
-  font-size: 20px;
-  text-transform: capitalize !important;
-  display: block;
-  color: $dark-gray;
 }

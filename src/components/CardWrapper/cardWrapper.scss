@@ -1,0 +1,50 @@
+@import '../../styles/styles.scss';
+
+.card-wrapper {
+  background-color: white;
+  box-shadow: $small-shadow;
+  margin: 25px;
+  width: 400px;
+
+  @media (max-width: 400px) {
+    width: 95%;
+    margin-left: 2%;
+  }
+}
+
+.card-title {
+  background-color: $dark-gray;
+  color: white;
+  height: 38px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  .fa {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 16px;
+    line-height: 35px;
+    text-transform: uppercase;
+    font-family: $main-font;
+  }
+
+  button {
+    background-color: inherit;
+    border: none;
+    font-size: 16px;
+    line-height: 35px;
+    text-transform: uppercase;
+    font-family: $main-font;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    color: $med-gray;
+  }
+}

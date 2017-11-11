@@ -28,58 +28,6 @@
 .color-9 {
   background-color: #32A83A; }
 
-p {
-  font-size: 20px;
-  font-family: "Abel", sans-serif; }
-
-h1 {
-  font-size: 48px;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase; }
-
-h2 {
-  font-size: 40px;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase; }
-
-h3 {
-  font-size: 32px;
-  font-family: "Montserrat", sans-serif; }
-
-h4 {
-  font-size: 24px;
-  font-family: "Montserrat", sans-serif; }
-
-.color-0 {
-  background-color: #A81D1F; }
-
-.color-1 {
-  background-color: #A83E20; }
-
-.color-2 {
-  background-color: #A85F22; }
-
-.color-3 {
-  background-color: #A87F24; }
-
-.color-4 {
-  background-color: #A89E26; }
-
-.color-5 {
-  background-color: #95A829; }
-
-.color-6 {
-  background-color: #79A82B; }
-
-.color-7 {
-  background-color: #5DA82D; }
-
-.color-8 {
-  background-color: #42A82F; }
-
-.color-9 {
-  background-color: #32A83A; }
-
 html, body {
   margin: 0;
   padding: 0;
@@ -254,7 +202,7 @@ a:visited {
   top: 75%;
   width: 100%;
   text-align: center;
-  font-family: "Abel", sans-serif;
+  font-family: "Barlow", sans-serif;
   color: white;
   transition: all 0.3s ease; }
 

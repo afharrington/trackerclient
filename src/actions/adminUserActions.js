@@ -44,14 +44,16 @@ export function adminCreateUser(values) {
   }
 }
 
-export function adminUpdateUser(userId, values) {
+export function adminUpdateUser(userId, values, callback) {
   return function(dispatch) {
     axios.put(`${ROOT}/admin/user/${userId}`, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
+        console.log(response.data);
         dispatch({ type: ADMIN_UPDATE_USER, payload: response.data });
       })
+      .then(() => callback())
       .catch((err) => {
         console.log(err);
       });

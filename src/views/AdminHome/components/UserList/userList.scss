@@ -1,8 +1,8 @@
 @import '../../../../styles/styles.scss';
 
-.user-list-container {
+.user-list {
+  display: inline-block;
   width: 400px;
-  margin-bottom: 50px;
   color: $dark-gray;
 
   h3 {
@@ -13,12 +13,6 @@
   @media (max-width: 500px) {
     width: 300px;
   }
-}
-
-.users-button-container {
-  margin-top: 25px;
-  margin-left: 10px;
-  margin-bottom: 20px;
 }
 
 .user-list-row {

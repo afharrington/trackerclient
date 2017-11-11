@@ -1,68 +1,62 @@
 @import '../../../../styles/styles.scss';
 
 .create-user-form {
-  z-index: 5;
-  padding: 25px;
-  margin-top: -50px;
-  text-transform: capitalize !important;
-
-  @media (max-width: 500px) {
-    width: 80%;
-    left: 5%;
-  }
+  font-family: $main-font;
+  font-size: 14px;
 }
 
-.create-user-fields {
-  display: flex;
-  flex-wrap: wrap;
+.create-user-form-item {
+  margin-bottom: 25px;
+  width: 60%;
+  height: 25px;
+  margin-left: 20%;
 }
 
-.create-user-name {
-  .text-field {
-    width: 150px !important;
-    margin-right: 25px;
-    margin-top: 0px !important;
-  }
-
+.create-user-form-field {
   input {
-    text-transform: capitalize !important;
+    font-size: 14px;
+    width: 97%;
+    height: 15px;
+    border-radius: 3px;
+    padding: 5px;
+    border: 1px solid $light-gray;
+  }
+
+  select {
+    font-size: 14px;
+    width: 100%;
+    height: 25px;
+    padding: 5px;
+    border: 1px solid $light-gray;
+    border-radius: 2px !important;
+    text-transform: capitalize;
   }
 }
 
-.create-user-contact {
-  .text-field {
-    width: 150px !important;
-    margin-right: 25px;
-  }
-}
-
-.create-user-email, .create-user-code {
-  .text-field {
-    width: 325px !important;
-
-    @media (max-width: 500px) {
-      width: 250px !important;
-    }
-  }
-}
-
-
-.create-user-sport, .create-user-regimen {
-  text-transform: capitalize;
-  margin-top: 25px;
-
-  .select-field {
-    width: 150px !important;
-    margin-right: 25px;
-  }
-}
-
-.sport-item, .regimen-item {
-  text-transform: capitalize;
-}
-
-.user-form-buttons {
-  display: block;
+.create-user-form-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   text-align: center;
+  margin-bottom: 15px;
+
+  button {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100px;
+  }
+}
+
+.clear-button {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: $header-font;
+  background-color: $med-gray;
+  color: $white;
+  border-radius: 3px;
+  border: none;
   margin-top: 25px;
+  margin-bottom: 25px;
+  height: 30px;
 }

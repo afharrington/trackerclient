@@ -1,37 +1,56 @@
 @import '../../../../styles/styles.scss';
 
 .create-regimen-form {
-  box-shadow: none !important;
-  width: 100%;
-  margin-bottom: 5px;
+  text-align: center;
 }
 
-.newRegimenTextField {
-  width: 60% !important;
-  margin-right: 10px;
-  margin-left: 10px;
-
-  @media (min-width: 500px) {
-    width: 70% !important;
-    margin-right: 15px;
-  }
+.create-regimen-form-field {
+  width: 80%;
+  height: 20px;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
 }
 
-.addRegimenButton {
+.create-regimen-button-active {
+  display: block;
   cursor: pointer;
   text-transform: uppercase;
   font-size: 12px;
   font-family: $header-font;
   background-color: $brand-color-orange;
-  box-shadow: $small-shadow;
   color: $white;
   border-radius: 3px;
   border: none;
-  width: 82px;
+  width: 40%;
+  margin-top: 50px;
+  margin-left: 30%;
   height: 30px;
-  transition: background-color .5s ease;
+
+  @media (max-width: 500px) {
+    width: 80%;
+    margin-left: 10%;
+  }
 }
 
-.addRegimenButton:hover {
-  background-color: $brand-orange-dark;
+.create-regimen-button {
+  cursor: not-allowed;
+  display: block;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: $header-font;
+  background-color: $med-gray;
+  color: $white;
+  border-radius: 3px;
+  border: none;
+  width: 40%;
+  margin-top: 50px;
+  margin-left: 30%;
+  height: 30px;
+
+  @media (max-width: 500px) {
+    width: 80%;
+    margin-left: 10%;
+  }
 }

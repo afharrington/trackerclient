@@ -29,28 +29,14 @@ class UserItem extends Component {
     let user = this.props.user;
 
     return (
-      <div className='user-container'>
-        <div className='user-image'>
-          <FontAwesome name='user' />
-        </div>
+      <div className='user-item'>
         <div className='user-info'>
           <p className='user-name'>{user.firstName} {user.lastName}</p>
-          <p className='user-regimen'>{user.regimen ? user.regimen.regimenName : ''}</p>
+          <p className='user-regimen'>{user.activeRegimenName ? user.activeRegimenName : ''}</p>
         </div>
-
-        <div className='icon-container'>
-          <IconMenu
-            className='menu-icon'
-            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-            anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-            targetOrigin={{horizontal: 'left', vertical: 'bottom'}}
-          >
-            <Link to={`/admin/user/${user._id}`}>
-              <MenuItem primaryText='Player Tiles' />
-            </Link>
-            <MenuItem onClick={this.showEditFormWithInitialValues} primaryText={`Edit Player`} />
-            <MenuItem onClick={this.showModalWithUserId} primaryText={`Delete Player`} />
-          </IconMenu>
+        <div className='user-item-icons'>
+          <Link to={`/admin/user/${user._id}`}><FontAwesome name='th' /></Link>
+          <FontAwesome name='cog' />
         </div>
       </div>
       )

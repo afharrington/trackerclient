@@ -1,0 +1,15 @@
+@import '../../styles/styles.scss';
+
+.submit-button {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: $header-font;
+  background-color: $brand-color-orange;
+  color: $white;
+  border-radius: 3px;
+  border: none;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  height: 30px;
+}

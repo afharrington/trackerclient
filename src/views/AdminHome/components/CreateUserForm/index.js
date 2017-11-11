@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Select from 'react-select';
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux';
 import MenuItem from 'material-ui/MenuItem';
@@ -7,178 +8,113 @@ import _ from 'lodash';
 import SelectField from 'material-ui/SelectField'
 import FormButtons from '../../../../components/FormButtons';
 import { fetchRegimens } from '../../../../actions/adminRegimenActions';
-import { adminCreateUser, adminUpdateUser } from '../../../../actions/adminUserActions';
+import FormWrapper from '../FormWrapper';
+import { adminCreateUser, adminUpdateUser, adminFetchUsers } from '../../../../actions/adminUserActions';
 import './createUserForm.css';
-
-const customStyles = {
-  underlineStyle: {
-    borderColor: '#333'
-  }
-}
 
 class CreateUserForm extends Component {
 
   componentDidMount() {
-    let user = this.props.user;
-    if (this.props.type === 'edit') {
-      let initialData = {
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        code: user.code,
-        sport: user.sport,
-        regimen: user.regimen
-      }
-      this.props.initialize(initialData);
-    }
     this.props.fetchRegimens();
   }
 
-  // Move this to API
   renderSportItems() {
     let sports = ['basketball', 'soccer', 'volleyball', 'hockey', 'football', 'track & field', 'lacrosse'];
 
     return (
       sports.sort().map((sport) => {
-        return <MenuItem className='sport-item' key={sport} value={sport} primaryText={sport}/>
+        return <option className='sport-item' key={sport} value={sport}>{sport}</option>
       })
     )
   }
 
   renderRegimenItems() {
     let regimens = this.props.regimens;
-
     if (regimens) {
       return _.map(regimens, regimen => {
         return (
-          <MenuItem
-            key={regimen._id}
-            className='regimen-item'
-            value={regimen._id}
-            primaryText={regimen.regimenName} />
+          <option value={regimen._id} key={regimen._id}>
+            {regimen.regimenName}
+          </option>
         )
       });
     }
   }
 
-
-  renderTextField({input, label, meta: {touched, error}, ...custom}) {
-    return (
-      <TextField
-        className='text-field'
-        hintText={label}
-        floatingLabelText={label}
-        errorText={touched && error}
-        {...input}
-        {...custom}
-        underlineFocusStyle={customStyles.underlineStyle}
-      />
-    )
-  }
-
-  renderSelectField({ input,
-                      label,
-                      meta: {touched, error},
-                      children,
-                      ...custom }) {
-    return (
-      <SelectField
-        className='select-field'
-        errorText={touched && error}
-        hintText={label}
-        {...input}
-        onChange={(event, index, value) => input.onChange(value)}
-        children={children}
-        {...custom}
-        underlineFocusStyle={customStyles.underlineStyle}
-      />
-    )
-  }
-
   onSubmit(values) {
-    if (this.props.type === 'new') {
-      this.props.adminCreateUser(values);
-    } else {
-      this.props.adminUpdateUser(this.props.user._id, values);
-    }
-    this.props.closeForm();
+    this.props.adminCreateUser(values);
+    this.props.exit();
   }
-
 
   render() {
-    const { handleSubmit, reset } = this.props;
+    const { handleSubmit, reset, submitting, pristine } = this.props;
 
     return (
-      <div className='create-user-container'>
-        <form className='create-user-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <div className='create-user-fields'>
-            <div className='create-user-name'>
-              <Field
-                name='firstName'
-                component={this.renderTextField}
-                label='First Name'
-              />
-              <Field
-                name='lastName'
-                component={this.renderTextField}
-                label='Last Name'
-              />
+      <FormWrapper exit={this.props.exit}>
+        <div className='create-user-form'>
+          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+
+            <div className='create-user-form-item'>
+              <div className='create-user-form-field'>
+                <Field name="firstName" placeholder='First Name' component="input" type="text"/>
+              </div>
             </div>
-            <div className='create-user-email'>
-              <Field
-                name='email'
-                component={this.renderTextField}
-                label='Email'
-              />
+
+            <div className='create-user-form-item'>
+              <div className='create-user-form-field'>
+                <Field name="lastName" placeholder='Last Name' component="input" type="text"/>
+              </div>
             </div>
-            <div className='create-user-code'>
-              <Field
-                name='code'
-                component={this.renderTextField}
-                label='Registration Code'
-              />
+
+            <div className='create-user-form-item'>
+              <div className='create-user-form-field'>
+                <Field name="email" placeholder='Email' component="input" type="email"/>
+              </div>
             </div>
-            <div className='create-user-sport'>
-              <Field name='sport' component={this.renderSelectField} label='Sport'>
-                {this.renderSportItems()}
-              </Field>
+
+            <div className='create-user-form-item'>
+              <div className='create-user-form-field'>
+                <Field name="code" placeholder='Registration Code' component="input" type="code"/>
+              </div>
             </div>
-            <div className='create-user-regimen'>
-              <Field name='regimen' component={this.renderSelectField} label='Regimen'>
-                {this.renderRegimenItems()}
-              </Field>
+
+            <div className='create-user-form-item'>
+              <div className='create-user-form-field'>
+                <Field name="sport" component="select">
+                  <option>- Select Player's Sport -</option>
+                  {this.renderSportItems()}
+                </Field>
+              </div>
             </div>
-          </div>
-          <FormButtons
-            onSubmitClick={handleSubmit(this.onSubmit.bind(this))}
-            onClearClick={reset}
-            onCloseClick={this.props.closeForm}
-          />
-        </form>
-      </div>
+
+            <div className='create-user-form-item'>
+              <div className='create-user-form-field'>
+                <Field name='regimen' component='select'>
+                  <option>- Select Player's Regimen -</option>
+                  {this.renderRegimenItems()}
+                </Field>
+              </div>
+            </div>
+
+            <div className='create-user-form-buttons'>
+              <button className='submit-button' type="submit" disabled={pristine || submitting}>Submit </button>
+              <button className='clear-button' type="button" disabled={pristine || submitting} onClick={reset}>Clear
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </FormWrapper>
     )
   }
 };
 
+
 function validate(values) {
   const errors = {}
-  // const requiredFields = [
-  //   'firstName', 'lastName'
-  // ]
-
-  // requiredFields.forEach(field => {
-  //   if (!values[field]) {
-  //     errors[field] = 'Required'
-  //   }
-  //   if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-  //     errors.email = 'Invalid email address'
-  //   }
-  // });
-
   if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address'
+    errors.email = 'Invalid email format'
   }
-
   return errors;
 }
 
@@ -190,5 +126,5 @@ export default reduxForm({
   validate,
   form: 'CreateUserForm'
 })(
-  connect(mapStateToProps, { adminCreateUser, adminUpdateUser, fetchRegimens })(CreateUserForm)
+  connect(mapStateToProps, { adminCreateUser, adminFetchUsers, fetchRegimens })(CreateUserForm)
 );

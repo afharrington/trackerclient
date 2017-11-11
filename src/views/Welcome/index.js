@@ -74,7 +74,7 @@ class Welcome extends Component {
     } else if (this.state.form === 'admin') {
       return <div className='welcome-header-message'>Log in to a coach or administrator account.</div>
     } else {
-      return <div className='signup-header-message'>Enter your 5-digit registration code.<span>Cant find it? Contact <a href='mailto:accounts@3upscholars.com?Subject=Registration%20Code' target="_top"> accounts@3upscholars.com </a>for assistance.</span></div>
+      return <div className='signup-header-message'>Enter your registration code.<span>Cant find it? Contact <a href='mailto:accounts@3upscholars.com?Subject=Registration%20Code' target="_top"> accounts@3upscholars.com </a>for assistance.</span></div>
     }
   }
 

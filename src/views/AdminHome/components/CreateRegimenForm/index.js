@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import TextField from 'material-ui/TextField';
+import FormWrapper from '../FormWrapper';
+import SubmitButton from '../../../../components/SubmitButton';
 import { connect } from 'react-redux';
 import { createRegimen } from '../../../../actions/adminRegimenActions';
 import './createRegimenForm.css';
@@ -33,18 +34,20 @@ class CreateRegimenForm extends Component {
 
   render() {
     return (
-      <div className='create-regimen-form admin-regimens-row'>
-        <form onSubmit={this.handleSubmit}>
-          <TextField
-            className='newRegimenTextField'
-            value={this.state.value}
-            onChange={this.handleChange}
-            hintText='Regimen Name'
-            underlineFocusStyle={customStyles.underlineStyle}
-          />
-          <input className={this.state.value === '' ? 'addRegimenButton' : 'addRegimenButton active'} type="submit" value="Save" />
-        </form>
-      </div>
+      <FormWrapper exit={this.props.exit}>
+        <div className='create-regimen-form'>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type='text'
+              className='create-regimen-form-field'
+              value={this.state.value}
+              onChange={this.handleChange}
+              placeholder='Regimen Name'
+            />
+            <SubmitButton class={this.state.value === '' ? 'submit-button' : 'submit-button submit-button-active'} buttonLabel='Create Regimen'/>
+          </form>
+        </div>
+      </FormWrapper>
     )
   }
 };

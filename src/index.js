@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
-import thunk from 'redux-thunk';
-// import logger from 'redux-logger';
+import thunk from 'redux-thunk';import logger from 'redux-logger';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { LOGIN_ADMIN, LOGIN_USER } from './actions/authActions';
 import reducers from './reducers';
 
-const createStoreWithMiddleware = applyMiddleware(promise, thunk)(createStore);
+const createStoreWithMiddleware = applyMiddleware(promise, thunk, logger)(createStore);
 const store = createStoreWithMiddleware(reducers);
 
 // Keeps user logged in if there is a token in local storage

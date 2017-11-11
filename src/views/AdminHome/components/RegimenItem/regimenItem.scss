@@ -1,20 +1,33 @@
 @import '../../../../styles/styles.scss';
 
 .regimen-item {
-  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
   position: relative;
-  margin: 0px 10px 5px 10px;
   height: 50px;
   font-weight: bold;
-  background-color: $white;
-  // border: 1px solid $light-gray;
+  border-bottom: 1px solid $light-gray;
   color: $dark-gray;
   transition: box-shadow .3s ease;
 
   p {
+    font-family: $main-font;
     text-transform: capitalize;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 50px;
     margin-left: 10px;
+  }
+}
+
+.regimen-item-icons {
+  margin-top: 15px;
+  margin-right: 10px;
+
+  a {
+    margin-left: 15px;
+  }
+
+  a:hover {
+    color: $brand-color-green;
   }
 }

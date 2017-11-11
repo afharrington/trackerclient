@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import NewButton from '../../../../components/NewButton';
+import CardWrapper from '../../../../components/CardWrapper';
 import CautionModal from '../../../../components/CautionModal';
 import CreateRegimenForm from '../CreateRegimenForm';
 import RegimenItem from '../RegimenItem';
@@ -27,27 +28,27 @@ class RegimenList extends Component {
     this.props.deleteRegimen(this.state.regimenId);
   }
 
-  renderInstructions() {
-    function isEmpty(obj) {
-      for (let key in obj) {
-        if(obj.hasOwnProperty(key))
-          return false;
-      }
-      return true;
-    }
-
-    if (isEmpty(this.props.regimens) ) {
-      return (
-        <div className='regimen-list-instructions'>
-          <p>You do not have any regimens yet.</p>
-          <h3>What is a Regimen?</h3>
-          <p>Think of a regimen as a blueprint you can use for assigning training plans to your players.</p>
-          <p>For example, you could create a different regimen for each position on your team.</p>
-          <p>Add a new regimen to get started.</p>
-        </div>
-      )
-    }
-  }
+  // renderInstructions() {
+  //   function isEmpty(obj) {
+  //     for (let key in obj) {
+  //       if(obj.hasOwnProperty(key))
+  //         return false;
+  //     }
+  //     return true;
+  //   }
+  //
+  //   if (isEmpty(this.props.regimens) ) {
+  //     return (
+  //       <div className='regimen-list-instructions'>
+  //         <p>You do not have any regimens yet.</p>
+  //         <h3>What is a Regimen?</h3>
+  //         <p>Think of a regimen as a blueprint you can use for assigning training plans to your players.</p>
+  //         <p>For example, you could create a different regimen for each position on your team.</p>
+  //         <p>Add a new regimen to get started.</p>
+  //       </div>
+  //     )
+  //   }
+  // }
 
   toggleModal(regimenId) {
     if (this.state.showModal === false) {
@@ -59,31 +60,27 @@ class RegimenList extends Component {
     }
   }
 
-  closeModal() {
-    this.setState({ showModal: false });
-    this.setState({ regimenId: '' });
-  }
+  // closeModal() {
+  //   this.setState({ showModal: false });
+  //   this.setState({ regimenId: '' });
+  // }
 
-  toggleForm() {
-    if (this.state.showForm === false) {
-      this.setState({ showForm: true });
-    } else {
-      this.setState({ showForm: false });
-    }
-  }
+  // toggleForm() {
+  //   this.setState({ showForm: !this.state.showForm});
+  // }
 
-  renderModal() {
-    if (this.state.showModal) {
-      return (
-        <CautionModal
-          itemToDelete='regimen'
-          additionalMessage='The entries of all players assigned to this regimen will also be deleted. You must re-assign these players to a new regimen.'
-          closeModal={this.closeModal.bind(this)}
-          deleteFunction={this.deleteRegimen.bind(this)}
-        />
-      )
-    }
-  }
+  // renderModal() {
+  //   if (this.state.showModal) {
+  //     return (
+  //       <CautionModal
+  //         itemToDelete='regimen'
+  //         additionalMessage='The entries of all players assigned to this regimen will also be deleted. You must re-assign these players to a new regimen.'
+  //         closeModal={this.closeModal.bind(this)}
+  //         deleteFunction={this.deleteRegimen.bind(this)}
+  //       />
+  //     )
+  //   }
+  // }
 
   renderRegimens() {
     let regimens = this.props.regimens;
@@ -103,16 +100,11 @@ class RegimenList extends Component {
 
   render() {
     return (
-      <div className='regimen-list'>
-        {this.renderModal()}
-        <h3 className='list-title'>Regimens</h3>
-        <div className='regimens-button-container'>
-          <div onClick={this.toggleForm.bind(this)}><NewButton text='new regimen'/></div>
+      <CardWrapper title='Regimens' add={this.props.toggleRegimenForm}>
+        <div className='regimen-list'>
+          {this.renderRegimens()}
         </div>
-        {this.state.showForm ? <CreateRegimenForm exitForm={this.toggleForm.bind(this)}/> : null}
-        {this.renderRegimens()}
-        {this.renderInstructions()}
-      </div>
+      </CardWrapper>
     )
   }
 };

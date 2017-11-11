@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import UserRow from '../UserRow';
-import _ from 'lodash';
-// ADD THIS
 import './tileSummary.css';
 
 // A Tile Summary is a list of user info (User Row) for a single Regimen Tile

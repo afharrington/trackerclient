@@ -28,58 +28,6 @@
 .color-9 {
   background-color: #32A83A; }
 
-p {
-  font-size: 20px;
-  font-family: "Abel", sans-serif; }
-
-h1 {
-  font-size: 48px;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase; }
-
-h2 {
-  font-size: 40px;
-  font-family: "Montserrat", sans-serif;
-  text-transform: uppercase; }
-
-h3 {
-  font-size: 32px;
-  font-family: "Montserrat", sans-serif; }
-
-h4 {
-  font-size: 24px;
-  font-family: "Montserrat", sans-serif; }
-
-.color-0 {
-  background-color: #A81D1F; }
-
-.color-1 {
-  background-color: #A83E20; }
-
-.color-2 {
-  background-color: #A85F22; }
-
-.color-3 {
-  background-color: #A87F24; }
-
-.color-4 {
-  background-color: #A89E26; }
-
-.color-5 {
-  background-color: #95A829; }
-
-.color-6 {
-  background-color: #79A82B; }
-
-.color-7 {
-  background-color: #5DA82D; }
-
-.color-8 {
-  background-color: #42A82F; }
-
-.color-9 {
-  background-color: #32A83A; }
-
 html, body {
   margin: 0;
   padding: 0;
@@ -132,51 +80,38 @@ a:visited {
   font-size: 18px;
   margin-bottom: 10px; }
 
-.user-container {
+.user-item {
   position: relative;
+  z-index: 0;
   display: flex;
   flex-wrap: wrap;
-  margin: 0px 10px 5px 10px;
+  justify-content: space-between;
   height: 50px;
   background-color: #fff;
-  transition: box-shadow .3s ease; }
-  .user-container p {
+  transition: box-shadow .3s ease;
+  border-bottom: 1px solid #d6d6d6; }
+  .user-item p {
     color: #333;
     text-transform: capitalize;
     margin-left: 10px; }
 
-.user-image {
-  position: absolute;
-  color: #333;
-  height: 100%;
-  width: 50px;
-  line-height: 50px;
-  font-size: 30px;
-  margin-right: 20px; }
-  .user-image .fa {
-    color: #d6d6d6; }
-  .user-image span {
-    margin-left: 10px; }
-
 .user-info {
-  margin-left: 50px;
   margin-top: 5px; }
 
 .user-name {
-  font-size: 18px;
+  font-family: "Barlow", sans-serif;
+  font-size: 16px;
   font-weight: bold;
   color: #333; }
 
 .user-regimen {
   margin-top: 3px;
   font-size: 12px;
+  font-family: "Barlow", sans-serif;
   color: #333 !important; }
 
-.icon-container {
-  position: absolute;
-  top: 5%;
-  right: 0%;
-  width: 50px; }
-
-.menu-icon svg {
-  color: #333 !important; }
+.user-item-icons {
+  margin-top: 15px;
+  margin-right: 10px; }
+  .user-item-icons .fa {
+    margin-left: 15px; }

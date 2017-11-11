@@ -88,7 +88,7 @@ class AdminUserEntries extends Component {
         <div className='entries-header'>
           <p className='entries-header-user'><Link to={`/admin/user/${this.props.user._id}`}>{this.props.user.firstName} {this.props.user.lastName}</Link><FontAwesome name='chevron-right'/><span>{tile.userTileName}</span>
           </p>
-          <p className='entries-header-regimen'>{this.props.user.regimen.regimenName}</p>
+          <p className='entries-header-regimen'>{user.regimens[user.activeRegimen].regimenName}</p>
         </div>
       )
     } else {

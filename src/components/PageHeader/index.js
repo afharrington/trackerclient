@@ -25,15 +25,9 @@ class PageHeader extends Component {
           <div className='page-header-links'>
             <div className='page-header-img-container'>
               <NavLink to='/admin'>
-                <img src='/img/3up-logo-white.png' alt='3up logo'/>
+                <img src='/img/3up-logo-black.png' alt='3up logo'/>
               </NavLink>
             </div>
-            <div className='page-header-link'>
-              <NavLink to='/admin'>
-                Home
-              </NavLink>
-            </div>
-            <div className='page-header-link'>Help</div>
             <div className='page-header-link' onClick={this.logoutAdmin.bind(this)}>Log out  ({firstName} {lastName})</div>
           </div>
         )
@@ -42,15 +36,9 @@ class PageHeader extends Component {
           <div className='page-header-links'>
             <div className='page-header-img-container'>
               <NavLink to='/user'>
-                <img src='./img/3up-logo-white.png' alt='3up logo'/>
+                <img src='./img/3up-logo-black.png' alt='3up logo'/>
               </NavLink>
             </div>
-            <div className='page-header-link'>
-              <NavLink to='/user'>
-                Home
-              </NavLink>
-            </div>
-            <div className='page-header-link'>Help</div>
             <div className='page-header-link' onClick={this.logoutUser.bind(this)}>Log out  <span>({firstName} {lastName})</span></div>
           </div>
         )
