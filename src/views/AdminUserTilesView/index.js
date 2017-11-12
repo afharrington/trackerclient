@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
-import BreadcrumbHeader from '../../components/BreadcrumbHeader';
 import AdminUserTile from './components/AdminUserTile';
 import { adminFetchUser } from '../../actions/adminUserActions';
 import './adminUserTilesView.css';
@@ -27,11 +26,7 @@ class AdminUserTilesView extends Component {
       const { firstName, lastName, userRegimens, activeRegimen } = this.props.user;
 
       return (
-        <BreadcrumbHeader
-          linkLocation='/'
-          link='Players'
-          pageTitle={`${firstName} ${lastName}`}
-          subheading={userRegimens[activeRegimen].userRegimenName}/>
+          <div>{userRegimens[activeRegimen].userRegimenName}</div>
       )
     }
   }

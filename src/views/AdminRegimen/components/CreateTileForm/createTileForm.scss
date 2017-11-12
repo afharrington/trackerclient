@@ -1,39 +1,76 @@
 @import '../../../../styles/styles.scss';
 
-.create-tile-form {
-  font-family: $main-font;
-  font-size: 14px;
+.create-tile-form-row {
+  margin-bottom: 25px;
+  width: 60%;
+  margin-left: 20%;
+  display: flex;
+
+  input {
+    width: 100%;
+  }
+
+  @media (max-width: 750px) {
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 
 .create-tile-form-field {
-  margin-bottom: 25px;
-  height: 25px;
-  width: 60%;
-  margin-left: 20%;
-
   input {
-    border: 1px solid $light-gray;
-    padding: 8px;
+    height: 25px;
+    padding: 3px;
+    font-family: $main-font;
+    font-size: 14px;
   }
 }
 
 .create-tile-form-name {
-  font-size: 14px;
   width: 100%;
+  input {
+    border: 1px solid $light-gray;
+    width: 100%;
+    font-family: $main-font;
+    font-size: 16px;
+    padding: 5px;
+    text-transform: capitalize;
+  }
 }
 
 .create-tile-form-hours {
-  width: 25px;
-  margin-right: 10px;
+  width: 50%;
+
+  input {
+    text-align: center;
+    width: 25%;
+    margin-right: 10px;
+    border: 1px solid $light-gray;
+  }
+
+  label {
+    font-family: $main-font;
+  }
 }
 
 .create-tile-form-cycle {
+  display: flex;
   width: 80px;
-  height: 30px;
+  margin-top: 0px;
   margin-right: 10px;
-  padding: 8px;
-  border-radius: 0px;
-  border: 1px solid $light-gray;
+
+  select {
+    height: 34px !important;
+    border-radius: 0px;
+    border: 1px solid $light-gray;
+    font-family: $main-font;
+    font-size: 14px;
+  }
+
+  label {
+    line-height: 34px;
+    margin-left: 10px;
+    font-family: $main-font;
+  }
 }
 
 // Entire Activities container
@@ -55,11 +92,6 @@
   text-transform: uppercase;
   font-family: $header-font;
   border-radius: 3px;
-
-  .plus {
-    font-size: 12px;
-    margin-right: 10px;
-  }
 }
 
 // All activities fields
@@ -74,6 +106,7 @@
     border: 1px solid $light-gray;
     text-transform: capitalize;
     margin-bottom: 5px;
+    font-size: 16px;
   }
 }
 
@@ -82,11 +115,18 @@
   display: inline-block;
   display: grid;
   grid-template-columns: 3fr 1fr;
+  width: 45%;
+  height: 35px;
+  input {
+    padding: 5px;
+    font-family: $header-font;
+    font-size: 16px;
+  }
 
   button {
     cursor: pointer !important;
     font-size: 14px;
-    color: $dark-gray;
+    color: $med-gray;
     background-color: rgba(117, 190, 218, 0.0);
     width: 30px;
     height: 25px;
@@ -94,7 +134,17 @@
     border: none;
     display: inline-block;
   }
+}
 
+.create-tile-form-buttons {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin: 5px;
+  }
 }
 
 
@@ -106,9 +156,5 @@
   .activity-item {
     width: 100%;
     grid-template-columns: 5fr 1fr;
-
-    .text-field {
-      width: 100% !important;
-    }
   }
 }

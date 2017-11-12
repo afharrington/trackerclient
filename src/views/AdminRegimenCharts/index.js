@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchRegimen } from '../../actions/adminRegimenActions';
 import { adminFetchUserRegimens } from '../../actions/adminUserActions';
-import BreadcrumbHeader from '../../components/BreadcrumbHeader';
 import TileSummary from './components/TileSummary';
 
 import './adminRegimenCharts.css';
@@ -56,11 +55,7 @@ class AdminRegimenCharts extends Component {
   render() {
     return (
       <div className='admin-regimen-charts'>
-        <BreadcrumbHeader
-          linkLocation='/'
-          link='Regimens'
-          pageTitle={this.props.regimen.regimenName}/>
-
+        <div>{this.props.regimen.regimenName}</div>
         <div className='tile-charts'>
           {this.renderTileSummaries()}
         </div>

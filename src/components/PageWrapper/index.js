@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PageHeader from '../PageHeader';
-import BreadcrumbHeader from '../BreadcrumbHeader';
 import './pageWrapper.css';
 
 class PageWrapper extends Component {

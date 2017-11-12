@@ -51,15 +51,6 @@ class CreateTileForm extends Component {
     }
   }
 
-  renderCycleLengths() {
-    let cycles = ['2', '3', '5', '7', '14', '30'];
-    return (
-      cycles.sort().map((cycle) => {
-        return <option className='sport-item' key={cycle} value={cycle}>{cycle}-day</option>
-      })
-    )
-  }
-
   // Renders entire Activities section
   renderActivities({ fields }) {
     return (
@@ -82,7 +73,7 @@ class CreateTileForm extends Component {
           {fields.error && <div className="error">{fields.error}</div>}
         </div>
         <button className='new-activity-button' type="button" onClick={() => fields.push()}>
-          <FontAwesome className='plus' name='plus'/>Add activity
+        Add activity
         </button>
       </div>
     )
@@ -110,23 +101,30 @@ class CreateTileForm extends Component {
         <div className='create-tile-form'>
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 
-            <div className='create-tile-form-field'>
-              <Field className='create-tile-form-name' name='tileName' component="input" type="text"/>
+            <div className='create-tile-form-row'>
+              <div className='create-tile-form-field create-tile-form-name'>
+                <Field placeholder='Tile name' name='tileName' component="input" type="text"/>
+              </div>
             </div>
 
-            <div className='create-tile-form-field'>
-              <Field className='create-tile-form-hours' name='goalHours' component="input" type="text"/>
-              <label>hours per</label>
-            </div>
+            <div className='create-tile-form-row'>
+              <div className='create-tile-form-field create-tile-form-hours'>
+                <Field name='goalHours' component="input" type="text"/>
+                <label>hours per</label>
+              </div>
 
-            <div className='create-tile-form-field'>
-              <Field className='create-tile-form-cycle' name='goalCycle' component='select'>
-                <option></option>
-                {this.renderCycleLengths()}
-              </Field>
-              <label>cycle</label>
+              <div className='create-tile-form-field create-tile-form-cycle'>
+                <Field name='goalCycle' component='select'>
+                  <option></option>
+                  <option className='sport-item' value='2'>2-day</option>
+                  <option className='sport-item' value='5'>5-day</option>
+                  <option className='sport-item' value='7'>7-day</option>
+                  <option className='sport-item' value='14'>14-day</option>
+                  <option className='sport-item' value='30'>30-day</option>
+                </Field>
+                <label>cycle</label>
+              </div>
             </div>
-
 
             <FieldArray name='activityOptions' component={this.renderActivities}/>
 

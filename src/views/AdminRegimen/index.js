@@ -103,7 +103,7 @@ class AdminRegimen extends Component {
                 <CreateTileForm
                   toggleNewForm={this.toggleNewForm.bind(this)}
                   regimenId={this.state.regimenId}
-                  closeForm={this.closeForm.bind(this)}
+                  exit={this.closeForm.bind(this)}
                   /> : null }
 
             { this.state.showEditForm ?
@@ -111,7 +111,7 @@ class AdminRegimen extends Component {
                   tile={this.state.tile}
                   regimenId={this.state.regimenId}
                   toggleEditForm={this.toggleEditForm.bind(this)}
-                  closeForm={this.closeForm.bind(this)}
+                  exit={this.closeForm.bind(this)}
                   /> : null }
 
             {this.renderTiles()}
