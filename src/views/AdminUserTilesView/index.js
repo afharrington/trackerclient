@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PageWrapper from '../../components/PageWrapper';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
-import AdminUserTile from './components/AdminUserTile';
+import UserTile from '../../components/UserTile';
 import { adminFetchUser } from '../../actions/adminUserActions';
 import './adminUserTilesView.css';
 
@@ -26,7 +27,10 @@ class AdminUserTilesView extends Component {
       const { firstName, lastName, userRegimens, activeRegimen } = this.props.user;
 
       return (
-          <div>{userRegimens[activeRegimen].userRegimenName}</div>
+          <div className='admin-regimen-title-container'>
+            <h1>{firstName} {lastName}</h1>
+            <h2>{userRegimens[activeRegimen].userRegimenName}</h2>
+          </div>
       )
     }
   }
@@ -39,7 +43,7 @@ class AdminUserTilesView extends Component {
         return _.map(userTiles, tile => {
           return (
             <Link key={tile._id} to={`/admin/user/${this.state.userId}/reg/${regimen._id}/tile/${tile._id}`}>
-              <AdminUserTile tile={tile} />
+              <UserTile tile={tile} />
             </Link>
           )
         });
@@ -49,12 +53,14 @@ class AdminUserTilesView extends Component {
 
   render() {
     return (
-      <div className='admin-user-tiles-view'>
-        {this.renderHeader()}
-        <div className='regimen-tiles-container'>
-          { this.renderTiles() }
+      <PageWrapper>
+        <div className='admin-user-tiles-view'>
+            { this.renderHeader() }
+          <div className='regimen-tiles-container'>
+            { this.renderTiles() }
+          </div>
         </div>
-      </div>
+      </PageWrapper>
     )
   }
 };

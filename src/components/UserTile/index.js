@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
+import { Line } from 'rc-progress';
 
-// Right now styles are coming from UserTilesView/components/UserTile/userTile.scss
-import './adminUserTile.css';
+import './userTile.css';
 
-class AdminUserTile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showMoreMenu: false
-    }
-  }
+class UserTile extends Component {
 
   renderTime() {
     let totalMinutes = 0;
@@ -24,7 +18,7 @@ class AdminUserTile extends Component {
       return <div className='no-entries-message'>No entries</div>
     } else {
       return (
-        <div className='admin-user-tile-time'>
+        <div>
           <div className='user-tile-hours'>
             <p className='user-time'>{hours}</p>
             <p className='user-tile-label'>hr</p>
@@ -55,6 +49,8 @@ class AdminUserTile extends Component {
   }
 
   render() {
+    const { cycles } = this.props.tile;
+    let percent;
     let label = this.props.tile.goalHours === 1 ? 'hr' : 'hrs';
     let color = 0;
     let tileColorBlock;
@@ -63,19 +59,28 @@ class AdminUserTile extends Component {
     }
     tileColorBlock = `tile-color-block color-${color}`;
 
+    if (cycles.length > 0) {
+      percent = cycles[0].cyclePercent;
+    }
+
+
     return (
-      <div className='admin-user-tile'>
-        <div className={tileColorBlock}>
+
+      <div className='user-tile'>
+        <Line className='progress' percent={percent} strokeWidth="10" strokeColor="#00c7a9" trailWidth="10" strokeLinecap="square" trailColor="#333"/>
+
+        <div className='user-tile-title'>
           <p>{this.props.tile.userTileName}</p>
         </div>
+
         <div className='user-tile-time'>
           {this.renderTime()}
         </div>
         <div className='user-tile-details'>
-          <div className='user-tile-goal'>
+          {/* <div className='user-tile-goal'>
             <p><span className='user-tile-details-label'>Goal:</span>
             {this.props.tile.goalHours} {label}</p>
-          </div>
+          </div> */}
           <div className='user-tile-cycle'>
             {this.renderNextCycle()}
           </div>
@@ -86,4 +91,4 @@ class AdminUserTile extends Component {
 };
 
 
-export default AdminUserTile;
+export default UserTile;

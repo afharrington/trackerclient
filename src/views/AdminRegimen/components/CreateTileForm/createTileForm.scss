@@ -2,18 +2,18 @@
 
 .create-tile-form-row {
   margin-bottom: 25px;
-  width: 60%;
-  margin-left: 20%;
+  width: 80%;
+  margin-left: 10%;
   display: flex;
 
   input {
     width: 100%;
   }
-
-  @media (max-width: 750px) {
-    width: 90%;
-    margin-left: 5%;
-  }
+  //
+  // @media (max-width: 800px) {
+  //   width: 90%;
+  //   margin-left: 5%;
+  // }
 }
 
 .create-tile-form-field {
@@ -96,8 +96,7 @@
 
 // All activities fields
 .activities {
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -115,7 +114,7 @@
   display: inline-block;
   display: grid;
   grid-template-columns: 3fr 1fr;
-  width: 45%;
+  width: 50%;
   height: 35px;
   input {
     padding: 5px;

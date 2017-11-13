@@ -6,9 +6,20 @@
   font-weight: bold;
 }
 
-.admin-user-header-regimen {
-  margin-left: 5%;
-  margin-top: 20px;
-  font-size: 24px;
-  text-transform: capitalize;
+
+.admin-regimen-title-container {
+  text-align: center;
+
+  h1 {
+    font-family: $main-font;
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+
+  h2 {
+    margin-top: 10px;
+    font-family: $main-font;
+    text-transform: uppercase;
+    font-size: 20px;
+  }
 }

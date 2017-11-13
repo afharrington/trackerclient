@@ -130,7 +130,10 @@ a:visited {
   text-transform: uppercase;
   font-family: "Barlow", sans-serif;
   font-weight: bold;
-  font-size: 16px; }
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: clip ellipsis;
+  height: 23px; }
 
 .admin-tile-goal {
   position: absolute;

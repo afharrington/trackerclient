@@ -1,0 +1,13 @@
+@import '../../../../styles/styles.scss';
+
+.admin-user-tile {
+  z-index: 0;
+  width: 175px;
+  height: 175px;
+  margin: 5px;
+  font-family: $main-font;
+  box-shadow: $small-shadow;
+  position: relative;
+  background-color: $white;
+  overflow: hidden;
+}
