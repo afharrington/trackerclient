@@ -1,0 +1,26 @@
+@import '../../styles/styles.scss';
+
+.user-header {
+  z-index: 0;
+  position: absolute;
+  top: 0%;
+  height: 125px;
+  background-color: #0082c7;
+  width: 100%;
+}
+
+.user-header-name {
+  text-align: center;
+  margin-top: 50px;
+  font-family: $main-font;
+  color: white;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.user-header-tabs {
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+}

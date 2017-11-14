@@ -19,7 +19,7 @@ import AdminRegimen from './views/AdminRegimen';
 import AdminRegimenCharts from './views/AdminRegimenCharts';
 
 // Admin User View
-import AdminUserTilesView from './views/AdminUserTilesView';
+import AdminUser from './views/AdminUser';
 import AdminUserEntries from './views/AdminUserEntries';
 
 // User Regimen View
@@ -97,7 +97,7 @@ class App extends Component {
               <Route exact path='/user/reg/:regId/tile/:tileId' component={UserAuthentication(UserEntries)}/>
               <Route exact path='/admin/regimen/:regimenId' component={AdminAuthentication(AdminRegimenCharts)}/>
               <Route exact path='/admin/regimen/:regimenId/settings' component={AdminAuthentication(AdminRegimen)}/>
-              <Route exact path='/admin/user/:userId' component={AdminAuthentication(AdminUserTilesView)}/>
+              <Route exact path='/admin/user/:userId' component={AdminAuthentication(AdminUser)}/>
               <Route exact path='/admin/user/:userId/reg/:regId/tile/:tileId' component={AdminAuthentication(AdminUserEntries)}/>
             </Switch>
           </div>

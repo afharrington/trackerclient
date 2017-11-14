@@ -50,7 +50,6 @@ export function adminUpdateUser(userId, values, callback) {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
-        console.log(response.data);
         dispatch({ type: ADMIN_UPDATE_USER, payload: response.data });
       })
       .then(() => callback())
