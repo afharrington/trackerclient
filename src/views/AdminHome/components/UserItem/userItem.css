@@ -116,3 +116,5 @@ a:visited {
   margin-right: 10px; }
   .user-item-icons .fa {
     margin-left: 15px; }
+  .user-item-icons .fa:hover {
+    color: #00c7a9; }

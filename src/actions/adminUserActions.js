@@ -31,6 +31,8 @@ export function adminFetchUsers() {
 }
 
 export function adminCreateUser(values) {
+  console.log('values sent:', values);
+
   return function(dispatch) {
     axios.post(`${ROOT}/admin/user`, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
@@ -44,7 +46,7 @@ export function adminCreateUser(values) {
   }
 }
 
-export function adminUpdateUser(userId, values, callback) {
+export function adminUpdateUser(userId, values) {
   return function(dispatch) {
     axios.put(`${ROOT}/admin/user/${userId}`, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
@@ -52,7 +54,7 @@ export function adminUpdateUser(userId, values, callback) {
       .then(response => {
         dispatch({ type: ADMIN_UPDATE_USER, payload: response.data });
       })
-      .then(() => callback())
+
       .catch((err) => {
         console.log(err);
       });
@@ -79,7 +81,6 @@ export function adminDeleteUser(userId) {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
-        console.log(response.data);
         dispatch({ type: ADMIN_DELETE_USER, payload: response.data });
       })
       .catch((err) => {

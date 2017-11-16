@@ -9,7 +9,10 @@ class FormWrapper extends Component {
       <div className='form-wrapper'>
         <div className='form-wrapper-layer'/>
         <div className='form-wrapper-box'>
-          <FontAwesome onClick={this.props.exit} className='form-wrapper-close' name='times' />
+          <div className='form-wrapper-header'>
+            <h1>{this.props.title}</h1>
+            <FontAwesome onClick={this.props.exit} className='form-wrapper-close' name='times' />
+          </div>
           <div className='form-wrapper-content'>
             {this.props.children}
           </div>

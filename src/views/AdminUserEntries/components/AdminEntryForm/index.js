@@ -6,7 +6,6 @@ import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField'
 import Slider from 'material-ui/Slider';
-import FormButtons from '../../../../components/FormButtons';
 import { adminCreateEntry, adminUpdateEntry, adminFetchUserTile } from '../../../../actions/adminUserActions';
 import './adminEntryForm.css';
 
@@ -201,12 +200,6 @@ class AdminEntryForm extends Component {
               label='Notes'
             />
           </div>
-
-          <FormButtons
-            onSubmitClick={handleSubmit(this.onSubmit.bind(this))}
-            onClearClick={reset}
-            onCloseClick={this.props.closeForm}
-          />
 
         </form>
       </div>

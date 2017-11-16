@@ -6,7 +6,6 @@ import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField'
 import Slider from 'material-ui/Slider';
-import FormButtons from '../../../../components/FormButtons';
 import { createEntry, updateEntry } from '../../../../actions/userActions';
 import './createEntryForm.css';
 
@@ -191,11 +190,11 @@ class CreateEntryForm extends Component {
             />
           </div>
 
-          <FormButtons
+          {/* <FormButtons
             onSubmitClick={handleSubmit(this.onSubmit.bind(this))}
             onClearClick={reset}
             onCloseClick={this.props.closeForm}
-          />
+          /> */}
 
         </form>
       </div>

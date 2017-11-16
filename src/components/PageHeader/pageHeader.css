@@ -106,7 +106,7 @@ a:visited {
           width: 30px;
           height: 35px; } }
   .page-header-links .page-header-link {
-    color: #333;
+    color: white;
     cursor: pointer;
     font-family: "Barlow", sans-serif;
     padding-left: 15px;

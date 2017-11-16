@@ -29,7 +29,7 @@ class CreateRegimenForm extends Component {
 
   render() {
     return (
-      <FormWrapper exit={this.props.exit}>
+      <FormWrapper title='Create a New Regimen' exit={this.props.exit}>
         <div className='create-regimen-form'>
           <form onSubmit={this.handleSubmit}>
             <input
@@ -39,7 +39,7 @@ class CreateRegimenForm extends Component {
               onChange={this.handleChange}
               placeholder='Regimen Name'
             />
-            <SubmitButton class={this.state.value === '' ? 'submit-button' : 'submit-button submit-button-active'} buttonLabel='Create Regimen'/>
+            <SubmitButton class={this.state.value === '' ? 'submit-button' : 'submit-button submit-button-active'} buttonLabel='Submit'/>
           </form>
         </div>
       </FormWrapper>

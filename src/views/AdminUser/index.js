@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 import UserTilesContainer from '../../components/UserTilesContainer';
-import UserInfo from '../../components/UserInfo';
+import UserInfo from './components/UserInfo';
 import UserHeader from '../../components/UserHeader';
 import { adminFetchUser } from '../../actions/adminUserActions';
 import './adminUser.css';
@@ -17,7 +17,7 @@ class AdminUser extends Component {
 
     this.state = {
       userId: this.props.match.params.userId,
-      view: 0
+      view: 'activeUserRegimen'
     }
 
     this.setView = this.setView.bind(this);
@@ -33,15 +33,16 @@ class AdminUser extends Component {
 
   renderHeader() {
     if (this.props.user) {
-      const { firstName, lastName, userRegimens, activeRegimen } = this.props.user;
+      const { firstName, lastName, userRegimens, activeUserRegimen } = this.props.user;
 
       return (
         <UserHeader
+          activeView={this.state.view}
           setView={this.setView}
           firstName={firstName}
           lastName={lastName}
           userRegimens={userRegimens}
-          activeRegimen={activeRegimen}/>
+          activeUserRegimen={activeUserRegimen}/>
       )
     }
   }
@@ -89,9 +90,9 @@ class AdminUser extends Component {
         <div className='admin-user-view'>
           { this.renderHeader() }
           { this.renderView() }
-          <UserTilesContainer
+          {/* <UserTilesContainer
             view={this.state.view}
-          />
+          /> */}
         </div>
       </PageWrapper>
     )

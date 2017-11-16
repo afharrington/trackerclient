@@ -4,22 +4,13 @@ import './userHeader.css';
 
 class UserHeader extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   renderTabs() {
-    const { userRegimens, activeRegimen } = this.props;
-
-    // The active regimen is the first tab
-    let active = userRegimens[activeRegimen];
-    console.log('active', active);
-
+    const { userRegimens, activeUserRegimen, activeView } = this.props;
     // Then render all the other regimens
     return (
       <div className='user-header-tabs'>
-        <UserHeaderTab setView={this.props.setView} view='0' title='Active'/>
-        <UserHeaderTab setView={this.props.setView} view='info' title='Info'/>
+        <UserHeaderTab activeView={activeView} setView={this.props.setView} view='activeUserRegimen' title={activeUserRegimen.userRegimenName}/>
+        <UserHeaderTab activeView={activeView} setView={this.props.setView} view='info' title='Info'/>
       </div>
     )
   }

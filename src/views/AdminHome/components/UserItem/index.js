@@ -10,6 +10,10 @@ import './userItem.css';
 
 class UserItem extends Component {
 
+  componentDidMount() {
+    console.log(this.props.user);
+  }
+
   constructor(props) {
     super(props);
     this.showEditFormWithInitialValues = this.showEditFormWithInitialValues.bind(this);
@@ -32,11 +36,10 @@ class UserItem extends Component {
       <div className='user-item'>
         <div className='user-info'>
           <p className='user-name'>{user.firstName} {user.lastName}</p>
-          <p className='user-regimen'>{user.activeRegimenName ? user.activeRegimenName : ''}</p>
+          <p className='user-regimen'>{user.activeUserRegimen.userRegimenName ? user.activeUserRegimen.userRegimenName : ''}</p>
         </div>
         <div className='user-item-icons'>
           <Link to={`/admin/user/${user._id}`}><FontAwesome name='th' /></Link>
-          <FontAwesome name='cog' />
         </div>
       </div>
       )

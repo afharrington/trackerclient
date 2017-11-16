@@ -5,7 +5,6 @@ import FontAwesome from 'react-fontawesome';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import FormButtons from '../../../../components/FormButtons';
 import FormWrapper from '../../../../components/FormWrapper';
 import { createTile, updateTile } from '../../../../actions/adminRegimenActions';
 import './createTileForm.css';

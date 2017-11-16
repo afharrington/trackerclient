@@ -18,7 +18,7 @@ export default function(state = {}, action) {
     case ADMIN_FETCH_USERS:
       return _.mapKeys(action.payload, '_id');
     case ADMIN_UPDATE_USER:
-      return {...state, [action.payload._id]: action.payload };
+      return {...state, user: action.payload };
     case ADMIN_DELETE_USER:
       return _.omit(state, action.payload);
     case ADMIN_FETCH_USER_REGIMENS:

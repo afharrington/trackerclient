@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
 import './cautionModal.css';
 
 class CautionModal extends Component {
@@ -7,25 +8,21 @@ class CautionModal extends Component {
     window.scrollTo(0, 0);
   }
 
-  cancel() {
-    this.props.closeModal();
-  }
-
-  delete() {
-    this.props.deleteFunction();
-    this.props.closeModal();
-  }
-
   render() {
     return (
       <div className='caution-modal'>
-        <div className='caution-modal-container'>
-          <p>Are you sure you want to delete this {this.props.itemToDelete}? This action is not recommended!</p>
-          <p className='warning'>Once deleted, this {this.props.itemToDelete} cannot be recovered.</p>
-          <p>{this.props.additionalMessage}</p>
-          <div className='caution-modal-button-container'>
-            <button className='delete-button' onClick={this.delete.bind(this)}>I understand, OK to Delete</button>
-            <button className='cancel-button'onClick={this.cancel.bind(this)}>Cancel</button>
+        <div className='caution-modal-layer'/>
+        <div className='caution-modal-box'>
+          <div className='caution-modal-header'>
+            <h1>{this.props.title}</h1>
+            <FontAwesome onClick={this.props.cancel} className='caution-modal-close' name='times' />
+          </div>
+          <div className='caution-modal-content'>
+            <div>{this.props.message}</div>
+            <div className='caution-modal-buttons'>
+              <button className='caution-modal-submit' onClick={this.props.submit}>Delete</button>
+              <button className='caution-modal-cancel' onClick={this.props.cancel}>Cancel</button>
+            </div>
           </div>
         </div>
       </div>
