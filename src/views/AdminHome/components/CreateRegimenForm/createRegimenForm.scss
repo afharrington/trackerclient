@@ -1,16 +1,24 @@
 @import '../../../../styles/styles.scss';
 
 .create-regimen-form {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  label {
+    line-height: 40px;
+    height: 40px;
+    font-family: $main-font;
+    margin-right: 10px;
+  }
 }
 
 .create-regimen-form-field {
-  width: 80%;
-  height: 20px;
+  width: 50%;
   border: 1px solid $light-gray;
   border-radius: 5px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 14px;
+  font-family: $main-font;
 }
 
 .create-regimen-button-active {
@@ -32,6 +40,11 @@
     width: 80%;
     margin-left: 10%;
   }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }
 
 .create-regimen-button {

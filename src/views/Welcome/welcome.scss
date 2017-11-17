@@ -13,10 +13,12 @@
 
 .welcome-main-user {
   background-color: $dark-gray;
+  font-family: $main-font;
 }
 
 .welcome-main-admin {
   background-color: $brand-color-blue;
+  font-family: $main-font;
 }
 
 .welcome-logo {
@@ -164,6 +166,7 @@
   font-family: $main-font;
   color: white;
   transition: all 0.3s ease;
+  margin-top: 25px;
 }
 
 .welcome-just-joined:hover {

@@ -90,10 +90,12 @@ a:visited {
   height: 100%; }
 
 .welcome-main-user {
-  background-color: #333; }
+  background-color: #333;
+  font-family: "Barlow", sans-serif; }
 
 .welcome-main-admin {
-  background-color: #185d7e; }
+  background-color: #185d7e;
+  font-family: "Barlow", sans-serif; }
 
 .welcome-logo {
   cursor: pointer;
@@ -204,7 +206,8 @@ a:visited {
   text-align: center;
   font-family: "Barlow", sans-serif;
   color: white;
-  transition: all 0.3s ease; }
+  transition: all 0.3s ease;
+  margin-top: 25px; }
 
 .welcome-just-joined:hover {
   color: #00c7a9; }

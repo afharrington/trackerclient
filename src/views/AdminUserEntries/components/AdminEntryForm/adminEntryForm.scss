@@ -112,16 +112,18 @@
     text-align: center;
     color: white;
     border: none;
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 3px;
     margin: 5px;
   }
 
   .submit {
+    font-family: $main-font;
     background-color: $brand-color-green;
   }
 
   .clear {
+    font-family: $main-font;
     background-color: $med-gray;
   }
 

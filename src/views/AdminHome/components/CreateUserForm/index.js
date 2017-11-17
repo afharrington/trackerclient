@@ -19,7 +19,6 @@ class CreateUserForm extends Component {
   }
 
   onSubmit(values) {
-    console.log('Values');
     this.props.adminCreateUser(values);
     this.props.exit();
   }

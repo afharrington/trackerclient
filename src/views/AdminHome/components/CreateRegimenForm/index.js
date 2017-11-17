@@ -30,18 +30,20 @@ class CreateRegimenForm extends Component {
   render() {
     return (
       <FormWrapper title='Create a New Regimen' exit={this.props.exit}>
-        <div className='create-regimen-form'>
-          <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
+          <div className='create-regimen-form'>
+            <label>Name:</label>
             <input
               type='text'
               className='create-regimen-form-field'
               value={this.state.value}
               onChange={this.handleChange}
-              placeholder='Regimen Name'
             />
+          </div>
+          <div className='button-container'>
             <SubmitButton class={this.state.value === '' ? 'submit-button' : 'submit-button submit-button-active'} buttonLabel='Submit'/>
-          </form>
-        </div>
+          </div>
+        </form>
       </FormWrapper>
     )
   }

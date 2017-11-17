@@ -81,15 +81,21 @@ a:visited {
   margin-bottom: 10px; }
 
 .create-regimen-form {
-  text-align: center; }
+  display: flex;
+  justify-content: center; }
+  .create-regimen-form label {
+    line-height: 40px;
+    height: 40px;
+    font-family: "Barlow", sans-serif;
+    margin-right: 10px; }
 
 .create-regimen-form-field {
-  width: 80%;
-  height: 20px;
+  width: 50%;
   border: 1px solid #d6d6d6;
   border-radius: 5px;
   padding: 10px;
-  font-size: 16px; }
+  font-size: 14px;
+  font-family: "Barlow", sans-serif; }
 
 .create-regimen-button-active {
   display: block;
@@ -109,6 +115,10 @@ a:visited {
     .create-regimen-button-active {
       width: 80%;
       margin-left: 10%; } }
+
+.button-container {
+  display: flex;
+  justify-content: center; }
 
 .create-regimen-button {
   cursor: not-allowed;
