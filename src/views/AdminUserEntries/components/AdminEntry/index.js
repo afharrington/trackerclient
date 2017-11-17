@@ -22,7 +22,6 @@ class AdminEntry extends Component {
   }
 
   deleteEntry() {
-    console.log(this.props.entry);
     this.props.adminDeleteEntry(this.props.userId, this.props.regId, this.props.tileId, this.props.cycleId, this.props.entry._id);
   }
 
@@ -46,6 +45,7 @@ class AdminEntry extends Component {
         </div>
         <div>
           <IconMenu
+            menuItemStyle={{ fontFamily: 'Barlow', textTransform: 'uppercase', fontSize: '12px' }}
             className='entry-menu-icon'
             iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
             anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}

@@ -80,22 +80,23 @@ a:visited {
   font-size: 18px;
   margin-bottom: 10px; }
 
-.entries-header {
-  font-family: "Barlow", sans-serif;
-  margin-top: 15px;
-  margin-left: 5%;
-  margin-right: 5%;
-  color: #333; }
-  .entries-header .entries-header-user {
-    font-size: 34px;
-    font-weight: bold;
-    text-transform: uppercase; }
-    .entries-header .entries-header-user .fa {
-      font-size: 28px;
-      margin-left: 15px;
-      margin-right: 15px;
-      color: #333; }
-  .entries-header .entries-header-regimen {
-    text-transform: capitalize;
-    margin-bottom: 10px;
-    color: #333; }
+.admin-user-entries {
+  margin-top: 100px; }
+
+.admin-user-entries-button-container {
+  text-align: center; }
+  .admin-user-entries-button-container button {
+    cursor: pointer;
+    padding-right: 10px;
+    padding-left: 10px;
+    background: none;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: "Barlow", sans-serif;
+    line-height: 18px;
+    text-transform: uppercase;
+    transition: all 0.5s ease; }
+  .admin-user-entries-button-container button:hover {
+    color: #00c7a9;
+    border: 1px solid #00c7a9; }

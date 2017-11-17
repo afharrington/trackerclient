@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FontAwesome from 'react-fontawesome';
 import './userHeaderTab.css';
 
 class UserHeaderTab extends Component {
@@ -6,28 +7,33 @@ class UserHeaderTab extends Component {
   constructor(props) {
     super(props);
 
+    this.setVisibleUserRegimen = this.setVisibleUserRegimen.bind(this);
   }
 
-  componentDidMount() {
-  //  this.props.setView(this.props.index);
-    console.log(this.props.activeView);
+  setVisibleUserRegimen() {
+    this.props.setVisibleUserRegimen(this.props.view);
   }
 
-  setView() {
-    this.props.setView(this.props.view);
+  renderLabel() {
+    if (this.props.title === 'Info') {
+      return <FontAwesome name='cog' />
+    } else {
+      return this.props.title;
+    }
   }
 
   render() {
     let className;
-    if (this.props.activeView == this.props.view) {
-
+    if (this.props.visibleUserRegimen == this.props.view) {
       className = 'user-header-tab active'
     } else {
       className = 'user-header-tab'
     }
 
     return (
-      <div onClick={this.setView.bind(this)} className={className}>{this.props.title}</div>
+      <div onClick={this.setVisibleUserRegimen} className={className}>
+        {this.renderLabel()}
+      </div>
     )
   }
 }

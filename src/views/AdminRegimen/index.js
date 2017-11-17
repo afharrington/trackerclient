@@ -22,26 +22,6 @@ class AdminRegimen extends Component {
     this.props.fetchRegimen(this.state.regimenId);
   }
 
-  // componentWillReceiveProps() {
-  //   this.props.fetchRegimen(this.state.regimenId);
-  // }
-
-  renderInstructions() {
-    function isEmpty(obj) {
-      for (let key in obj) {
-        if(obj.hasOwnProperty(key))
-          return false;
-      }
-      return true;
-    }
-
-    if (isEmpty(this.props.regimen.tiles) ) {
-      return (
-        <div className='admin-regimen-instructions'>
-        </div>
-      )
-    }
-  }
 
   // Toggles form for a New Tile
   toggleNewForm() {

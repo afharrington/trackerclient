@@ -3,40 +3,44 @@ import { connect } from 'react-redux';
 import UserTile from '../UserTile';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
+import { adminFetchUserRegimen } from '../../actions/adminUserActions';
 import './userTilesContainer.css';
 
 class UserTilesContainer extends Component {
 
-  componentDidMount() {
+  renderTiles() {
+    let userRegimen = this.props.userRegimen;
+    let user = this.props.user;
+    let tiles = userRegimen.userTiles;
 
-  }
-
-  renderTiles(user) {
-    console.log('user', user);
-    // const { userRegimens } = user;
-    //
-    // _.map(tiles, tile => {
-    //   return (
-    //     <Link key={tile._id} to={`/admin/user/${userId}/reg/${regimenId}/tile/${tile._id}`}>
-    //       <UserTile tile={tile} />
-    //     </Link>
-    //   )
-    // });
+    if (tiles) {
+      return tiles.map(tile => {
+        return (
+          <UserTile
+            key={tile._id}
+            setVisibleTile={this.props.setVisibleTile}
+            tile={tile} />
+        )
+      });
+    }
   }
 
   render() {
-    return (
-      <div className='user-tiles-container'>
-        { this.props.user &&
-          this.renderTiles(this.props.user)
-        }
-      </div>
-    )
+    if (this.props.userRegimen) {
+      return (
+        <div className='user-tiles-container'>
+          { this.renderTiles() }
+        </div>
+      )
+    } else {
+      return <div></div>
+    }
+
   }
 };
 
 function mapStateToProps(state) {
-  return { user: state.adminUsers.user};
+  return { user: state.adminUsers.user };
 }
 
 export default connect(mapStateToProps)(UserTilesContainer);

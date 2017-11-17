@@ -29,19 +29,10 @@ import UserEntries from './views/UserEntries';
 import './styles/styles.css';
 
 const muiTheme = getMuiTheme({
-    textField: {
-      textColor: '#333', // dark gray
-      hintColor: '#959595', // med-gray
-      floatingLabelColor: '#959595', // light-gray
-      disabledTextColor: '#00c7a9',
-      errorColor: '#8b0000',
-      focusColor: '#333',
-      backgroundColor: 'transparent',
-      borderColor: '#959595',
-    },
     datePicker: {
       headerColor: '#00c7a9',
-      selectColor: '#00c7a9'
+      selectColor: '#00c7a9',
+      underlineStyle: 'none'
     },
     flatButton: {
       buttonFilterColor: '#999999',

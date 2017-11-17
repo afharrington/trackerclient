@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import PageWrapper from '../../components/PageWrapper';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
-
 import UserTilesContainer from '../../components/UserTilesContainer';
-import UserInfo from './components/UserInfo';
+import AdminUserEntries from '../AdminUserEntries';
+import UserInfo from './subviews/UserInfo';
 import UserHeader from '../../components/UserHeader';
-import { adminFetchUser } from '../../actions/adminUserActions';
+import { adminFetchUser, adminFetchUserRegimen } from '../../actions/adminUserActions';
 import './adminUser.css';
 
 // Shows all tiles for a single user
@@ -17,18 +17,28 @@ class AdminUser extends Component {
 
     this.state = {
       userId: this.props.match.params.userId,
-      view: 'activeUserRegimen'
+      visibleUserRegimen: null,
+      viewType: 'userRegimen', // switch between userRegimen and userTile
+      visibleTile: null, // will have an id value if viewType is entries
     }
 
-    this.setView = this.setView.bind(this);
+    this.setVisibleUserRegimen = this.setVisibleUserRegimen.bind(this);
+    this.setVisibleTile = this.setVisibleTile.bind(this);
+  }
+
+  setVisibleUserRegimen(regimenId) {
+    this.setState({ visibleUserRegimen: regimenId });
+    this.props.adminFetchUserRegimen(this.props.user._id, regimenId);
+    this.setState({ viewType: 'userRegimen' })
   }
 
   componentDidMount() {
     this.props.adminFetchUser(this.state.userId);
   }
 
-  setView(selection) {
-    this.setState({ view: selection});
+  setVisibleTile(tile) {
+    this.setState({ visibleTile: tile });
+    this.setState({ viewType: 'userTile' });
   }
 
   renderHeader() {
@@ -37,8 +47,9 @@ class AdminUser extends Component {
 
       return (
         <UserHeader
-          activeView={this.state.view}
-          setView={this.setView}
+          visibleUserRegimen={this.state.visibleUserRegimen ||
+            activeUserRegimen._id }
+          setVisibleUserRegimen={this.setVisibleUserRegimen}
           firstName={firstName}
           lastName={lastName}
           userRegimens={userRegimens}
@@ -48,60 +59,53 @@ class AdminUser extends Component {
   }
 
   renderView() {
-    if (this.state.view == 'info') {
-      console.log('info!');
+    if (this.state.visibleUserRegimen === 'info') {
       return <UserInfo />
-    }
 
+    } else if (this.state.viewType === 'userRegimen') {
+      return (
+        <UserTilesContainer
+          setVisibleTile={this.setVisibleTile}
+          userRegimen={this.props.userRegimen || this.props.user.activeUserRegimen} />
+      )
+
+    } else if (this.state.viewType === 'userTile') {
+
+      return (
+        <AdminUserEntries
+          user={this.props.user}
+          userId={this.props.user._id}
+          tileId={this.state.visibleTile}
+          regId={this.props.userRegimen ?
+          this.props.userRegimen._id : this.props.user.activeUserRegimen._id}
+        />
+      )
+    }
   }
 
-  // renderTiles() {
-  //   if (this.props.user) {
-  //     const { userRegimens, activeRegimen } = this.props.user;
-  //     let regimen = userRegimens[activeRegimen];
-  //     let userTiles = _.mapKeys(regimen.userTiles, '_id');
-  //
-  //     if (userTiles) {
-  //       return <UserTilesContainer
-  //         tiles={userTiles}
-  //         regimenId={regimen._id}
-  //         userId={this.state.userId}
-  //       />
-  //       // return _.map(userTiles, tile => {
-  //       //   return (
-  //       //     <Link key={tile._id} to={`/admin/user/${this.state.userId}/reg/${regimen._id}/tile/${tile._id}`}>
-  //       //       <UserTile tile={tile} />
-  //       //     </Link>
-  //       //   )
-  //       // });
-  //     }
-  //   }
-  // }
-
   render() {
-    // if (this.props.user) {
-    //   const { userRegimens, activeRegimen } = this.props.user;
-    //   let regimen = userRegimens[activeRegimen];
-    //   let userTiles = _.mapKeys(regimen.userTiles, '_id');
-    // }
+    if (this.props.user) {
+      return (
+        <PageWrapper>
+          <div className='admin-user-view'>
+            { this.renderHeader() }
+            { this.renderView() }
+          </div>
+        </PageWrapper>
+      )
+    } else {
+      return <div></div>
+    }
 
-    return (
-      <PageWrapper>
-        <div className='admin-user-view'>
-          { this.renderHeader() }
-          { this.renderView() }
-          {/* <UserTilesContainer
-            view={this.state.view}
-          /> */}
-        </div>
-      </PageWrapper>
-    )
   }
 }
 
 
 function mapStateToProps(state) {
-  return { user: state.adminUsers.user};
+  return {
+    user: state.adminUsers.user,
+    userRegimen: state.adminUsers.userRegimen
+  };
 }
 
-export default connect(mapStateToProps, { adminFetchUser })(AdminUser);
+export default connect(mapStateToProps, { adminFetchUser, adminFetchUserRegimen })(AdminUser);

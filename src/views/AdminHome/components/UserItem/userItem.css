@@ -92,8 +92,10 @@ a:visited {
   transition: box-shadow .3s ease;
   border-bottom: 1px solid #d6d6d6; }
   .user-item p {
-    color: #333;
+    font-family: "Barlow", sans-serif;
     text-transform: capitalize;
+    font-size: 14px;
+    line-height: 50px;
     margin-left: 10px; }
 
 .user-info {

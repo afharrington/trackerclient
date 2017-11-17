@@ -13,8 +13,10 @@
   border-bottom: 1px solid $light-gray;
 
   p {
-    color: $dark-gray;
+    font-family: $main-font;
     text-transform: capitalize;
+    font-size: 14px;
+    line-height: 50px;
     margin-left: 10px;
   }
 }

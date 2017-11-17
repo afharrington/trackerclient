@@ -3,8 +3,9 @@ import FontAwesome from 'react-fontawesome';
 import Moment from 'react-moment';
 import Divider from 'material-ui/Divider';
 import AdminEntry from '../AdminEntry';
+import { Line } from 'rc-progress';
 
-import './userCycle.css';
+import './adminUserCycle.css';
 
 class AdminUserCycle extends Component {
 
@@ -75,14 +76,18 @@ class AdminUserCycle extends Component {
     let hours = Math.floor(this.props.cycle.cycleTotalMinutes / 60);
     let minutes = this.props.cycle.cycleTotalMinutes % 60;
     return (
-      <div className='user-cycle'>
-        <div className={cycleHeaderClassName}>
-          <div className='cycle-dates'>
-            <Moment format='M/DD' date={this.props.cycle.cycleStartDate}/> -
-            <Moment format='M/DD' date={this.props.cycle.cycleEndDate}/>
+      <div className='admin-user-cycle'>
+        <div className='admin-user-cycle-header'>
+          <Line className='user-cycle-progress' percent={this.props.cycle.cyclePercent.toString()} strokeWidth='1' strokeColor="#00c7a9" trailWidth="1" strokeLinecap="square" trailColor="#333"/>
+
+          <div className='admin-user-cycle-header-text'>
+            <div className='admin-user-cycle-dates'>
+              <Moment format='M/DD' date={this.props.cycle.cycleStartDate}/> -
+              <Moment format='M/DD' date={this.props.cycle.cycleEndDate}/>
+            </div>
+            <div className='admin-user-cycle-minutes'>{hours} hr {minutes} min</div>
+            <div className='cycle-expand-icon'>{this.state.expanded ? <FontAwesome onClick={this.toggleEntries.bind(this)} name='chevron-down'/> : <FontAwesome onClick={this.toggleEntries.bind(this)} name='chevron-right'/> }</div>
           </div>
-          <div className='cycle-total-minutes'>{hours} hr {minutes} min  <span>|</span>  {this.props.cycle.cyclePercent}% to goal</div>
-          <div className='cycle-expand-icon'>{this.state.expanded ? <FontAwesome onClick={this.toggleEntries.bind(this)} name='chevron-down'/> : <FontAwesome onClick={this.toggleEntries.bind(this)} name='chevron-right'/> }</div>
         </div>
 
         <div className='cycle-entries-container'>

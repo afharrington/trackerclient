@@ -10,10 +10,6 @@ import './userItem.css';
 
 class UserItem extends Component {
 
-  componentDidMount() {
-    console.log(this.props.user);
-  }
-
   constructor(props) {
     super(props);
     this.showEditFormWithInitialValues = this.showEditFormWithInitialValues.bind(this);
@@ -30,19 +26,21 @@ class UserItem extends Component {
   }
 
   render() {
-    let user = this.props.user;
-
-    return (
-      <div className='user-item'>
-        <div className='user-info'>
+    if (this.props.user) {
+      let user = this.props.user;
+      return (
+        <div className='user-item'>
           <p className='user-name'>{user.firstName} {user.lastName}</p>
-          <p className='user-regimen'>{user.activeUserRegimen.userRegimenName ? user.activeUserRegimen.userRegimenName : ''}</p>
+          <div className='user-item-icons'>
+            <Link to={`/admin/user/${user._id}`}><FontAwesome name='th' /></Link>
+          </div>
         </div>
-        <div className='user-item-icons'>
-          <Link to={`/admin/user/${user._id}`}><FontAwesome name='th' /></Link>
-        </div>
-      </div>
-      )
+        )
+    } else {
+      return <div></div>
+    }
+
+
     }
   };
 

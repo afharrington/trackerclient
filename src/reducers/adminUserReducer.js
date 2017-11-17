@@ -2,6 +2,7 @@ import _ from 'lodash';
 import { ADMIN_FETCH_USER,
   ADMIN_UPDATE_USER,
   ADMIN_DELETE_USER,
+  ADMIN_FETCH_USER_REGIMEN,
   ADMIN_FETCH_USER_REGIMENS,
   ADMIN_FETCH_USER_TILE,
   ADMIN_FETCH_USERS,
@@ -21,6 +22,8 @@ export default function(state = {}, action) {
       return {...state, user: action.payload };
     case ADMIN_DELETE_USER:
       return _.omit(state, action.payload);
+    case ADMIN_FETCH_USER_REGIMEN:
+      return {...state, userRegimen: action.payload };
     case ADMIN_FETCH_USER_REGIMENS:
       return {...state, userRegimens: action.payload };
     case ADMIN_FETCH_USER_TILE: // this.props.adminUsers.tile

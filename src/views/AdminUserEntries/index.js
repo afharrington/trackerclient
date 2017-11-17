@@ -21,15 +21,14 @@ class AdminUserEntries extends Component {
       showEditForm: false,
       entry: {},
       cycleId: '',
-      userId: this.props.match.params.userId,
-      regId: this.props.match.params.regId,
-      tileId: this.props.match.params.tileId
+      userId: this.props.userId,
+      regId: this.props.regId,
+      tileId: this.props.tileId
     }
   }
 
   componentDidMount() {
-    this.props.adminFetchUserTile(this.props.match.params.userId, this.props.match.params.tileId);
-    this.props.adminFetchUser(this.props.match.params.userId);
+     this.props.adminFetchUserTile(this.props.userId, this.props.regId, this.props.tileId);
   }
 
   toggleNewForm() {
@@ -80,31 +79,14 @@ class AdminUserEntries extends Component {
     }
   }
 
-  renderHeader() {
-    let tile = this.props.tile;
-    let user = this.props.user;
-    if (tile && user) {
-      return (
-        <div className='entries-header'>
-          <p className='entries-header-user'><Link to={`/admin/user/${this.props.user._id}`}>{this.props.user.firstName} {this.props.user.lastName}</Link><FontAwesome name='chevron-right'/><span>{tile.userTileName}</span>
-          </p>
-          <p className='entries-header-regimen'>{user.regimens[user.activeRegimen].regimenName}</p>
-        </div>
-      )
-    } else {
-      return <div></div>
-    }
-  }
-
   render() {
     return (
-      <div className='user-entries'>
-        { this.renderHeader() }
-        <div className='new-entry-button'>
-          <NewButton onClick={this.toggleNewForm.bind(this)} text='new entry'/>
+      <div className='admin-user-entries'>
+        <div className='admin-user-entries-button-container'>
+          <button onClick={this.toggleNewForm.bind(this)}>Add Entry</button>
         </div>
-        <div className='user-entries-container'>
 
+        <div className='user-entries-container'>
         { this.state.showNewForm ?
           <AdminEntryForm
             toggleNewForm={this.toggleNewForm.bind(this)}
@@ -134,7 +116,9 @@ class AdminUserEntries extends Component {
 };
 
 function mapStateToProps(state) {
-  return { user: state.adminUsers.user, tile: state.adminUsers.tile };
+  return {
+    user: state.adminUsers.user,
+    tile: state.adminUsers.tile };
 }
 
 export default connect(mapStateToProps, { adminFetchUserTile, adminFetchUser } )(AdminUserEntries);

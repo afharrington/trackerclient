@@ -6,6 +6,16 @@ import './userTile.css';
 
 class UserTile extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.setVisibleTile = this.setVisibleTile.bind(this);
+  }
+
+  setVisibleTile() {
+    this.props.setVisibleTile(this.props.tile._id);
+  }
+
   renderTime() {
     let totalMinutes = 0;
     if (this.props.tile.cycles.length !== 0)  {
@@ -66,7 +76,7 @@ class UserTile extends Component {
 
     return (
 
-      <div className='user-tile'>
+      <div className='user-tile' onClick={this.setVisibleTile}>
         <Line className='progress' percent={percent} strokeWidth="10" strokeColor="#00c7a9" trailWidth="10" strokeLinecap="square" trailColor="#333"/>
 
         <div className='user-tile-title'>

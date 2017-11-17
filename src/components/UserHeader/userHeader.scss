@@ -4,8 +4,8 @@
   z-index: 0;
   position: absolute;
   top: 0%;
-  height: 125px;
-  background-color: $accent-blue;
+  height: 150px;
+  background-color: $dark-gray;
   width: 100%;
 }
 
@@ -15,7 +15,7 @@
   font-family: $main-font;
   color: white;
   font-size: 14px;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .user-header-tabs {

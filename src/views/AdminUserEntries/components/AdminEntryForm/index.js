@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux';
 import DatePicker from 'material-ui/DatePicker';
+import AdminEntryDateField from './AdminEntryDateField';
+import AdminEntryActivitiesList from './AdminEntryActivitiesList';
+import AdminEntryTimeField from './AdminEntryTimeField';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField'
 import Slider from 'material-ui/Slider';
+import FormWrapper from '../../../../components/FormWrapper';
 import { adminCreateEntry, adminUpdateEntry, adminFetchUserTile } from '../../../../actions/adminUserActions';
 import './adminEntryForm.css';
-
-const customStyles = {
-  underlineStyle: {
-    borderColor: '#00c7a9'
-  }
-}
 
 // styles from UserEntries/components/CreateEntryForm/createEntryForm.scss
 class AdminEntryForm extends Component {
@@ -47,98 +45,19 @@ class AdminEntryForm extends Component {
     this.props.initialize(this.state.initialData);
   }
 
-  renderActivityItems() {
-    let activityOptions;
-    if (this.props.tile) {
-      activityOptions = this.props.tile.activityOptions;
-      return (
-        activityOptions.sort().map((activity) => {
-          return <MenuItem className='entry-activity-item' key={activity} value={activity} primaryText={activity}/>
-        })
-      )
-    }
-  }
-
-  renderTextField({input, label, meta: {touched, error}, ...custom}) {
+  renderNotesField({input, label, meta: {touched, error}, ...custom}) {
     return (
       <TextField
         className='entry-text-field'
         hintText={label}
         floatingLabelText={label}
+        floatingLabelStyle={{ color: '#00c7a9', fontFamily: 'Barlow' }}
+        underlineFocusStyle={{ borderColor: '#00c7a9'}}
+        inputStyle={{ fontFamily: 'Barlow' }}
         errorText={touched && error}
         {...input}
         {...custom}
-        underlineFocusStyle={customStyles.underlineStyle}
-      />
-    )
-  }
 
-  // shouldDisableDate={(date) => {return date > new Date()}}
-  // Disables dates after today
-  renderDatePicker({input, label, meta: {touched, error}, ...custom}) {
-    return (
-      <DatePicker
-        {...custom}
-        underlineStyle={{display: 'none'}}
-        className='entry-date-field'
-        hintText={label}
-        onChange={(e, val) => {return input.onChange(val)}}
-        shouldDisableDate={(date) => {return date > new Date()}}
-        value={input.value ? input.value : new Date()}
-        />
-    )
-  }
-
-  renderMinutesSlider({input, label, meta: {touched, error}, ...custom}) {
-    return (
-      <div className='minute-slider'>
-        <Slider
-          defaultValue={0}
-          className='slider'
-          step={15}
-          min={0}
-          max={60}
-          onChange={(e, val) => {return input.onChange(val)}}
-          value={input.value ? input.value : 0}
-        />
-        <p>{input.value} MIN</p>
-      </div>
-    )
-  }
-
-  renderHoursSlider({input, label, meta: {touched, error}, ...custom}) {
-    return (
-      <div className='hour-slider'>
-        <Slider
-          defaultValue={0}
-          className='slider'
-          step={1}
-          min={0}
-          max={10}
-          onChange={(e, val) => {return input.onChange(val)}}
-          value={input.value ? input.value : 0}
-        />
-        <p>{input.value} HR</p>
-      </div>
-    )
-  }
-
-  renderSelectField({ input,
-                      label,
-                      meta: {touched, error},
-                      children,
-                      ...custom }) {
-    return (
-      <SelectField
-        underlineStyle={{display: 'none'}}
-        className='entry-select-field'
-        errorText={touched && error}
-        hintText={label}
-        {...input}
-        onChange={(event, index, value) => input.onChange(value)}
-        children={children}
-        {...custom}
-        underlineFocusStyle={customStyles.underlineStyle}
       />
     )
   }
@@ -176,33 +95,39 @@ class AdminEntryForm extends Component {
 
 
   render() {
-    const { handleSubmit, reset } = this.props;
+    const { handleSubmit, reset, pristine, submitting } = this.props;
 
     return (
-      <div className='create-entry-container'>
-        <form className='create-entry-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <div className='create-entry-date-activity'>
-            <Field name='entryDate' component={this.renderDatePicker} label='Date' />
-            <Field name='activity' style={{ width: 258 }} component={this.renderSelectField} label='Activity'>
-              {this.renderActivityItems()}
-            </Field>
+      <FormWrapper title='Add an entry' exit={this.props.closeForm}>
+        <form className='admin-entry-form' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+
+          <AdminEntryDateField/>
+          <AdminEntryActivitiesList tile={this.props.tile}/>
+
+          <div className='admin-entry-time'>
+            <AdminEntryTimeField
+              name='hours'
+              label='hours'
+              options={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}/>
+            <AdminEntryTimeField
+              name='minutes'
+              label='minutes'
+              options={[0, 15, 30, 45]}/>
           </div>
 
-          <div className='create-entry-sliders'>
-            <Field name='hours' component={this.renderHoursSlider}/>
-            <Field name='minutes' component={this.renderMinutesSlider}/>
-          </div>
-
-          <div className='create-entry-notes'>
+          <div className='admin-entry-notes'>
             <Field
               name='notes'
-              component={this.renderTextField}
+              component={this.renderNotesField}
               label='Notes'
             />
           </div>
-
+          <div className='admin-entry-buttons'>
+            <button type='submit' disabled={pristine || submitting} className='submit'>Save</button>
+            <button type='button' disabled={pristine || submitting} onClick={reset} className='clear'>Clear</button>
+          </div>
         </form>
-      </div>
+      </FormWrapper>
     )
   }
 };
@@ -213,22 +138,12 @@ function validate(values) {
   //   'hours', 'minutes', 'entryDate'
   // ]
 
-  const numericFields = [
-    'hours', 'minutes'
-  ]
 
   // requiredFields.forEach(field => {
   //   if (!values[field]) {
   //     errors[field] = 'Required'
   //   }
   // });
-
-
-  numericFields.forEach(field => {
-    if (isNaN(Number(values[field]))) {
-      errors[field] = 'Must be a number'
-    }
-  });
 
   return errors;
 }

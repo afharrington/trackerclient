@@ -96,7 +96,7 @@ class CreateTileForm extends Component {
     const { handleSubmit, reset, submitting, pristine } = this.props;
 
     return (
-      <FormWrapper exit={this.props.exit}>
+      <FormWrapper title='Create a tile' exit={this.props.exit}>
         <div className='create-tile-form'>
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 

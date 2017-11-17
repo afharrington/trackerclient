@@ -1,33 +1,40 @@
 @import '../../../../styles/styles.scss';
 
-.user-cycle {
+.admin-user-cycle {
   width: 90%;
   margin-left: 5%;
   box-shadow: $small-shadow;
   border-radius: 3px;
   margin-bottom: 10px;
-
-
 }
 
-.user-cycle-header {
+.admin-user-cycle-header {
   position: relative;
   color: $white;
+  height: 25px;
   font-size: 14px;
-  padding: 10px;
   text-transform: uppercase;
   font-family: $main-font;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 
+.user-cycle-progress {
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  height: 28px;
+}
+
 .cycle-header-labels {
+  margin-top: 10px;
+  z-index: 1;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 2fr 0.25fr;
 
   p {
-    color: $dark-gray;
+    color: $med-gray;
     font-family: $main-font;
     text-transform: uppercase;
     font-weight: bold;
@@ -44,15 +51,19 @@
   width: 48px;
 }
 
-.cycle-dates {
+.admin-user-cycle-dates {
+  position: absolute;
   display: inline-block;
   width: 200px;
+  z-index: 1;
+  padding: 5px;
 }
 
-.cycle-total-minutes {
+.admin-user-cycle-minutes {
   position: absolute;
-  right: 10%;
+  right: 5%;
   display: inline-block;
+  padding: 5px;
 
   span {
     margin: 0px 8px;
