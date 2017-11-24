@@ -29,6 +29,7 @@
   background-color: #32A83A; }
 
 html, body {
+  font-family: "Barlow", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #e3e2e2;
@@ -129,10 +130,7 @@ a:visited {
     margin-left: 20px;
     display: inline-block;
     color: #fff;
-    font-size: 16px;
-    transition: all 0.3s ease; }
-  .welcome-admin p:hover {
-    color: #00c7a9; }
+    font-size: 16px; }
 
 .welcome-header-message {
   color: #fff;
@@ -171,10 +169,7 @@ a:visited {
   top: 15%;
   text-align: center; }
   .signup-header-message a {
-    color: #fff;
-    transition: all 0.3s ease; }
-  .signup-header-message a:hover {
-    color: #00c7a9; }
+    color: #fff; }
   .signup-header-message p {
     margin-top: 10px; }
   .signup-header-message span {
@@ -206,8 +201,4 @@ a:visited {
   text-align: center;
   font-family: "Barlow", sans-serif;
   color: white;
-  transition: all 0.3s ease;
   margin-top: 25px; }
-
-.welcome-just-joined:hover {
-  color: #00c7a9; }

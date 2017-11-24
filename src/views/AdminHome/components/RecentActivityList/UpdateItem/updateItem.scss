@@ -1,7 +1,6 @@
 @import '../../../../../styles/styles.scss';
 
 .update-item {
-  height: 60px;
   font-weight: bold;
   border-bottom: 1px solid $light-gray;
   color: $dark-gray;
@@ -17,17 +16,18 @@
 
 .update-item-name {
   font-size: 14px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: bold;
-  color: $brand-color-orange;
+  color: $brand-color-green;
   margin-right: 5px;
 }
 
 .update-item-minutes {
   font-weight: bold;
-  color: $brand-color-orange;
+  color: $brand-color-green;
   margin-left: 5px;
   margin-right: 5px;
+  font-size: 14px;
 }
 
 .update-item-tile {
@@ -35,12 +35,13 @@
   font-size: 14px;
   text-transform: uppercase;
   font-weight: bold;
-  color: $brand-color-orange;
+  color: $brand-color-green;
 }
 
 .update-item-date {
   p {
     margin-top: 5px;
     font-size: 12px;
+    padding-bottom: 10px;
   }
 }

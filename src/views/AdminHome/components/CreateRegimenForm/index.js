@@ -32,7 +32,7 @@ class CreateRegimenForm extends Component {
       <FormWrapper title='Create a New Program' exit={this.props.exit}>
         <form onSubmit={this.handleSubmit}>
           <div className='create-regimen-form'>
-            <label>Program:</label>
+            <label>Program Name:</label>
             <input
               type='text'
               className='create-regimen-form-field'

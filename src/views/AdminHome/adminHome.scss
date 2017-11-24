@@ -4,31 +4,20 @@
   height: 100%;
   width: 100%;
   padding: 20px;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "regimens activity"
-    "players activity"
-    "players activity";
-
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "regimens"
-      "players"
-      "activity";
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.regimens-card {
-  grid-area: regimens;
+.regimens-card, .players-card, .activity-card {
+  margin: 15px;
+  flex-grow: 0.3;
 }
 
-.players-card {
-  grid-area: players;
+.players-card, .regimens-card {
+  width: 150px;
 }
 
 .activity-card {
-  grid-area: activity;
+  width: 320px
 }

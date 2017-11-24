@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import _ from 'lodash';
-import { fetchUser, updateUser } from '../../../../actions/userActions';
+import { fetchUser, updateUser } from '../../../actions/userActions';
 import UserInfoItem from './UserInfoItem';
 import UserInfoPasswordFields from './UserInfoPasswordFields';
 import UserInfoTextField from './UserInfoTextField';
 import UserInfoSportsList from './UserInfoSportsList';
 import UserInfoProgramsList from './UserInfoProgramsList';
+import ChangePasswordForm from '../ChangePasswordForm';
 import './userInfo.css';
 
 class UserInfo extends Component {
@@ -17,7 +18,7 @@ class UserInfo extends Component {
     super(props);
 
     this.state = {
-      canEdit: false
+      canEdit: false,
     }
     this.toggleEdit = this.toggleEdit.bind(this);
   }
@@ -91,7 +92,7 @@ class UserInfo extends Component {
           }
 
           <div className='user-info-change-password'>
-            <p onClick={this.toggleModal}>Change Password</p>
+            <p onClick={this.props.changePassword}>Change Password</p>
           </div>
         </div>
       </div>

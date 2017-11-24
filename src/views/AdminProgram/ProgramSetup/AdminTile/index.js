@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
-import { deleteTile } from '../../../../../actions/adminRegimenActions';
+import { deleteTile } from '../../../../actions/adminRegimenActions';
 import './adminTile.css';
 
 class AdminTile extends Component {

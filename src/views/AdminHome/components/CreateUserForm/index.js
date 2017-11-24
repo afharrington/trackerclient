@@ -14,6 +14,10 @@ import './createUserForm.css';
 
 class CreateUserForm extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.fetchRegimens();
   }

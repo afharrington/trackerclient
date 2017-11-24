@@ -4,17 +4,16 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  height: 50px;
+  height: 30px;
   font-weight: bold;
   border-bottom: 1px solid $light-gray;
   color: $dark-gray;
   transition: box-shadow .3s ease;
 
   p {
-    font-family: $main-font;
     text-transform: capitalize;
     font-size: 14px;
-    line-height: 50px;
+    line-height: 30px;
     margin-left: 10px;
   }
 }

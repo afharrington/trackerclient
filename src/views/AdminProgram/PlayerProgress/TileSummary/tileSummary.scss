@@ -1,24 +1,27 @@
-@import '../../../../../styles/styles.scss';
+@import '../../../../styles/styles.scss';
 
 .tile-summary {
   width: 80%;
+  margin-left: 10%;
   margin-bottom: 25px;
   box-shadow: $med-shadow;
+  background-color: white;
 
   @media (max-width: 400px) {
     width: 95%;
+    margin-left: 2.5%;
   }
 }
 
 .tile-summary-header {
   width: 100%;
-  background-color: $white;
+  background-color: $dark-gray;
   text-align: center;
 
   p {
     font-family: $main-font;
     padding: 5px;
-    color: $dark-gray;
+    color: white;
     text-transform: uppercase;
   }
 }

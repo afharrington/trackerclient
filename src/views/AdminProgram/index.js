@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PageWrapper from '../../components/PageWrapper';
-import PlayerProgress from './subviews/PlayerProgress';
+import PlayerProgress from './PlayerProgress';
 import _ from 'lodash';
 import UserTilesContainer from '../../components/UserTilesContainer';
 import ProgramHeader from '../../components/ProgramHeader';
-import ProgramSetup from './subviews/ProgramSetup';
+import ProgramSetup from './ProgramSetup';
 import { adminFetchRegimen } from '../../actions/adminRegimenActions';
 import { adminFetchUserRegimens } from '../../actions/adminUserActions';
 import './adminProgram.css';

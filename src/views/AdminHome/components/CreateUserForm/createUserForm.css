@@ -29,6 +29,7 @@
   background-color: #32A83A; }
 
 html, body {
+  font-family: "Barlow", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #e3e2e2;
@@ -86,11 +87,12 @@ a:visited {
 
 .create-user-form-item {
   display: flex;
-  margin-left: 5%;
+  margin-left: 20%;
   margin-bottom: 25px;
-  width: 90%;
+  width: 60%;
   height: 25px; }
   .create-user-form-item .label {
+    font-family: "Barlow", sans-serif;
     width: 150px;
     font-weight: bold;
     margin-top: 3px;
@@ -103,9 +105,8 @@ a:visited {
         width: 100px; } }
   .create-user-form-item input {
     font-size: 14px;
-    width: 50%;
+    width: 150px;
     height: 20px;
-    border-radius: 3px;
     padding: 5px;
     border: 1px solid #d6d6d6; }
     @media (max-width: 500px) {
@@ -115,8 +116,9 @@ a:visited {
   .create-user-form-item select {
     text-transform: capitalize;
     border: 1px solid #d6d6d6;
+    border-radius: 0px;
     font-size: 14px;
-    width: 150px;
+    width: 160px;
     height: 30px; }
 
 .regimen-checklist-item {

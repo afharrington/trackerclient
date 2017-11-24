@@ -28,7 +28,7 @@ class RecentActivity extends Component {
 
   render() {
     return (
-      <CardWrapper title='Recent Activity' color='orange' title='Recent Activity'>
+      <CardWrapper title='Recent Activity' color='green' title='Recent Activity'>
         <div className='recent-activity'>
           {this.renderUpdates()}
         </div>

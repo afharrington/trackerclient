@@ -6,8 +6,8 @@ import UserTilesContainer from '../../components/UserTilesContainer';
 import UserEntries from '../../components/UserEntries';
 import PageWrapper from '../../components/PageWrapper';
 import UserHeader from '../../components/UserHeader';
-import UserInfo from './subviews/UserInfo';
-import UserTile from './UserTile';
+import UserInfo from './UserInfo';
+import ChangePasswordForm from './ChangePasswordForm';
 import { fetchUser, fetchUserRegimen } from '../../actions/userActions';
 import './userHome.css';
 
@@ -19,6 +19,7 @@ class UserHome extends Component {
       userId: this.props.match.params.userId,
       showNewForm: false,
       showEditForm: false,
+      showChangePasswordForm: true,
       viewType: 'userRegimen',
       visibleUserRegimen: null,
       visibleTile: null
@@ -26,6 +27,7 @@ class UserHome extends Component {
 
   this.setVisibleUserRegimen = this.setVisibleUserRegimen.bind(this);
   this.setVisibleTile = this.setVisibleTile.bind(this);
+  this.toggleChangePasswordForm = this.toggleChangePasswordForm.bind(this);
   }
 
   setVisibleUserRegimen(regimenId) {
@@ -38,6 +40,10 @@ class UserHome extends Component {
   setVisibleTile(tile) {
     this.setState({ visibleTile: tile });
     this.setState({ viewType: 'userTile' });
+  }
+
+  toggleChangePasswordForm() {
+    this.setState({ showChangePasswordForm: !this.state.showChangePasswordForm });
   }
 
   componentDidMount() {
@@ -62,7 +68,7 @@ class UserHome extends Component {
 
   renderView() {
     if (this.state.visibleUserRegimen === 'info') {
-      return <UserInfo />
+      return <UserInfo changePassword={this.toggleChangePasswordForm}/>
 
     } else if (this.state.viewType === 'userRegimen') {
       return (
@@ -85,6 +91,9 @@ class UserHome extends Component {
     if (_.isEmpty(this.props.user) == false) {
       return (
         <PageWrapper textColor='white'>
+          { this.state.showChangePasswordForm &&
+            <ChangePasswordForm user={this.props.user} exit={this.toggleChangePasswordForm}/>
+          }
           { this.renderHeader()}
           { this.renderView() }
         </PageWrapper>

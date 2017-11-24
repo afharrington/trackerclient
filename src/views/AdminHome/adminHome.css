@@ -29,6 +29,7 @@
   background-color: #32A83A; }
 
 html, body {
+  font-family: "Barlow", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #e3e2e2;
@@ -84,20 +85,16 @@ a:visited {
   height: 100%;
   width: 100%;
   padding: 20px;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "regimens activity" "players activity" "players activity"; }
-  @media (max-width: 600px) {
-    .admin-home {
-      grid-template-columns: 1fr;
-      grid-template-areas: "regimens" "players" "activity"; } }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
 
-.regimens-card {
-  grid-area: regimens; }
+.regimens-card, .players-card, .activity-card {
+  margin: 15px;
+  flex-grow: 0.3; }
 
-.players-card {
-  grid-area: players; }
+.players-card, .regimens-card {
+  width: 150px; }
 
 .activity-card {
-  grid-area: activity; }
+  width: 320px; }

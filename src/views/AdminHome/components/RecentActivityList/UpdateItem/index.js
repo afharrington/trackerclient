@@ -18,7 +18,7 @@ class UpdateItem extends Component {
           <span className='update-item-tile'>{activity.tileName}</span></p>
         </div>
         <div className='update-item-date'>
-          <p><Moment format='LLL' date={activity.entryDate}/></p>
+          <p><Moment fromNow>{activity.entryDate}</Moment></p>
         </div>
       </div>
       )

@@ -5,8 +5,8 @@ import FontAwesome from 'react-fontawesome';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import FormWrapper from '../../../../../components/FormWrapper';
-import { createTile, updateTile } from '../../../../../actions/adminRegimenActions';
+import FormWrapper from '../../../../components/FormWrapper';
+import { createTile, updateTile } from '../../../../actions/adminRegimenActions';
 import './createTileForm.css';
 
 const renderActivityField = ({input}) => (
@@ -109,7 +109,7 @@ class CreateTileForm extends Component {
 
             <div className='create-tile-form-row'>
               <div className='create-tile-form-field create-tile-form-name'>
-                <label>Tile:</label>
+                <label>Tile Name:</label>
                 <Field name='tileName' component="input" type="text"/>
               </div>
             </div>

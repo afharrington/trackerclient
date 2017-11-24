@@ -83,15 +83,16 @@ class UserTilesContainer extends Component {
       return (
         <div className='user-tiles-container'>
           <div className='user-tiles-sort-menu'>
+            <div className='sort-label'>Sort by:</div>
             <IconMenu
               menuItemStyle={{ fontFamily: 'Barlow', textTransform: 'uppercase', fontSize: '12px' }}
               className='entry-menu-icon'
-              iconButtonElement={<IconButton><ContentFilter /></IconButton>}
-              anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-              targetOrigin={{horizontal: 'left', vertical: 'bottom'}}
+              iconButtonElement={<IconButton><i className='material-icons'>keyboard_arrow_down</i></IconButton>}
+              anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+              targetOrigin={{horizontal: 'left', vertical: 'top'}}
             >
-              <MenuItem value='time' onClick={this.handleTimeSort} primaryText='Sort By Time' />
-              <MenuItem value='alpha' onClick={this.handleAlphaSort} primaryText='Sort Alphabetically' />
+              <MenuItem className='entry-menu-item' value='time' onClick={this.handleTimeSort} primaryText='Time Completed' />
+              <MenuItem value='alpha' onClick={this.handleAlphaSort} primaryText='Tile Name' />
             </IconMenu>
           </div>
           { this.renderTiles() }

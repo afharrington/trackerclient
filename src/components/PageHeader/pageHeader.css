@@ -29,6 +29,7 @@
   background-color: #32A83A; }
 
 html, body {
+  font-family: "Barlow", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #e3e2e2;
@@ -112,8 +113,8 @@ a:visited {
     padding-right: 15px;
     line-height: 50px;
     display: inline-block;
-    font-size: 16px;
-    text-transform: capitalize;
+    font-size: 14px;
+    text-transform: uppercase;
     text-overflow: ellipsis; }
     .page-header-links .page-header-link .fa {
       font-size: 16px;

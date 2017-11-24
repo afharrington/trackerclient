@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { adminFetchRegimen } from '../../../../actions/adminRegimenActions';
-import { adminFetchUserRegimens } from '../../../../actions/adminUserActions';
+import { adminFetchRegimen } from '../../../actions/adminRegimenActions';
+import { adminFetchUserRegimens } from '../../../actions/adminUserActions';
 import TileSummary from './TileSummary';
 
 import './playerProgress.css';
@@ -15,6 +15,7 @@ class PlayerProgress extends Component {
   }
 
   componentDidMount() {
+    console.log('working!');
     this.props.adminFetchRegimen(this.props.regimenId);
     this.props.adminFetchUserRegimens(this.props.regimenId);
   }
@@ -54,8 +55,7 @@ class PlayerProgress extends Component {
 
   render() {
     return (
-      <div className='admin-regimen-charts'>
-        <div>{this.props.regimen.regimenName}</div>
+      <div className='player-progress'>
         <div className='tile-charts'>
           {this.renderTileSummaries()}
         </div>

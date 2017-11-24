@@ -64,11 +64,6 @@
     display: inline-block;
     color: $white;
     font-size: 16px;
-    transition: all 0.3s ease;
-  }
-
-  p:hover {
-    color: $brand-color-green;
   }
 }
 
@@ -118,11 +113,6 @@
 
   a {
     color: $white;
-    transition: all 0.3s ease;
-  }
-
-  a:hover {
-    color: $brand-color-green;
   }
 
   p {
@@ -165,10 +155,5 @@
   text-align: center;
   font-family: $main-font;
   color: white;
-  transition: all 0.3s ease;
   margin-top: 25px;
-}
-
-.welcome-just-joined:hover {
-  color: $brand-color-green;
 }

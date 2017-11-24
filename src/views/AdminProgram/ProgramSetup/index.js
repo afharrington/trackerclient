@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CreateTileForm from './CreateTileForm';
 import AdminTile from './AdminTile';
 import _ from 'lodash';
-import { adminFetchRegimen } from '../../../../actions/adminRegimenActions';
+import { adminFetchRegimen } from '../../../actions/adminRegimenActions';
 import './programSetup.css';
 
 class ProgramSetup extends Component {

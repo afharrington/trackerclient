@@ -46,6 +46,7 @@ class AdminHome extends Component {
             <RecentActivityList/>
           </div>
 
+
         </div>
       </PageWrapper>
     )

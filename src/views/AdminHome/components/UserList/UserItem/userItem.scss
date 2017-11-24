@@ -7,16 +7,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  height: 50px;
+  height: 30px;
   background-color: $white;
   transition: box-shadow .3s ease;
   border-bottom: 1px solid $light-gray;
 
   p {
-    font-family: $main-font;
     text-transform: capitalize;
     font-size: 14px;
-    line-height: 50px;
+    line-height: 30px;
     margin-left: 10px;
   }
 }
