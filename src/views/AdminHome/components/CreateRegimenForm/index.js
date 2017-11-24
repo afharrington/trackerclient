@@ -29,10 +29,10 @@ class CreateRegimenForm extends Component {
 
   render() {
     return (
-      <FormWrapper title='Create a New Regimen' exit={this.props.exit}>
+      <FormWrapper title='Create a New Program' exit={this.props.exit}>
         <form onSubmit={this.handleSubmit}>
           <div className='create-regimen-form'>
-            <label>Name:</label>
+            <label>Program:</label>
             <input
               type='text'
               className='create-regimen-form-field'

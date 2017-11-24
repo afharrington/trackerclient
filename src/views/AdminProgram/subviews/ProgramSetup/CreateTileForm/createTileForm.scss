@@ -1,0 +1,166 @@
+@import '../../../../../styles/styles.scss';
+
+.create-tile-form-row {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+
+  input {
+    width: 100%;
+  }
+
+  // @media (max-width: 800px) {
+  //   width: 90%;
+  //   margin-left: 5%;
+  // }
+}
+
+.create-tile-form-field {
+
+  input {
+    height: 25px;
+    padding: 3px;
+    font-family: $main-font;
+    font-size: 14px;
+  }
+}
+
+.create-tile-form-name {
+  width: 100%;
+  text-align: center;
+
+  label {
+    margin-right: 15px;
+    font-family: $main-font;
+  }
+  input {
+    border: 1px solid $light-gray;
+    border-radius: 3px;
+    width: 70%;
+    font-family: $main-font;
+    font-size: 16px;
+    padding: 5px;
+    text-transform: capitalize;
+  }
+}
+
+.create-tile-form-hours {
+  input {
+    text-align: center;
+    width: 30px;
+    margin-right: 10px;
+    border: 1px solid $light-gray;
+    border-radius: 3px;
+  }
+
+  label {
+    font-family: $main-font;
+    margin-right: 10px;
+  }
+}
+
+.create-tile-form-cycle {
+  display: flex;
+  margin-top: 0px;
+  margin-right: 10px;
+
+  select {
+    width: 75px;
+    height: 34px !important;
+    border-radius: 0px;
+    border: 1px solid $light-gray;
+    font-family: $main-font;
+    font-size: 14px;
+  }
+
+  label {
+    line-height: 34px;
+    margin-left: 10px;
+    font-family: $main-font;
+  }
+}
+
+// Entire Activities container
+.tile-activities {
+  margin-left: 10%;
+  text-align: center;
+}
+
+.new-activity-button {
+  cursor: pointer;
+  background-color: $dark-gray;
+  color: $white;
+  margin-top: 30px;
+  margin-left: -10%;
+  width: 150px;
+  height: 25px;
+  border: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: $header-font;
+  border-radius: 3px;
+}
+
+// All activities fields
+.activities {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+
+  input {
+    border: 1px solid $light-gray;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+}
+
+// Individual activity field with remove button
+.activity-item {
+  display: inline-block;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  width: 50%;
+  height: 35px;
+  input {
+    padding: 5px;
+    font-family: $header-font;
+    font-size: 16px;
+  }
+
+  button {
+    cursor: pointer !important;
+    font-size: 14px;
+    color: $med-gray;
+    background-color: rgba(117, 190, 218, 0.0);
+    width: 30px;
+    height: 25px;
+    margin-bottom: 5px;
+    border: none;
+    display: inline-block;
+  }
+}
+
+.create-tile-form-buttons {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin: 5px;
+  }
+}
+
+
+@media only screen and (max-width: 940px) {
+  .tile-form {
+    padding: 0px 0px 25px 0px;
+  }
+
+  .activity-item {
+    width: 100%;
+    grid-template-columns: 5fr 1fr;
+  }
+}

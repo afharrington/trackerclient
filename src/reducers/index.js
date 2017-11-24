@@ -3,6 +3,7 @@ import { reducer as formReducer } from 'redux-form';
 import authReducer from './authReducer';
 import adminRegimensReducer from './adminRegimensReducer';
 import adminUserReducer from './adminUserReducer';
+import adminReducer from './adminReducer';
 import userReducer from './userReducer';
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   adminRegimens: adminRegimensReducer,
   adminUsers: adminUserReducer,
+  admin: adminReducer,
   user: userReducer
 });
 

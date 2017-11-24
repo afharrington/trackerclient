@@ -84,13 +84,14 @@ a:visited {
   display: flex;
   justify-content: center; }
   .create-regimen-form label {
-    line-height: 40px;
-    height: 40px;
+    line-height: 30px;
+    height: 30px;
     font-family: "Barlow", sans-serif;
     margin-right: 10px; }
 
 .create-regimen-form-field {
   width: 50%;
+  height: 12px;
   border: 1px solid #d6d6d6;
   border-radius: 5px;
   padding: 10px;

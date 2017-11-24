@@ -1,0 +1,35 @@
+@import '../../../../styles/styles.scss';
+
+.program-setup-button-container {
+  text-align: center;
+  margin-top: 75px;
+}
+
+.program-setup-button {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 1px solid $dark-gray;
+  border-radius: 5px;
+  background-color: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+  font-family: $main-font;
+  color: $dark-gray;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.program-setup-button:hover {
+  border: 1px solid $brand-color-green;
+  color: $brand-color-green;
+}
+
+.program-setup-tiles-container {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

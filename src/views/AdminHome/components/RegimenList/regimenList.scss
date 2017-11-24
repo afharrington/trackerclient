@@ -2,7 +2,6 @@
 
 .regimen-list {
   color: $dark-gray;
-  display: inline-block;
   width: 100%;
 
   h3 {
@@ -16,20 +15,4 @@
   margin-top: 25px;
   margin-left: 10px;
   margin-bottom: 20px;
-}
-
-.regimen-list-instructions {
-  margin-left: 2%;
-
-  h3 {
-    text-transform: uppercase;
-    font-size: 14px;
-    margin-top: 25px;
-    margin-left: 0px;
-    color: $brand-color-orange;
-  }
-
-  p {
-    margin-bottom: 10px;
-  }
 }

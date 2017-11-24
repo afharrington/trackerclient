@@ -22,7 +22,6 @@ export function adminFetchUsers() {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
-        console.log(response.data);
         dispatch({ type: ADMIN_FETCH_USERS, payload: response.data });
       })
       .catch((err) => {
@@ -130,7 +129,7 @@ export function adminFetchUserTile(userId, userRegId, userTileId) {
   }
 }
 
-export function adminCreateEntry(userId, regId, tileId, values) {
+export function adminCreateEntry(userId, regId, tileId, values, callback) {
   return function(dispatch) {
     axios.post(`${ROOT}/admin/user/${userId}/reg/${regId}/tile/${tileId}`, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
@@ -138,6 +137,7 @@ export function adminCreateEntry(userId, regId, tileId, values) {
       .then(response => {
         dispatch({ type: ADMIN_CREATE_ENTRY, payload: response.data });
       })
+      .then(() => callback())
       .catch((err) => {
         console.log(err);
       });

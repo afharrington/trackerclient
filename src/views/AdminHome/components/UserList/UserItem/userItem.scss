@@ -1,0 +1,55 @@
+@import '../../../../../styles/styles.scss';
+
+.user-item {
+  width: 100% !important;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 50px;
+  background-color: $white;
+  transition: box-shadow .3s ease;
+  border-bottom: 1px solid $light-gray;
+
+  p {
+    font-family: $main-font;
+    text-transform: capitalize;
+    font-size: 14px;
+    line-height: 50px;
+    margin-left: 10px;
+  }
+}
+
+.user-item:hover {
+  background-color: $light-gray;
+}
+
+.user-info {
+  margin-top: 5px;
+}
+
+.user-name {
+  font-family: $main-font;
+  font-size: 16px;
+  font-weight: bold;
+  color: $dark-gray;
+}
+
+.user-regimen {
+  margin-top: 3px;
+  font-size: 12px;
+  font-family: $main-font;
+  color: $dark-gray !important;
+}
+
+.user-item-icons {
+  margin-top: 15px;
+  margin-right: 10px;
+  .fa {
+    margin-left: 15px;
+  }
+  .fa:hover {
+    color: $brand-color-green;
+  }
+}

@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import { ADMIN_FETCH_USER,
+import {
+  ADMIN_FETCH_USER,
   ADMIN_UPDATE_USER,
   ADMIN_DELETE_USER,
   ADMIN_FETCH_USER_REGIMEN,

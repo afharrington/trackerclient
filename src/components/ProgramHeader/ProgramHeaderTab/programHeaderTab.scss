@@ -1,0 +1,19 @@
+@import '../../../styles/styles.scss';
+
+.program-header-tab {
+  cursor: pointer;
+  color: white;
+  margin: 10px;
+  margin-left: 25px;
+  text-transform: uppercase;
+  font-family: $main-font;
+
+  .fa {
+    font-size: 20px;
+  }
+}
+
+.program-header-tab.active {
+  border-bottom: 6px solid $brand-color-orange;
+  margin-bottom: 0px;
+}

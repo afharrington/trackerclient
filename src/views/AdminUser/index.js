@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PageWrapper from '../../components/PageWrapper';
-import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import UserTilesContainer from '../../components/UserTilesContainer';
-import AdminUserEntries from '../AdminUserEntries';
+import AdminUserEntries from './subviews/AdminUserEntries';
 import UserInfo from './subviews/UserInfo';
 import UserHeader from '../../components/UserHeader';
 import { adminFetchUser, adminFetchUserRegimen } from '../../actions/adminUserActions';
 import './adminUser.css';
 
-// Shows all tiles for a single user
 class AdminUser extends Component {
   constructor(props) {
     super(props);
@@ -86,7 +84,7 @@ class AdminUser extends Component {
   render() {
     if (this.props.user) {
       return (
-        <PageWrapper>
+        <PageWrapper textColor='white'>
           <div className='admin-user-view'>
             { this.renderHeader() }
             { this.renderView() }

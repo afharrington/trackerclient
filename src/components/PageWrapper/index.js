@@ -8,7 +8,7 @@ class PageWrapper extends Component {
   render() {
     return (
       <div className='page-wrapper'>
-        <PageHeader/>
+        <PageHeader textColor={this.props.textColor}/>
         { this.props.children }
       </div>
     )

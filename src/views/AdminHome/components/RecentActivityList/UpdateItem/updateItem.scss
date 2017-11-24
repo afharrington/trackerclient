@@ -1,0 +1,46 @@
+@import '../../../../../styles/styles.scss';
+
+.update-item {
+  height: 60px;
+  font-weight: bold;
+  border-bottom: 1px solid $light-gray;
+  color: $dark-gray;
+  transition: box-shadow .3s ease;
+
+  p {
+    padding: 3px;
+    font-size: 14px;
+    font-family: $main-font;
+    margin-left: 10px;
+  }
+}
+
+.update-item-name {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $brand-color-orange;
+  margin-right: 5px;
+}
+
+.update-item-minutes {
+  font-weight: bold;
+  color: $brand-color-orange;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.update-item-tile {
+  margin-left: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $brand-color-orange;
+}
+
+.update-item-date {
+  p {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+}

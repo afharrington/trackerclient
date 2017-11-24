@@ -4,7 +4,7 @@ import NewButton from '../../../../components/NewButton';
 import CautionModal from '../../../../components/CautionModal';
 import CreateUserForm from '../CreateUserForm';
 import CardWrapper from '../../../../components/CardWrapper';
-import UserItem from '../UserItem';
+import UserItem from './UserItem';
 import { connect } from 'react-redux';
 import { adminFetchUsers, adminDeleteUser } from '../../../../actions/adminUserActions';
 import './userList.css';
@@ -114,7 +114,7 @@ class UserList extends Component {
 
   render() {
     return (
-      <CardWrapper title='Players' add={this.props.toggleUserForm}>
+      <CardWrapper color='gray' title='Players' add={this.props.toggleUserForm}>
         <div className='user-list'>
           {this.renderUsers()}
         </div>

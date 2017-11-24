@@ -144,7 +144,7 @@ function mapStateToProps(state) {
 
 export default reduxForm({
   validate,
-  form: 'UpdateUserForm'
+  form: 'AdminUpdateUserForm'
 })(
   connect(mapStateToProps, { adminUpdateUser, adminFetchUser, adminDeleteUser, fetchRegimens })(UserInfo)
 );

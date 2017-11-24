@@ -15,11 +15,13 @@
   color: white;
   border: none;
   font-size: 14px;
+  border-radius: 3px;
 }
 
 .user-info-button.edit {
   margin-top: 20px;
-  width: 30%;
+  width: 25%;
+  min-width: 100px;
   margin-left: 35%;
   background-color: $dark-gray;
 }
@@ -28,7 +30,7 @@
   margin-top: 20px;
   width: 30%;
   margin-left: 35%;
-  background-color: $accent-blue;
+  background-color: $brand-color-green;
 }
 
 .user-info-button.cancel {

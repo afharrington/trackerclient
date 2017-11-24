@@ -7,7 +7,6 @@
 }
 
 .card-title {
-  background-color: $dark-gray;
   color: white;
   height: 38px;
   padding-left: 10px;
@@ -48,4 +47,20 @@
     border: 1px solid $brand-color-green;
     color: $brand-color-green;
   }
+}
+
+.card-title.blue {
+  background-color: $brand-color-blue;
+}
+
+.card-title.green {
+  background-color: $brand-color-green;
+}
+
+.card-title.orange {
+  background-color: $brand-color-orange;
+}
+
+.card-title.gray {
+  background-color: $dark-gray;
 }

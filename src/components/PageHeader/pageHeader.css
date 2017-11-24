@@ -106,7 +106,6 @@ a:visited {
           width: 30px;
           height: 35px; } }
   .page-header-links .page-header-link {
-    color: white;
     cursor: pointer;
     font-family: "Barlow", sans-serif;
     padding-left: 15px;
@@ -116,10 +115,6 @@ a:visited {
     font-size: 16px;
     text-transform: capitalize;
     text-overflow: ellipsis; }
-    .page-header-links .page-header-link a {
-      color: #fff; }
-    .page-header-links .page-header-link a:visited {
-      color: #fff; }
     .page-header-links .page-header-link .fa {
       font-size: 16px;
       margin-left: 10px;
@@ -131,3 +126,17 @@ a:visited {
         padding-right: 5px; } }
   .page-header-links .page-header-link:hover {
     color: #959595 !important; }
+
+.page-header-link.white {
+  color: white; }
+  .page-header-link.white a {
+    color: white; }
+  .page-header-link.white a:visited {
+    color: white; }
+
+.page-header-link.gray {
+  color: #333; }
+  .page-header-link.gray a {
+    color: #333; }
+  .page-header-link.gray a:visited {
+    color: #333; }

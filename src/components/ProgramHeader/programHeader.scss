@@ -1,0 +1,26 @@
+@import '../../styles/styles.scss';
+
+.program-header {
+  z-index: 0;
+  position: absolute;
+  top: 0%;
+  height: 150px;
+  background-color: $brand-color-blue;
+  width: 100%;
+}
+
+.program-header-name {
+  text-align: center;
+  margin-top: 50px;
+  font-family: $main-font;
+  color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.program-header-tabs {
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+}

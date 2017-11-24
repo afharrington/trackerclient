@@ -3,7 +3,7 @@ import PageWrapper from '../../components/PageWrapper';
 import CardWrapper from '../../components/CardWrapper';
 import RegimenList from './components/RegimenList';
 import UserList from './components/UserList';
-import RecentActivity from './components/RecentActivity';
+import RecentActivityList from './components/RecentActivityList';
 import CreateRegimenForm from './components/CreateRegimenForm';
 import CreateUserForm from './components/CreateUserForm';
 
@@ -33,7 +33,7 @@ class AdminHome extends Component {
 
   render() {
     return (
-      <PageWrapper>
+      <PageWrapper textColor='gray'>
         <div className='admin-home'>
           { this.state.showRegimenForm ? <CreateRegimenForm exit={this.toggleRegimenForm}/> : null }
           { this.state.showUserForm ? <CreateUserForm exit={this.toggleUserForm}/> : null }
@@ -42,7 +42,9 @@ class AdminHome extends Component {
 
           <div className='players-card'><UserList toggleUserForm={this.toggleUserForm}/></div>
 
-          <div className='activity-card'><RecentActivity/></div>
+          <div className='activity-card'>
+            <RecentActivityList/>
+          </div>
 
         </div>
       </PageWrapper>

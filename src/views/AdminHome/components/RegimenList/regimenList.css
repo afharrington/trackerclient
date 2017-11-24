@@ -82,7 +82,6 @@ a:visited {
 
 .regimen-list {
   color: #333;
-  display: inline-block;
   width: 100%; }
   .regimen-list h3 {
     margin-bottom: 10px;
@@ -93,14 +92,3 @@ a:visited {
   margin-top: 25px;
   margin-left: 10px;
   margin-bottom: 20px; }
-
-.regimen-list-instructions {
-  margin-left: 2%; }
-  .regimen-list-instructions h3 {
-    text-transform: uppercase;
-    font-size: 14px;
-    margin-top: 25px;
-    margin-left: 0px;
-    color: #f3a537; }
-  .regimen-list-instructions p {
-    margin-bottom: 10px; }

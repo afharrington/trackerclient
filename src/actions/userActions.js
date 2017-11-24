@@ -3,6 +3,8 @@ import uri from '../config/uri.js';
 
 export const USER_ERROR = 'user_error';
 export const FETCH_USER = 'fetch_user';
+export const UPDATE_USER = 'update_user';
+export const FETCH_USER_REGIMEN = 'fetch_user_regimen';
 export const FETCH_USER_TILE = 'fetch_user_tile';
 export const CREATE_ENTRY = 'create_entry';
 export const UPDATE_ENTRY = 'update_entry';
@@ -32,6 +34,21 @@ export function fetchUser() {
   }
 }
 
+export function updateUser(values) {
+  return function(dispatch) {
+    axios.put(`${ROOT}/user`, values, {
+      headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
+      })
+      .then(response => {
+        dispatch({ type: UPDATE_USER, payload: response.data });
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch(userError(err));
+      });
+  }
+}
+
 export function fetchUserTile(regId, tileId) {
   return function(dispatch) {
     axios.get(`${ROOT}/user/reg/${regId}/tile/${tileId}`, {
@@ -47,7 +64,21 @@ export function fetchUserTile(regId, tileId) {
   }
 }
 
-export function createEntry(regId, tileId, values) {
+export function fetchUserRegimen(userRegimenId) {
+  return function(dispatch) {
+    axios.get(`${ROOT}/user/reg/${userRegimenId}`, {
+      headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
+      })
+      .then(response => {
+        dispatch({ type: FETCH_USER_REGIMEN, payload: response.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+}
+
+export function createEntry(regId, tileId, values, callback) {
   return function(dispatch) {
     axios.post(`${ROOT}/user/reg/${regId}/tile/${tileId}`, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
@@ -55,6 +86,7 @@ export function createEntry(regId, tileId, values) {
       .then(response => {
         dispatch({ type: CREATE_ENTRY, payload: response.data });
       })
+      .then(() => callback())
       .catch((err) => {
         console.log(err);
         dispatch(userError(err));
@@ -62,7 +94,7 @@ export function createEntry(regId, tileId, values) {
   }
 }
 
-export function updateEntry(regId, tileId, cycleId, entryId, values) {
+export function updateEntry(regId, tileId, cycleId, entryId, values, callback) {
   return function(dispatch) {
     axios.put(`${ROOT}/user/reg/${regId}/tile/${tileId}/cycle/${cycleId}/entry/${entryId}`, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
@@ -70,6 +102,7 @@ export function updateEntry(regId, tileId, cycleId, entryId, values) {
       .then(response => {
         dispatch({ type: UPDATE_ENTRY, payload: response.data });
       })
+      .then(() => callback())
       .catch((err) => {
         console.log(err);
         dispatch(userError(err));

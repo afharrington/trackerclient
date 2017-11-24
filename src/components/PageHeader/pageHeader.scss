@@ -7,6 +7,7 @@
   height: 50px;
   width: 100%;
   margin-bottom: 50px;
+
 }
 
 // .page-header-user {
@@ -21,6 +22,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  // background-color: $dark-gray;
 
   .page-header-img-container {
     width: 50px;
@@ -39,7 +41,6 @@
   }
 
   .page-header-link {
-    color: white;
     cursor: pointer;
     font-family: $main-font;
     padding-left: 15px;
@@ -51,13 +52,13 @@
     text-transform: capitalize;
     text-overflow: ellipsis;
 
-    a {
-      color: $white;
-    }
-
-    a:visited {
-      color: $white;
-    }
+    // a {
+    //   color: $white;
+    // }
+    //
+    // a:visited {
+    //   color: $white;
+    // }
 
     .fa {
       font-size: 16px;
@@ -74,5 +75,27 @@
 
   .page-header-link:hover {
     color: $med-gray !important;
+  }
+}
+
+.page-header-link.white {
+  color: white;
+  a {
+    color: white;
+  }
+
+  a:visited {
+    color: white;
+  }
+
+}
+
+.page-header-link.gray {
+  color: $dark-gray;
+  a {
+    color: $dark-gray;
+  }
+  a:visited {
+    color: $dark-gray;
   }
 }

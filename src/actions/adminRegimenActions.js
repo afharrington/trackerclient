@@ -2,7 +2,7 @@ import axios from 'axios';
 import uri from '../config/uri.js';
 
 export const FETCH_REGIMENS = 'fetch_regimens';
-export const FETCH_REGIMEN = 'fetch_regimen';
+export const ADMIN_FETCH_REGIMEN = 'admin_fetch_regimen';
 export const CREATE_REGIMEN = 'create_regimen';
 export const DELETE_REGIMEN = 'delete_regimen';
 export const CREATE_TILE = 'create_tile';
@@ -43,13 +43,13 @@ export function createRegimen(value) {
 }
 
 // FETCH_REGIMEN
-export function fetchRegimen(regimenId) {
+export function adminFetchRegimen(regimenId) {
   return function(dispatch) {
     axios.get(`${ROOT}/admin/regimen/${regimenId}`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
-        dispatch({ type: FETCH_REGIMEN, payload: response.data });
+        dispatch({ type: ADMIN_FETCH_REGIMEN, payload: response.data });
       })
       .catch((err) => {
         console.log(err);
