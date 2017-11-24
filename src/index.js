@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { LOGIN_ADMIN, LOGIN_USER } from './actions/authActions';
