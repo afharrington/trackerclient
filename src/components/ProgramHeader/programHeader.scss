@@ -6,16 +6,20 @@
   top: 0%;
   height: 150px;
   background-color: $brand-color-blue;
+  border-bottom: 2px solid white;
   width: 100%;
 }
 
 .program-header-name {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 55px;
   font-family: $main-font;
   color: white;
-  font-size: 14px;
   text-transform: uppercase;
+
+  h1 {
+    font-size: 24px;
+  }
 }
 
 .program-header-tabs {

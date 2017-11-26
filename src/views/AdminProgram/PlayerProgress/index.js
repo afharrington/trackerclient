@@ -15,7 +15,6 @@ class PlayerProgress extends Component {
   }
 
   componentDidMount() {
-    console.log('working!');
     this.props.adminFetchRegimen(this.props.regimenId);
     this.props.adminFetchUserRegimens(this.props.regimenId);
   }

@@ -15,7 +15,7 @@ const ROOT = uri.rootUri;
 // FETCH_REGIMENS
 export function fetchRegimens() {
   return function(dispatch) {
-    axios.get(`${ROOT}/admin/regimen`, {
+    axios.get(`${ROOT}/admin/regimens`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {

@@ -3,7 +3,15 @@ import FontAwesome from 'react-fontawesome';
 import './programHeaderTab.css';
 
 class ProgramHeaderTab extends Component {
-  
+
+  renderLabel() {
+    if (this.props.title === 'Settings') {
+      return <FontAwesome name='cog' />
+    } else {
+      return this.props.title;
+    }
+  }
+
   render() {
     let className;
     if (this.props.activeTab == this.props.value) {
@@ -14,7 +22,7 @@ class ProgramHeaderTab extends Component {
 
     return (
       <div onClick={this.props.toggleTab} className={className}>
-        {this.props.title}
+        {this.renderLabel()}
       </div>
     )
   }

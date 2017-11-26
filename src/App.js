@@ -6,8 +6,10 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import AdminMenu from './components/AdminMenu';
 import UserMenu from './components/UserMenu';
+import Sidebar from './components/Sidebar';
 
 import Welcome from './views/Welcome';
+import AdminRecentActivity from './views/AdminRecentActivity';
 import AdminAuthentication from './components/AdminAuthentication';
 import UserAuthentication from './components/UserAuthentication';
 
@@ -17,6 +19,7 @@ import AdminHome from './views/AdminHome';
 // Admin Regimen View
 import AdminProgram from './views/AdminProgram';
 
+import AdminUsers from './views/AdminUsers';
 // Admin User View
 import AdminUser from './views/AdminUser';
 
@@ -37,18 +40,6 @@ const muiTheme = getMuiTheme({
       primaryTextColor: '#00c7a9',
       secondaryTextColor: '#00c7a9'
     },
-    slider: {
-      trackSize: 2,
-      trackColor: '#00c7a9',
-      trackColorSelected: '#00c7a9',
-      handleSize: 18,
-      handleSizeDisabled: 8,
-      handleSizeActive: 18,
-      handleColorZero: '#00c7a9',
-      handleFillColor: '#00c7a9',
-      selectionColor: '#00c7a9',
-      rippleColor: '#00c7a9'
-    },
     radioButton: {
       checkedColor: '#00c7a9',
       labelColor: '#fff',
@@ -59,15 +50,9 @@ const muiTheme = getMuiTheme({
 
 class App extends Component {
 
-  // renderPageHeader() {
-  //   if (this.props.authenticated) {
-  //     return <PageHeader/>
-  //   }
-  // }
-
   renderMenu() {
     if (this.props.authenticated && this.props.userType === 'admin') {
-      return <AdminMenu/>
+      return <Sidebar/>
     } else if (this.props.authenticated && this.props.userType === 'user') {
       return <UserMenu/>
     }
@@ -77,16 +62,17 @@ class App extends Component {
     return (
       <BrowserRouter>
         <MuiThemeProvider muiTheme={muiTheme}>
-          <div>
-            <Switch>
-              <Route exact path='/' render={props => <Welcome {...props} /> } />
-              <Route exact path='/admin' component={AdminAuthentication(AdminHome)}/>
-              <Route exact path='/user' component={UserAuthentication(UserHome)}/>
-              <Route exact path='/admin/regimen/:regimenId' component={AdminAuthentication(AdminProgram)}/>
-              <Route exact path='/admin/regimen/:regimenId/settings' component={AdminAuthentication(AdminProgram)}/>
-              <Route exact path='/admin/user/:userId' component={AdminAuthentication(AdminUser)}/>
-            </Switch>
-          </div>
+          { this.renderMenu() }
+          <Switch>
+            <Route exact path='/' render={props => <Welcome {...props} /> } />
+            {/* <Route exact path='/admin' component={AdminAuthentication(AdminHome)}/> */}
+            <Route exact path='/admin/recent' component={AdminAuthentication(AdminRecentActivity)}/>
+            <Route exact path='/user' component={UserAuthentication(UserHome)}/>
+            <Route exact path='/admin/regimen/:regimenId' component={AdminAuthentication(AdminProgram)}/>
+            <Route exact path='/admin/regimen/:regimenId/settings' component={AdminAuthentication(AdminProgram)}/>
+            <Route exact path='/admin/team' component={AdminAuthentication(AdminUsers)}/>
+            <Route exact path='/admin/user/:userId' component={AdminAuthentication(AdminUser)}/>
+          </Switch>
         </MuiThemeProvider>
       </BrowserRouter>
     );

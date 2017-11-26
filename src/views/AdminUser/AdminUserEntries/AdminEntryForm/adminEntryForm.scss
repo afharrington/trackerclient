@@ -1,0 +1,130 @@
+@import '../../../../styles/styles.scss';
+
+.create-entry-date-activity {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.create-entry-container {
+  width: 100%;
+}
+
+.admin-entry-form {
+  margin-top: -20px;
+  width: 100%;
+  margin-left: 0%;
+  font-family: $main-font !important;
+}
+
+.admin-entry-form-item {
+  display: flex;
+  margin-bottom: 15px;
+
+  label {
+    width: 80px;
+    margin-left: 10px;
+    line-height: 30px;
+
+    @media (max-width: 400px) {
+      width: 70px;
+      margin-left: 5px;
+    }
+  }
+}
+
+.form-option {
+  font-family: $main-font;
+}
+
+.entry-date-field {
+  cursor: pointer !important;
+  width: 100px !important;
+  height: 30px !important;
+  padding: 0px !important;
+  margin-bottom: 5px;
+  font-family: $main-font;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+
+  input {
+    cursor: pointer !important;
+  }
+}
+
+.admin-entry-activity-field {
+  border: 1px solid $light-gray;
+  width: 175px;
+  font-size: 14px;
+  font-family: $main-font;
+  text-transform: capitalize;
+}
+
+.entry-activity-item {
+  font-family: $main-font;
+  text-transform: capitalize !important;
+}
+
+.admin-entry-time {
+  display: flex;
+  margin-left: 15px;
+  justify-content: flex-start;
+
+  @media (max-width: 400px) {
+    margin-left: 5px;
+  }
+}
+
+.admin-entry-time-field {
+  border: 1px solid $light-gray;
+  width: 50px;
+  font-size: 14px;
+  font-family: $main-font;
+}
+
+.user-select {
+  height: 25px;
+}
+
+
+.admin-entry-notes {
+  margin-top: 0px;
+  width: 100%;
+
+  .entry-text-field {
+    width: 100% !important;
+    height: 100px !important;
+  }
+}
+
+.admin-entry-buttons {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+
+  button {
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    border: none;
+    font-size: 12px;
+    border-radius: 3px;
+    margin: 5px;
+  }
+
+  .submit {
+    font-family: $main-font;
+    background-color: $brand-color-green;
+  }
+
+  .clear {
+    font-family: $main-font;
+    background-color: $med-gray;
+  }
+
+}

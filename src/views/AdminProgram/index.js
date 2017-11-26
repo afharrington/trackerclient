@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PageWrapper from '../../components/PageWrapper';
+import AdminPageHeader from '../../components/AdminPageHeader';
 import PlayerProgress from './PlayerProgress';
 import _ from 'lodash';
-import UserTilesContainer from '../../components/UserTilesContainer';
 import ProgramHeader from '../../components/ProgramHeader';
 import ProgramSetup from './ProgramSetup';
 import { adminFetchRegimen } from '../../actions/adminRegimenActions';
@@ -15,23 +15,35 @@ class AdminProgram extends Component {
     super(props);
 
     this.state = {
-      regimenId: this.props.match.params.regimenId,
-      activeTab: 'setup'
+      regimenId: '',
+      activeTab: 'reports'
     }
 
     this.toggleTab = this.toggleTab.bind(this);
   }
 
   toggleTab() {
-    if (this.state.activeTab == 'players') {
-      this.setState({ activeTab: 'setup' });
+    if (this.state.activeTab == 'reports') {
+      this.setState({ activeTab: 'settings' });
     } else {
-      this.setState({ activeTab: 'players' });
+      this.setState({ activeTab: 'reports' });
     }
   }
 
   componentDidMount() {
+    let param = this.props.match.params.regimenId;
+    this.setState({ regimenId: param });
     this.props.adminFetchRegimen(this.props.match.params.regimenId);
+    this.props.adminFetchUserRegimens(this.props.match.params.regimenId);
+  }
+
+  componentWillReceiveProps(newProps) {
+    let newParam = newProps.match.params.regimenId;
+    this.setState({ regimenId: newParam });
+    if (newParam !== this.state.regimenId) {
+      this.props.adminFetchRegimen(newProps.match.params.regimenId);
+      this.props.adminFetchUserRegimens(newProps.match.params.regimenId);
+    }
   }
 
   renderHeader() {
@@ -48,14 +60,14 @@ class AdminProgram extends Component {
   }
 
   renderView() {
-    if (this.state.activeTab === 'players') {
+    if (this.state.activeTab === 'reports') {
       return <PlayerProgress
-        regimenId={this.props.match.params.regimenId}
+        regimenId={this.state.regimenId}
       />
     } else if (this.state.activeTab) {
       return (
         <ProgramSetup
-          regimenId={this.props.match.params.regimenId}
+          regimenId={this.state.regimenId}
         />
       )
     }
@@ -64,12 +76,11 @@ class AdminProgram extends Component {
   render() {
     if (this.props.regimen) {
       return (
-        <PageWrapper textColor='white'>
-          <div className='admin-program-view'>
-            { this.renderHeader() }
-            { this.renderView() }
-          </div>
-        </PageWrapper>
+        <div className='admin-program-view'>
+          <AdminPageHeader/>
+          { this.renderHeader() }
+          { this.renderView() }
+        </div>
       )
     } else {
       return <div></div>

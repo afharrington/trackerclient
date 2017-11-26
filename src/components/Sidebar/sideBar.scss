@@ -1,0 +1,101 @@
+@import '../../styles/styles.scss';
+
+.sidebar {
+  position: absolute;
+  top: 0%;
+  z-index: 100;
+  width: 100%;
+}
+
+.sidebar-brand {
+  margin-top: -25px;
+  margin-bottom: 50px;
+
+  .sidebar-logo {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  h1 {
+    display: inline-block;
+    font-size: 30px;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+/* Hamburger icon */
+.bm-burger-button {
+  position: fixed;
+  width: 25px;
+  height: 20px;
+  left: 30px;
+  top: 15px;
+}
+
+.bm-burger-bars {
+  background: $white;
+  height: 15% !important;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  position: fixed;
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: white;
+}
+
+.bm-menu-wrap {
+  background-color: $dark-gray;
+  height: 100%;
+  width: 200px !important;
+  box-shadow: $med-shadow;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  position: fixed;
+  background-color: $dark-gray;
+  overflow: hidden !important;
+  padding: 2.5em 1.5em 0;
+}
+
+.sidebar-link {
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  font-family: $main-font;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.sidebar-link.active, .sidebar-link:hover {
+  color: $brand-color-green;
+}
+
+.sidebar-sublink {
+  color: $light-gray;
+  margin-left: 8px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.sidebar-logout {
+  margin-top: 50px;
+  border-top: 1px solid white;
+  padding-top: 15px;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}

@@ -5,25 +5,24 @@ import './programHeader.css';
 class ProgramHeader extends Component {
 
   render() {
-    // const { programName, visibleTab } = this.props;
 
     return (
       <div className='program-header'>
         <div className='program-header-name'>
-          <h1>{this.props.regimenName}</h1>
+          <h2>{this.props.regimenName}</h2>
         </div>
         <div className='program-header-tabs'>
           <ProgramHeaderTab
             activeTab={this.props.activeTab}
             toggleTab={this.props.toggleTab}
-            value='players'
-            title='Players'/>
+            value='reports'
+            title='Reports'/>
 
           <ProgramHeaderTab
             activeTab={this.props.activeTab}
             toggleTab={this.props.toggleTab}
-            value='setup'
-            title='Setup'/>
+            value='settings'
+            title='Settings'/>
         </div>
       </div>
     )

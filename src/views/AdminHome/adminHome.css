@@ -84,17 +84,19 @@ a:visited {
 .admin-home {
   height: 100%;
   width: 100%;
-  padding: 20px;
+  padding-top: 100px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
 
-.regimens-card, .players-card, .activity-card {
-  margin: 15px;
-  flex-grow: 0.3; }
+.admin-home-header {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  background-color: white;
+  height: 50px;
+  text-align: right; }
 
-.players-card, .regimens-card {
-  width: 150px; }
-
-.activity-card {
-  width: 320px; }
+.admin-name {
+  line-height: 50px;
+  margin-right: 15px; }

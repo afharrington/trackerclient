@@ -5,13 +5,13 @@ import { ADMIN_FETCH_USER_TILES, FETCH_REGIMENS, ADMIN_FETCH_REGIMEN, CREATE_REG
 export default function(state = {}, action) {
   switch(action.type) {
     case FETCH_REGIMENS:
-      return _.mapKeys(action.payload, '_id');
+      return { regimens: _.mapKeys(action.payload, '_id') };
     case ADMIN_FETCH_REGIMEN:
       return {...state, regimen: action.payload };
     case CREATE_REGIMEN:
-      return _.mapKeys(action.payload, '_id');
+      return { regimens: _.mapKeys(action.payload, '_id') };
     case DELETE_REGIMEN:
-      return _.omit(state, action.payload);
+      return { regimens: _.omit(state, action.payload) };
     case CREATE_TILE:
       return {...state, regimen: action.payload };
     case UPDATE_TILE:

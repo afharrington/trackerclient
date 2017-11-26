@@ -50,7 +50,7 @@
 }
 
 .admin-tile-name {
-  background-color: $dark-gray;
+  background-color: $med-gray;
   font-family: $main-font;
   color: white;
   padding: 3px;
@@ -105,18 +105,10 @@
   }
 
   .admin-tile-activity-item {
+    display: block;
     font-size: 12px;
-    padding: 3px;
-    margin: 1px;
-
-    background-color: $dark-gray;
-    color: $white;
+    margin-left: 5px;
+    color: $dark-gray;
     text-transform: capitalize;
   }
-}
-
-.admin-tile-activity-items {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 2%;
 }

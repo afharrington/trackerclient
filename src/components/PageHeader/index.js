@@ -16,8 +16,6 @@ class PageHeader extends Component {
   logoutUser = () => this.props.logoutUser();
 
   renderLinks() {
-    const firstName = localStorage.getItem('firstName') ? localStorage.getItem('firstName') : null;
-    const lastName = localStorage.getItem('lastName') ? localStorage.getItem('lastName') : null;
     let className = `page-header-link ${this.props.textColor}`;
 
     if (this.props.auth) {
@@ -29,7 +27,7 @@ class PageHeader extends Component {
                 <img src='/img/3up-logo-white.png' alt='3up logo'/>
               </NavLink>
             </div>
-            <div className={className} onClick={this.logoutAdmin.bind(this)}>Log out  ({firstName} {lastName})</div>
+            <div className={className} onClick={this.logoutAdmin.bind(this)}>Log out</div>
           </div>
         )
       } else if (this.props.auth.userType === 'user') {
@@ -40,7 +38,7 @@ class PageHeader extends Component {
                 <img src='./img/3up-logo-black.png' alt='3up logo'/>
               </NavLink>
             </div>
-            <div className={className} onClick={this.logoutUser.bind(this)}>Log out  <span>({firstName} {lastName})</span></div>
+            <div className={className} onClick={this.logoutUser.bind(this)}>Log out</div>
           </div>
         )
       }
@@ -48,6 +46,8 @@ class PageHeader extends Component {
   }
 
   render() {
+    const firstName = localStorage.getItem('firstName') ? localStorage.getItem('firstName') : null;
+    const lastName = localStorage.getItem('lastName') ? localStorage.getItem('lastName') : null;
     let pageHeaderClassName = `page-header page-header-${this.props.auth.userType}`
 
     return (

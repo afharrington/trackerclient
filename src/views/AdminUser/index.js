@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import PageWrapper from '../../components/PageWrapper';
 import _ from 'lodash';
 import UserTilesContainer from '../../components/UserTilesContainer';
-import AdminUserEntries from './subviews/AdminUserEntries';
-import UserInfo from './subviews/UserInfo';
+import AdminPageHeader from '../../components/AdminPageHeader';
+import AdminUserEntries from './AdminUserEntries';
+import AdminUserInfo from './AdminUserInfo';
 import UserHeader from '../../components/UserHeader';
 import { adminFetchUser, adminFetchUserRegimen } from '../../actions/adminUserActions';
 import './adminUser.css';
@@ -19,7 +20,6 @@ class AdminUser extends Component {
       viewType: 'userRegimen', // switch between userRegimen and userTile
       visibleTile: null, // will have an id value if viewType is entries
     }
-
     this.setVisibleUserRegimen = this.setVisibleUserRegimen.bind(this);
     this.setVisibleTile = this.setVisibleTile.bind(this);
   }
@@ -58,7 +58,7 @@ class AdminUser extends Component {
 
   renderView() {
     if (this.state.visibleUserRegimen === 'info') {
-      return <UserInfo />
+      return <AdminUserInfo />
 
     } else if (this.state.viewType === 'userRegimen') {
       return (
@@ -81,20 +81,19 @@ class AdminUser extends Component {
     }
   }
 
+
   render() {
     if (this.props.user) {
       return (
-        <PageWrapper textColor='white'>
-          <div className='admin-user-view'>
-            { this.renderHeader() }
-            { this.renderView() }
-          </div>
-        </PageWrapper>
+        <div className='admin-user-view'>
+          <AdminPageHeader/>
+          { this.renderHeader() }
+          { this.renderView() }
+        </div>
       )
     } else {
       return <div></div>
     }
-
   }
 }
 

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import PageWrapper from '../../components/PageWrapper';
-import CardWrapper from '../../components/CardWrapper';
+import { connect } from 'react-redux';
 import RegimenList from './components/RegimenList';
 import UserList from './components/UserList';
-import RecentActivityList from './components/RecentActivityList';
+import Sidebar from '../../components/Sidebar';
 import CreateRegimenForm from './components/CreateRegimenForm';
 import CreateUserForm from './components/CreateUserForm';
+import { selectMenuItem } from '../../actions/uiActions';
+import { fetchRegimens } from '../../actions/adminRegimenActions';
 
 import './adminHome.css';
 
@@ -20,7 +21,11 @@ class AdminHome extends Component {
 
     this.toggleRegimenForm = this.toggleRegimenForm.bind(this);
     this.toggleUserForm = this.toggleUserForm.bind(this);
+  }
 
+  componentDidMount() {
+    this.props.selectMenuItem('Recent Activity');
+    this.props.fetchRegimens();
   }
 
   toggleRegimenForm() {
@@ -32,10 +37,20 @@ class AdminHome extends Component {
   }
 
   render() {
+    const firstName = localStorage.getItem('firstName') ? localStorage.getItem('firstName') : null;
+    const lastName = localStorage.getItem('lastName') ? localStorage.getItem('lastName') : null;
     return (
-      <PageWrapper textColor='gray'>
         <div className='admin-home'>
-          { this.state.showRegimenForm ? <CreateRegimenForm exit={this.toggleRegimenForm}/> : null }
+          <div className='admin-home-header'>
+            <p className='admin-name'>{firstName} {lastName}</p>
+          </div>
+          <UserList toggleUserForm={this.toggleUserForm}/>
+{/*
+          { this.props.activeMenuItem == 'Programs' &&
+            <RegimenList toggleRegimenForm={this.toggleRegimenForm} />
+          } */}
+
+          {/* { this.state.showRegimenForm ? <CreateRegimenForm exit={this.toggleRegimenForm}/> : null }
           { this.state.showUserForm ? <CreateUserForm exit={this.toggleUserForm}/> : null }
 
           <div className='regimens-card'><RegimenList toggleRegimenForm={this.toggleRegimenForm} /></div>
@@ -44,13 +59,16 @@ class AdminHome extends Component {
 
           <div className='activity-card'>
             <RecentActivityList/>
-          </div>
-
+          </div> */}
 
         </div>
-      </PageWrapper>
     )
   }
 }
 
-export default AdminHome;
+function mapStateToProps(state) {
+  return {
+    activeMenuItem: state.ui.activeMenuItem };
+}
+
+export default connect(mapStateToProps, { selectMenuItem, fetchRegimens })(AdminHome);

@@ -1,18 +1,16 @@
 @import '../../../../styles/styles.scss';
 
 .user-row {
-  // margin-top: 15px;
-  // margin-bottom: 5px;
-  // border-bottom: 1px solid $light-gray;
-  height: 45px;
+  height: 30px;
   display: flex;
   padding-top: 10px;
   padding-bottom: 10px;
   font-family: $main-font;
+  border-bottom: 1px solid $light-gray;
 
   .row-text {
     font-family: $main-font;
-    height: 45px;
+    height: 30px;
     margin-top: 10px;
     text-transform: capitalize;
     font-size: 14px;
@@ -22,6 +20,7 @@
 
 .user-row-name {
   width: 20% !important;
+  margin-left: 5px;
 }
 .user-row-cycle {
   width: 15%;
@@ -38,7 +37,7 @@
 .previous-cycle {
   color: $dark-gray;
   margin-top: 5px;
-  margin-right: 10px;
+  margin-right: 20px;
   height: 25px;
   text-align: center;
   border-radius: 5px;

@@ -29,7 +29,7 @@ class TileSummary extends Component {
               <p>Progress</p>
             </div>
             <div className='user-last3-label'>
-              <p>Previous Cycles</p>
+              <p>Last 3 Cycles (%)</p>
             </div>
           </div>
         )
@@ -40,12 +40,12 @@ class TileSummary extends Component {
     if (this.props.userTiles) {
 
       // Sort user rows by current cycle percent;
-      this.props.userTiles.sort(function (a, b) {
-        return b.cycles[0].cyclePercent - a.cycles[0].cyclePercent;
-      });
+      // this.props.userTiles.sort(function (a, b) {
+      //   return b.cycles[0].cyclePercent - a.cycles[0].cyclePercent;
+      // });
 
       return this.props.userTiles.map(userTile => {
-        if (userTile.cycles[0] !== undefined) {
+        if (userTile !== undefined) {
           return (
             <UserRow
               key={userTile.userId}

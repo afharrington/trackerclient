@@ -2,7 +2,10 @@
 
 .regimen-list {
   color: $dark-gray;
-  width: 100%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 
   h3 {
     margin-bottom: 10px;
@@ -10,9 +13,9 @@
   }
 }
 
-.regimens-button-container {
-  display: flex;
-  margin-top: 25px;
-  margin-left: 10px;
-  margin-bottom: 20px;
-}
+// .regimens-button-container {
+//   display: flex;
+//   margin-top: 25px;
+//   margin-left: 10px;
+//   margin-bottom: 20px;
+// }

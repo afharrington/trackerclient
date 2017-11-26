@@ -1,0 +1,29 @@
+@import '../../../../styles/styles.scss';
+
+.entry {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr 0.25fr;
+  background-color: white;
+
+  p {
+    font-family: $main-font;
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+.entry-menu-icon {
+  button {
+    padding: 0px !important;
+    margin: 0px !important;
+    width: 20px !important;
+    height: 30px !important;
+    font-size: 16px;
+    font-family: $main-font;
+  }
+}
+
+.entry-activity {
+  text-transform: capitalize;
+}

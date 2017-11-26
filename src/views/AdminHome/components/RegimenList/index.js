@@ -56,17 +56,17 @@ class RegimenList extends Component {
 
   render() {
     return (
-      <CardWrapper color='blue' title='Programs' add={this.props.toggleRegimenForm}>
-        <div className='regimen-list'>
+      <div className='regimen-list'>
+        {/* <CardWrapper color='blue' title='Programs' add={this.props.toggleRegimenForm}> */}
           {this.renderRegimens()}
-        </div>
-      </CardWrapper>
+        {/* </CardWrapper> */}
+      </div>
     )
   }
 };
 
 function mapStateToProps(state) {
-  return { regimens: state.adminRegimens };
+  return { regimens: state.adminRegimens.regimens };
 }
 
 export default connect(mapStateToProps, { fetchRegimens, deleteRegimen })(RegimenList);

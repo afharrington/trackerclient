@@ -20,7 +20,7 @@ class UserRow extends Component {
         className = `previous-cycle`;
         return (
           <div key={cycle._id} className={className}>
-            <p>{cycle.cyclePercent}%</p>
+            <p>{cycle.cyclePercent}</p>
           </div>
         )
       } else {
