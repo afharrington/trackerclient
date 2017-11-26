@@ -18,6 +18,11 @@ class AdminRecentActivity extends Component {
     let updates = this.props.recentActivity;
     if (updates) {
       let last50updates = updates.slice(0, 50);
+
+      last50updates = last50updates.sort(function(a, b){
+        return b.entryDate == a.entryDate ? 0 : +(b.entryDate > a.entryDate) || -1;
+      });
+
       return last50updates.map(update => {
         return (
           <div key={update}>

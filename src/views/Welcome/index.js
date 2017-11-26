@@ -46,7 +46,7 @@ class Welcome extends Component {
     const role = localStorage.getItem('role');
     if (this.props.authenticated) {
       if (role === 'admin') {
-        this.props.history.push('/admin');
+        this.props.history.push('/admin/recent');
       } else {
         this.props.history.push('/user');
       }
@@ -70,7 +70,7 @@ class Welcome extends Component {
 
   renderMessage() {
     if (this.state.form === 'user') {
-      return <div className='welcome-header-message'>Welcome, 3up scholar! Log in to track your progress.</div>
+      return <div className='welcome-header-message'>Welcome, 3up athlete! Log in to track your progress.</div>
     } else if (this.state.form === 'admin') {
       return <div className='welcome-header-message'>Log in to a coach or administrator account.</div>
     } else {
@@ -114,9 +114,8 @@ class Welcome extends Component {
     return (
       <div className='welcome-container'>
         <div className={welcomeClassName}>
-          <div className='welcome-logo'>
+          <div onClick={this.showUserForm.bind(this)} className='welcome-logo'>
             <img src='./img/3up-logo-white.png' alt='3up logo'/>
-            <h3 onClick={this.showUserForm.bind(this)}>3up</h3>
           </div>
 
           { this.renderLink() }

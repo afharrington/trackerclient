@@ -22,11 +22,13 @@ class Sidebar extends Component {
   }
 
   renderProgramLinks() {
+    let active = this.props.activeMenuItem;
+
     let regimens = this.props.adminRegimens;
     if (regimens) {
       return _.map(regimens, regimen => {
         return (
-          <Link key={regimen._id} to={`/admin/regimen/${regimen._id}`}><p className='sidebar-sublink'>{regimen.regimenName}</p></Link>
+          <Link key={regimen._id} to={`/admin/regimen/${regimen._id}`}><p className={ active == regimen._id ? 'sidebar-sublink active' : 'sidebar-sublink'}>{regimen.regimenName}</p></Link>
         );
       })
     }
@@ -44,9 +46,9 @@ class Sidebar extends Component {
           </div>
 
           <Link to='/admin/recent'><h3 className={ active == 'Recent Activity' ? 'sidebar-link active' : 'sidebar-link'}>Recent Activity</h3></Link>
-          <h3 className='sidebar-link'>Programs</h3>
+          <h3 className='sidebar-item'>Programs</h3>
           { this.renderProgramLinks() }
-          <Link to='/admin/team'><h3 className='sidebar-link'>Team</h3></Link>
+          <Link to='/admin/team'><h3 className={ active == 'Team' ? 'sidebar-link active' : 'sidebar-link'}>Team</h3></Link>
 
           <h3 className='sidebar-logout sidebar-link' onClick={this.props.logoutAdmin}>Log out</h3>
         </Menu>

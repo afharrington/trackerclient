@@ -6,6 +6,7 @@ import PlayerProgress from './PlayerProgress';
 import _ from 'lodash';
 import ProgramHeader from '../../components/ProgramHeader';
 import ProgramSetup from './ProgramSetup';
+import { selectMenuItem } from '../../actions/uiActions';
 import { adminFetchRegimen } from '../../actions/adminRegimenActions';
 import { adminFetchUserRegimens } from '../../actions/adminUserActions';
 import './adminProgram.css';
@@ -32,6 +33,7 @@ class AdminProgram extends Component {
 
   componentDidMount() {
     let param = this.props.match.params.regimenId;
+    this.props.selectMenuItem(param);
     this.setState({ regimenId: param });
     this.props.adminFetchRegimen(this.props.match.params.regimenId);
     this.props.adminFetchUserRegimens(this.props.match.params.regimenId);
@@ -41,6 +43,7 @@ class AdminProgram extends Component {
     let newParam = newProps.match.params.regimenId;
     this.setState({ regimenId: newParam });
     if (newParam !== this.state.regimenId) {
+      this.props.selectMenuItem(newProps.match.params.regimenId);
       this.props.adminFetchRegimen(newProps.match.params.regimenId);
       this.props.adminFetchUserRegimens(newProps.match.params.regimenId);
     }
@@ -96,4 +99,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { adminFetchRegimen, adminFetchUserRegimens })(AdminProgram);
+export default connect(mapStateToProps, { adminFetchRegimen, adminFetchUserRegimens, selectMenuItem })(AdminProgram);

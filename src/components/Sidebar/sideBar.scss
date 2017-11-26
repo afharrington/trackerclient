@@ -77,8 +77,17 @@
   margin-bottom: 10px;
 }
 
+.sidebar-item {
+  font-size: 18px;
+  color: white;
+  font-family: $main-font;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
 .sidebar-link.active, .sidebar-link:hover {
   color: $brand-color-green;
+  cursor: pointer;
 }
 
 .sidebar-sublink {
@@ -86,6 +95,10 @@
   margin-left: 8px;
   margin-bottom: 10px;
   text-transform: capitalize;
+}
+
+.sidebar-sublink:hover, .sidebar-sublink.active {
+  color: $brand-color-green;
 }
 
 .sidebar-logout {
