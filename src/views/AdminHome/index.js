@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import RegimenList from './components/RegimenList';
 import UserList from './components/UserList';
 import Sidebar from '../../components/Sidebar';
-import CreateRegimenForm from './components/CreateRegimenForm';
 import CreateUserForm from './components/CreateUserForm';
 import { selectMenuItem } from '../../actions/uiActions';
 import { fetchRegimens } from '../../actions/adminRegimenActions';

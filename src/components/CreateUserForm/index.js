@@ -3,9 +3,9 @@ import Select from 'react-select';
 import { Field, reduxForm, formValueSelector, getFormValues } from 'redux-form'
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { fetchRegimens } from '../../../../actions/adminRegimenActions';
-import FormWrapper from '../../../../components/FormWrapper';
-import { adminCreateUser, adminUpdateUser, adminFetchUsers } from '../../../../actions/adminUserActions';
+import { fetchRegimens } from '../../actions/adminRegimenActions';
+import FormWrapper from '../FormWrapper';
+import { adminCreateUser, adminUpdateUser, adminFetchUsers } from '../../actions/adminUserActions';
 import CreateUserTextField from './CreateUserTextField';
 import CreateUserSportsList from './CreateUserSportsList';
 import CreateUserRegimensChecklist from './CreateUserRegimensChecklist';

@@ -1,10 +1,10 @@
 @import '../../styles/styles.scss';
 
-.admin-users {
+.admin-programs {
   z-index: 100;
 }
 
-.admin-users-labels {
+.admin-programs-labels {
   background-color: $dark-gray;
   width: 100%;
   display: flex;
@@ -26,20 +26,19 @@
   }
 }
 
-.admin-users-labels-name {
+.admin-programs-labels-name {
   width: 125px;
 }
 
-.admin-users-labels-program {
+.admin-programs-labels-program {
   width: 125px;
 }
 
-.admin-users-labels-entry {
+.admin-programs-labels-entry {
   width: 100px;
 }
 
-.admin-users-content {
-
+.admin-programs-content {
   margin: 175px auto;
   width: 80%;
   max-width: 450px;
@@ -50,6 +49,6 @@
   }
 }
 
-.admin-users-users {
+.admin-programs-programs {
   box-shadow: $small-shadow;
 }

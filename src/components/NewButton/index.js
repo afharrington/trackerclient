@@ -5,7 +5,7 @@ import './newButton.css';
 const NewButton = props => (
   <div className='new-button'>
     <button onClick={props.onClick}>
-      <FontAwesome className='plus' name='plus'/> {props.text}
+      {props.text}
     </button>
   </div>
 );

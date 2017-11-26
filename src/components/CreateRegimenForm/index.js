@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import FormWrapper from '../../../../components/FormWrapper';
-import SubmitButton from '../../../../components/SubmitButton';
+import FormWrapper from '../FormWrapper';
+import SubmitButton from '../SubmitButton';
 import { connect } from 'react-redux';
-import { createRegimen } from '../../../../actions/adminRegimenActions';
+import { createRegimen } from '../../actions/adminRegimenActions';
 import './createRegimenForm.css';
 
 

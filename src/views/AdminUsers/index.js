@@ -6,14 +6,29 @@ import { adminFetchUsers } from '../../actions/adminUserActions';
 import MdKeyboardArrowDown from 'react-icons/lib/md/keyboard-arrow-down';
 import PageTitle from '../../components/PageTitle';
 import AdminPageHeader from '../../components/AdminPageHeader';
+import NewButton from '../../components/NewButton';
+import CreateUserForm from '../../components/CreateUserForm';
 import UserItem from './UserItem';
 import './adminUsers.css';
 
 class AdminUsers extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      showUserForm: false
+    }
+
+    this.toggleUserForm = this.toggleUserForm.bind(this);
+  }
+
   componentDidMount() {
     this.props.adminFetchUsers();
     this.props.selectMenuItem('Team');
+  }
+
+  toggleUserForm() {
+    this.setState({ showUserForm: !this.state.showUserForm});
   }
 
   renderUsers() {
@@ -32,13 +47,17 @@ class AdminUsers extends Component {
       <div className='admin-users'>
         <AdminPageHeader/>
         <PageTitle title='Team' color='orange'/>
+        { this.state.showUserForm ? <CreateUserForm exit={this.toggleUserForm}/> : null }
         <div className='admin-users-content'>
-          <div className='admin-users-labels'>
-            <p className='admin-users-labels-name'>Name<span className='sort'><MdKeyboardArrowDown/></span></p>
-            <p className='admin-users-labels-program'>Program<span className='sort'><MdKeyboardArrowDown/></span></p>
-            <p className='admin-users-labels-entry'>Last Entry<span className='sort'><MdKeyboardArrowDown/></span></p>
+          <NewButton onClick={this.toggleUserForm} text='Add Player'/>
+          <div className='admin-users-users'>
+            <div className='admin-users-labels'>
+              <p className='admin-users-labels-name'>Name<span className='sort'><MdKeyboardArrowDown/></span></p>
+              <p className='admin-users-labels-program'>Program<span className='sort'><MdKeyboardArrowDown/></span></p>
+              <p className='admin-users-labels-entry'>Last Entry<span className='sort'><MdKeyboardArrowDown/></span></p>
+            </div>
+            {this.renderUsers()}
           </div>
-          {this.renderUsers()}
         </div>
       </div>
     )

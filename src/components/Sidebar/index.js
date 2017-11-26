@@ -7,6 +7,7 @@ import { selectMenuItem } from '../../actions/uiActions';
 import { logoutAdmin } from '../../actions/authActions';
 import { fetchRegimens } from '../../actions/adminRegimenActions';
 import SidebarLink from './SidebarLink';
+import CreateRegimenForm from '../CreateRegimenForm';
 
 import './sideBar.css';
 
@@ -14,7 +15,9 @@ class Sidebar extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { isOpen: false };
+    this.state = {
+      isOpen: false
+    }
   }
 
   componentDidMount() {
@@ -39,6 +42,8 @@ class Sidebar extends Component {
 
     return (
       <div className='sidebar' id='sidebar'>
+        { this.state.showRegimenForm ? <CreateRegimenForm exit={this.toggleRegimenForm}/> : null }
+
         <Menu noOverlay left isOpen={this.state.isOpen}>
           <div className='sidebar-brand'>
             <img className='sidebar-logo' src='/img/3up-logo-white.png' alt='3up logo'/>
@@ -46,8 +51,11 @@ class Sidebar extends Component {
           </div>
 
           <Link to='/admin/recent'><h3 className={ active == 'Recent Activity' ? 'sidebar-link active' : 'sidebar-link'}>Recent Activity</h3></Link>
-          <h3 className='sidebar-item'>Programs</h3>
+
+          <Link to='/admin/programs'><h3 className={ active == 'Programs' ? 'sidebar-link active' : 'sidebar-link'}>Programs</h3></Link>
+
           { this.renderProgramLinks() }
+          {/* <h3 className='sidebar-button' onClick={this.toggleRegimenForm}>+ New Program</h3> */}
           <Link to='/admin/team'><h3 className={ active == 'Team' ? 'sidebar-link active' : 'sidebar-link'}>Team</h3></Link>
 
           <h3 className='sidebar-logout sidebar-link' onClick={this.props.logoutAdmin}>Log out</h3>

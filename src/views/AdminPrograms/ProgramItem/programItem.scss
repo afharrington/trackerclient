@@ -1,0 +1,40 @@
+@import '../../../styles/styles.scss';
+
+.program-item {
+  cursor: pointer;
+  width: 100% !important;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 30px;
+  background-color: $white;
+  border-bottom: 1px solid $light-gray;
+
+  p {
+    text-transform: capitalize;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+    line-height: 30px;
+  }
+}
+
+.program-item:hover {
+  background-color: $light-gray;
+}
+
+.program-item-name, .program-item-program {
+  width: 125px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px !important;
+}
+
+.program-item-entry {
+  width: 100px;
+  cursor: pointer;
+  font-size: 14px !important;
+}

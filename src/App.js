@@ -20,6 +20,7 @@ import AdminHome from './views/AdminHome';
 import AdminProgram from './views/AdminProgram';
 
 import AdminUsers from './views/AdminUsers';
+import AdminPrograms from './views/AdminPrograms';
 // Admin User View
 import AdminUser from './views/AdminUser';
 
@@ -71,6 +72,7 @@ class App extends Component {
             <Route exact path='/admin/regimen/:regimenId' component={AdminAuthentication(AdminProgram)}/>
             <Route exact path='/admin/regimen/:regimenId/settings' component={AdminAuthentication(AdminProgram)}/>
             <Route exact path='/admin/team' component={AdminAuthentication(AdminUsers)}/>
+            <Route exact path='/admin/programs' component={AdminAuthentication(AdminPrograms)}/>
             <Route exact path='/admin/user/:userId' component={AdminAuthentication(AdminUser)}/>
           </Switch>
         </MuiThemeProvider>

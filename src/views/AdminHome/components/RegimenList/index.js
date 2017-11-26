@@ -3,7 +3,7 @@ import _ from 'lodash';
 import NewButton from '../../../../components/NewButton';
 import CardWrapper from '../../../../components/CardWrapper';
 import CautionModal from '../../../../components/CautionModal';
-import CreateRegimenForm from '../CreateRegimenForm';
+//import CreateRegimenForm from '../CreateRegimenForm';
 import RegimenItem from './RegimenItem';
 import { connect } from 'react-redux';
 import { fetchRegimens, deleteRegimen } from '../../../../actions/adminRegimenActions';
