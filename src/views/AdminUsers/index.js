@@ -45,9 +45,10 @@ class AdminUsers extends Component {
   render() {
     return (
       <div className='admin-users'>
-        <AdminPageHeader/>
-        <PageTitle title='Team' color='orange'/>
         { this.state.showUserForm ? <CreateUserForm exit={this.toggleUserForm}/> : null }
+        <AdminPageHeader/>
+        <PageTitle title='Your Team' color='orange'/>
+
         <div className='admin-users-content'>
           <NewButton onClick={this.toggleUserForm} text='Add Player'/>
           <div className='admin-users-users'>

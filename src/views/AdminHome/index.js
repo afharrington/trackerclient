@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import RegimenList from './components/RegimenList';
-import UserList from './components/UserList';
 import Sidebar from '../../components/Sidebar';
-import CreateUserForm from './components/CreateUserForm';
+import CreateUserForm from '../../components/CreateUserForm';
 import { selectMenuItem } from '../../actions/uiActions';
 import { fetchRegimens } from '../../actions/adminRegimenActions';
 
@@ -43,7 +41,7 @@ class AdminHome extends Component {
           <div className='admin-home-header'>
             <p className='admin-name'>{firstName} {lastName}</p>
           </div>
-          <UserList toggleUserForm={this.toggleUserForm}/>
+          
 {/*
           { this.props.activeMenuItem == 'Programs' &&
             <RegimenList toggleRegimenForm={this.toggleRegimenForm} />
