@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+import moment from 'moment';
 import './recentActivityItem.css';
 
 class RecentActivityItem extends Component {
 
+
   render() {
     let activity = this.props.activity;
-
     return (
       <div className='recent-activity-item'>
         <div className='user'>

@@ -11,7 +11,7 @@ class UserItem extends Component {
     let user = this.props.user;
     if (_.isEmpty(user.recentEntry) == false) {
       return (
-        <p className='user-item-entry'><Moment fromNow>{user.recentEntry}</Moment></p>
+        <p className='user-item-entry'><Moment fromNow>{user.recentEntry.entryDate}</Moment></p>
       )
     } else {
       return <p className='user-item-entry'></p>

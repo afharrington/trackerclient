@@ -8,10 +8,11 @@ import './programItem.css';
 class ProgramItem extends Component {
 
   renderLastEntry() {
+
     let program = this.props.program;
     if (_.isEmpty(program.recentEntry) == false) {
       return (
-        <p className='program-item-entry'><Moment fromNow>{program.recentEntry}</Moment></p>
+        <p className='program-item-entry'><Moment fromNow>{program.recentEntry.entryDate}</Moment></p>
       )
     } else {
       return <p className='program-item-entry'></p>
