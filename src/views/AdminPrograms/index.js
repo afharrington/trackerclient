@@ -53,8 +53,8 @@ class AdminPrograms extends Component {
           <div className='admin-programs-programs'>
             <div className='admin-programs-labels'>
               <p className='admin-programs-labels-name'>Program<span className='sort'><MdKeyboardArrowDown/></span></p>
-              <p className='admin-programs-labels-program'>Num Players<span className='sort'><MdKeyboardArrowDown/></span></p>
-              <p className='admin-programs-labels-entry'>Last Entry<span className='sort'><MdKeyboardArrowDown/></span></p>
+              <p className='admin-programs-labels-program'># Players<span className='sort'><MdKeyboardArrowDown/></span></p>
+              <p className='admin-programs-labels-entry'>Last Activity<span className='sort'><MdKeyboardArrowDown/></span></p>
             </div>
             {this.renderPrograms()}
           </div>

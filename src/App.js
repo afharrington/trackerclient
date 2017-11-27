@@ -66,7 +66,6 @@ class App extends Component {
           { this.renderMenu() }
           <Switch>
             <Route exact path='/' render={props => <Welcome {...props} /> } />
-            {/* <Route exact path='/admin' component={AdminAuthentication(AdminHome)}/> */}
             <Route exact path='/admin/recent' component={AdminAuthentication(AdminRecentActivity)}/>
             <Route exact path='/user' component={UserAuthentication(UserHome)}/>
             <Route exact path='/admin/regimen/:regimenId' component={AdminAuthentication(AdminProgram)}/>

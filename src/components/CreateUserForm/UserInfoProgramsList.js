@@ -21,6 +21,7 @@ const UserInfoProgramsList = (props) => {
     <div className='user-info-item'>
       <p className='user-info-item-label'>{props.label}:</p>
       <Field name={props.name} component='select'>
+        <option></option>
         {renderPrograms()}
       </Field>
     </div>

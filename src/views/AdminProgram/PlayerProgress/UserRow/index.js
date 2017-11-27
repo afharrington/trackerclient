@@ -34,7 +34,7 @@ class UserRow extends Component {
       return (
         <div className='user-row-progress'>
           <Line percent={this.props.progress}
-            strokeWidth='20'
+            strokeWidth='1'
             strokeLinecap='square'
             strokeColor='#00c7a9'
             trailWidth='0'

@@ -1,56 +1,71 @@
 @import '../../../styles/styles.scss';
 
 .recent-activity-item {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  // justify-content: space-between;
   margin: 10px;
   background-color: white;
   color: $dark-gray;
 
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .user {
-    width: 100px;
     padding: 15px;
     text-transform: capitalize;
-  }
 
-  .name {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
+    @media (max-width: 400px) {
+      padding: 5px;
+    }
 
-  .active-regimen {
-    font-size: 12px;
+    .name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .active-regimen {
+      font-size: 12px;
+    }
   }
 
   .activity-info {
-    width: 100px;
     padding: 15px;
     text-transform: capitalize;
+
+    @media (max-width: 400px) {
+      padding: 5px;
+    }
+
+    .tile-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .activity {
+      font-size: 12px;
+      text-transform: capitalize;
+    }
   }
 
-  .tile-name {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
-  .activity {
-    font-size: 12px;
-    text-transform: capitalize;
-  }
 
   .time {
-    width: 80px;
     padding: 15px;
     text-align: right;
-  }
 
-  .minutes {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
+    @media (max-width: 400px) {
+      padding: 5px;
+    }
 
-  .date {
-    color: $med-gray;
-    font-size: 12px;
+    .minutes {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .date {
+      color: $med-gray;
+      font-size: 12px;
+    }
   }
 }

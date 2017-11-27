@@ -1,7 +1,6 @@
 @import '../../../../styles/styles.scss';
 
 .user-row {
-  height: 30px;
   display: flex;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -11,7 +10,6 @@
   .row-text {
     font-family: $main-font;
     height: 30px;
-    margin-top: 10px;
     text-transform: capitalize;
     font-size: 14px;
     margin-left: 5px;
@@ -56,18 +54,17 @@
 
 .user-row-progress {
   position: relative;
-  height: 25px;
+  height: 100%;
 
   .progress-percent {
     position: absolute;
     color: $white;
     z-index: 100;
-    top: 1px;
+    top: 15%;
   }
 }
 
 .progress-bar {
-  margin-top: 10px;
   width: 100px;
-  height: 20px;
+  height: 30px;
 }

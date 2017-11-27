@@ -18,7 +18,8 @@ export default function(state = {}, action) {
     case ADMIN_FETCH_USER: // this.props.adminUsers.user
       return {...state, user: action.payload };
     case ADMIN_FETCH_USERS:
-      return _.mapKeys(action.payload, '_id');
+      return {...state, users: action.payload };
+      // return _.mapKeys(action.payload, '_id');
     case ADMIN_UPDATE_USER:
       return {...state, user: action.payload };
     case ADMIN_DELETE_USER:
@@ -30,7 +31,8 @@ export default function(state = {}, action) {
     case ADMIN_FETCH_USER_TILE: // this.props.adminUsers.tile
       return {...state, tile: action.payload };
     case ADMIN_CREATE_USER:
-      return _.mapKeys(action.payload, '_id');
+      return {...state, users: action.payload };
+      // return _.mapKeys(action.payload, '_id');
     case ADMIN_CREATE_ENTRY:
       return {...state, tile: action.payload };
     case ADMIN_UPDATE_ENTRY:

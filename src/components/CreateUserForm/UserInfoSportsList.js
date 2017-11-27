@@ -16,6 +16,7 @@ const UserInfoSportsList = (props) => {
     <div className='user-info-item'>
       <p className='user-info-item-label'>{props.label}:</p>
       <Field name={props.name} component='select'>
+        <option></option>
         {renderSports()}
       </Field>
     </div>

@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
 import Moment from 'react-moment';
 import MdKeyboardArrowDown from 'react-icons/lib/md/keyboard-arrow-down';
 import './userItem.css';
 
 class UserItem extends Component {
+
+  renderLastEntry() {
+    let user = this.props.user;
+    if (_.isEmpty(user.recentEntry) == false) {
+      return (
+        <p className='user-item-entry'><Moment fromNow>{user.recentEntry}</Moment></p>
+      )
+    } else {
+      return <p className='user-item-entry'></p>
+    }
+  }
 
   render() {
     let user = this.props.user;
@@ -14,7 +26,7 @@ class UserItem extends Component {
           <div className='user-item'>
             <p className='user-item-name'>{user.firstName} {user.lastName}</p>
             <p className='user-item-program'>{user.activeUserRegimen && user.activeUserRegimen.userRegimenName}</p>
-            <p className='user-item-entry'>10/10/17</p>
+            {this.renderLastEntry()}
           </div>
         </Link>
         )
