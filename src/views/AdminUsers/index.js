@@ -36,7 +36,7 @@ class AdminUsers extends Component {
     if (users) {
       return _.map(users, user => {
         return (
-          <UserItem user={user} />
+          <UserItem key={user._id} user={user} />
         )
       });
     }
@@ -48,7 +48,6 @@ class AdminUsers extends Component {
         { this.state.showUserForm ? <CreateUserForm exit={this.toggleUserForm}/> : null }
         <AdminPageHeader/>
         <PageTitle title='Your Team' color='orange'/>
-
         <div className='admin-users-content'>
           <NewButton onClick={this.toggleUserForm} text='Add Player'/>
           <div className='admin-users-users'>
