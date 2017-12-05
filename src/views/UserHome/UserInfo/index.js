@@ -31,7 +31,7 @@ class UserInfo extends Component {
       email: user.email,
       code: user.code,
       sport: user.sport,
-      regimen: user.activeUserRegimen.fromRegimenId,
+      program: user.activeUserProgram.fromProgramId,
       password: user.password
     }
 
@@ -48,7 +48,7 @@ class UserInfo extends Component {
   }
 
   render() {
-    const { firstName, lastName, email, sport, activeUserRegimen } = this.props.user;
+    const { firstName, lastName, email, sport, activeUserProgram } = this.props.user;
     const { handleSubmit, submitting } = this.props;
 
     return (
@@ -76,7 +76,7 @@ class UserInfo extends Component {
 
                 <UserInfoItem label='Sport' text={sport} className='sport' />
 
-                <UserInfoItem label='Program' text={this.props.user.activeUserRegimen.userRegimenName} className='program'/>
+                <UserInfoItem label='Program' text={this.props.user.activeUserProgram.userProgramName} className='program'/>
 
               </div>
 

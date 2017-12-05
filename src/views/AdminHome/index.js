@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Sidebar from '../../components/Sidebar';
 import CreateUserForm from '../../components/CreateUserForm';
 import { selectMenuItem } from '../../actions/uiActions';
-import { fetchRegimens } from '../../actions/adminRegimenActions';
+import { fetchPrograms } from '../../actions/adminProgramActions';
 
 import './adminHome.css';
 
@@ -12,21 +12,21 @@ class AdminHome extends Component {
     super(props);
 
     this.state = {
-      showRegimenForm: false,
+      showProgramForm: false,
       showUserForm: false
     }
 
-    this.toggleRegimenForm = this.toggleRegimenForm.bind(this);
+    this.toggleProgramForm = this.toggleProgramForm.bind(this);
     this.toggleUserForm = this.toggleUserForm.bind(this);
   }
 
   componentDidMount() {
     this.props.selectMenuItem('Recent Activity');
-    this.props.fetchRegimens();
+    this.props.fetchPrograms();
   }
 
-  toggleRegimenForm() {
-    this.setState({ showRegimenForm: !this.state.showRegimenForm});
+  toggleProgramForm() {
+    this.setState({ showProgramForm: !this.state.showProgramForm});
   }
 
   toggleUserForm() {
@@ -44,13 +44,13 @@ class AdminHome extends Component {
           
 {/*
           { this.props.activeMenuItem == 'Programs' &&
-            <RegimenList toggleRegimenForm={this.toggleRegimenForm} />
+            <ProgramList toggleProgramForm={this.toggleProgramForm} />
           } */}
 
-          {/* { this.state.showRegimenForm ? <CreateRegimenForm exit={this.toggleRegimenForm}/> : null }
+          {/* { this.state.showProgramForm ? <CreateProgramForm exit={this.toggleProgramForm}/> : null }
           { this.state.showUserForm ? <CreateUserForm exit={this.toggleUserForm}/> : null }
 
-          <div className='regimens-card'><RegimenList toggleRegimenForm={this.toggleRegimenForm} /></div>
+          <div className='programs-card'><ProgramList toggleProgramForm={this.toggleProgramForm} /></div>
 
           <div className='players-card'><UserList toggleUserForm={this.toggleUserForm}/></div>
 
@@ -68,4 +68,4 @@ function mapStateToProps(state) {
     activeMenuItem: state.ui.activeMenuItem };
 }
 
-export default connect(mapStateToProps, { selectMenuItem, fetchRegimens })(AdminHome);
+export default connect(mapStateToProps, { selectMenuItem, fetchPrograms })(AdminHome);

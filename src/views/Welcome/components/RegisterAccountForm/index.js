@@ -105,7 +105,7 @@ function validate(values) {
       errors.password = 'Passwords do not match';
     }
     if (values.code) {
-      if (isNaN(Number(values.code)) || values.code.length !== 5) {
+      if (isNaN(Number(values.code))) {
         errors.code = 'Invalid code';
       }
     }

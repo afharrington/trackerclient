@@ -3,18 +3,18 @@ import _ from 'lodash';
 import NewButton from '../../../../components/NewButton';
 import CardWrapper from '../../../../components/CardWrapper';
 import CautionModal from '../../../../components/CautionModal';
-import CreateRegimenForm from '../CreateRegimenForm';
-import CategoryItem from '../RegimenItem';
+import CreateProgramForm from '../CreateProgramForm';
+import CategoryItem from '../ProgramItem';
 
 import './categoriesList.css';
 
 class CategoriesList extends Component {
 
   renderCategories() {
-    let regimens = this.props.regimens;
+    let programs = this.props.programs;
 
-    if (regimens) {
-      return _.map(regimens, regimen => {
+    if (programs) {
+      return _.map(programs, program => {
         return (
           <CategoryItem
           
@@ -27,7 +27,7 @@ class CategoriesList extends Component {
   render() {
     return (
       <CardWrapper title='Training Categories'>
-        <div className='regimen-list'>
+        <div className='program-list'>
           {this.renderTiles()}
         </div>
       </CardWrapper>
@@ -36,7 +36,7 @@ class CategoriesList extends Component {
 };
 
 function mapStateToProps(state) {
-  return { regimens: state.adminRegimens };
+  return { programs: state.adminPrograms };
 }
 
-export default connect(mapStateToProps, { fetchRegimens, deleteRegimen })(TilesList);
+export default connect(mapStateToProps, { fetchPrograms, deleteProgram })(TilesList);

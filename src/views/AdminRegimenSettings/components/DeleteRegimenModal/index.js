@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
-import { deleteRegimen } from '../../../../actions/adminRegimenActions';
-import './deleteRegimenModal.css';
+import { deleteProgram } from '../../../../actions/adminProgramActions';
+import './deleteProgramModal.css';
 
-class DeleteRegimenModal extends Component {
+class DeleteProgramModal extends Component {
   state = {
     open: false,
   };
@@ -18,9 +18,9 @@ class DeleteRegimenModal extends Component {
     this.setState({open: false});
   };
 
-  deleteRegimen() {
+  deleteProgram() {
     this.handleClose();
-    this.props.deleteRegimen(this.props.regimenId);
+    this.props.deleteProgram(this.props.programId);
     this.props.redirect();
   }
 
@@ -34,25 +34,25 @@ class DeleteRegimenModal extends Component {
       <FlatButton
         label="Delete"
         primary={true}
-        onClick={this.deleteRegimen.bind(this)}
+        onClick={this.deleteProgram.bind(this)}
       />,
     ];
 
     return (
-      <div className='delete-regimen-modal'>
-        <button className='regimen-delete-button' onClick={this.handleOpen}>Delete Regimen</button>
+      <div className='delete-program-modal'>
+        <button className='program-delete-button' onClick={this.handleOpen}>Delete Program</button>
         <Dialog
-          title="Are you sure you want to delete this regimen?"
+          title="Are you sure you want to delete this program?"
           actions={actions}
           modal={true}
           open={this.state.open}
         >
-          <p className='dialog-text'>Deleting will permanently remove this regimen from your dashboard but will <em>not</em> affect players you have assigned it to.</p>
-          <p className='dialog-text'>An individual player's regimens must be modified on the player's profile page.</p>
+          <p className='dialog-text'>Deleting will permanently remove this program from your dashboard but will <em>not</em> affect players you have assigned it to.</p>
+          <p className='dialog-text'>An individual player's programs must be modified on the player's profile page.</p>
         </Dialog>
       </div>
     );
   }
 }
 
-export default connect(null, { deleteRegimen })(DeleteRegimenModal);
+export default connect(null, { deleteProgram })(DeleteProgramModal);

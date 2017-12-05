@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import FormWrapper from '../../../../components/FormWrapper';
-import { createTile, updateTile } from '../../../../actions/adminRegimenActions';
+import { createTile, updateTile, adminFetchProgramTiles } from '../../../../actions/adminProgramActions';
 import './createTileForm.css';
 
 const renderActivityField = ({input}) => (
@@ -32,7 +32,7 @@ class CreateTileForm extends Component {
           activityOptions: this.props.tile.activityOptions
         },
         tileId: this.props.tile._id,
-        regimenId: ''
+        programId: ''
       }
     } else {
       this.state = {
@@ -48,7 +48,7 @@ class CreateTileForm extends Component {
   componentDidMount() {
     if (this.props.tile) {
       this.setState({ tileId: this.props.tile._id });
-      this.setState({ regimenId: this.props.regimenId})
+      this.setState({ programId: this.props.programId})
     }
 
     this.props.initialize(this.state.initialData);
@@ -92,9 +92,13 @@ class CreateTileForm extends Component {
     }
 
     if (!this.props.tile) {
-      this.props.createTile(this.props.regimenId, values);
+      this.props.createTile(this.props.programId, values, () => {
+        this.props.adminFetchProgramTiles(this.props.programId);
+      });
     } else {
-      this.props.updateTile(this.state.regimenId, this.state.tileId, values);
+      this.props.updateTile(this.props.tile._id, values, () => {
+        this.props.adminFetchProgramTiles(this.props.programId);
+      });
     }
     this.props.exit();
   }
@@ -163,5 +167,5 @@ export default reduxForm({
   validate,
   form: 'CreateTileForm'
 })(
-  connect(null, { createTile, updateTile })(CreateTileForm)
+  connect(null, { createTile, updateTile, adminFetchProgramTiles })(CreateTileForm)
 );

@@ -14,7 +14,6 @@ class UserTile extends Component {
 
   setVisibleTile() {
     this.props.setVisibleTile(this.props.tile._id);
-    console.log(this.props.tile._id);
   }
 
   renderTime() {

@@ -3,51 +3,51 @@ import _ from 'lodash';
 import NewButton from '../../../../components/NewButton';
 import CardWrapper from '../../../../components/CardWrapper';
 import CautionModal from '../../../../components/CautionModal';
-//import CreateRegimenForm from '../CreateRegimenForm';
-import RegimenItem from './RegimenItem';
+//import CreateProgramForm from '../CreateProgramForm';
+import ProgramItem from './ProgramItem';
 import { connect } from 'react-redux';
-import { fetchRegimens, deleteRegimen } from '../../../../actions/adminRegimenActions';
-import './regimenList.css';
+import { fetchPrograms, deleteProgram } from '../../../../actions/adminProgramActions';
+import './programList.css';
 
-class RegimenList extends Component {
+class ProgramList extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       showForm: false,
       showModal: false,
-      regimenId: ''
+      programId: ''
     }
   }
 
   componentDidMount() {
-    this.props.fetchRegimens();
+    this.props.fetchPrograms();
   }
 
-  deleteRegimen() {
-    this.props.deleteRegimen(this.state.regimenId);
+  deleteProgram() {
+    this.props.deleteProgram(this.state.programId);
   }
 
-  toggleModal(regimenId) {
+  toggleModal(programId) {
     if (this.state.showModal === false) {
       this.setState({ showModal: true });
-      this.setState({ regimenId: regimenId})
+      this.setState({ programId: programId})
     } else {
       this.setState({ showModal: false });
-      this.setState({ regimenId: '' })
+      this.setState({ programId: '' })
     }
   }
 
-  renderRegimens() {
-    let regimens = this.props.regimens;
+  renderPrograms() {
+    let programs = this.props.programs;
 
-    if (regimens) {
-      return _.map(regimens, regimen => {
+    if (programs) {
+      return _.map(programs, program => {
         return (
-          <RegimenItem
-            key={regimen._id}
+          <ProgramItem
+            key={program._id}
             toggleModal={this.toggleModal.bind(this)}
-            regimen={regimen}
+            program={program}
           />
         );
       })
@@ -56,9 +56,9 @@ class RegimenList extends Component {
 
   render() {
     return (
-      <div className='regimen-list'>
-        {/* <CardWrapper color='blue' title='Programs' add={this.props.toggleRegimenForm}> */}
-          {this.renderRegimens()}
+      <div className='program-list'>
+        {/* <CardWrapper color='blue' title='Programs' add={this.props.toggleProgramForm}> */}
+          {this.renderPrograms()}
         {/* </CardWrapper> */}
       </div>
     )
@@ -66,7 +66,7 @@ class RegimenList extends Component {
 };
 
 function mapStateToProps(state) {
-  return { regimens: state.adminRegimens.regimens };
+  return { programs: state.adminPrograms.programs };
 }
 
-export default connect(mapStateToProps, { fetchRegimens, deleteRegimen })(RegimenList);
+export default connect(mapStateToProps, { fetchPrograms, deleteProgram })(ProgramList);

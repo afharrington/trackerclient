@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import UserEntryForm from './UserEntryForm';
+import EntryForm from './EntryForm';
 import FontAwesome from 'react-fontawesome';
 import UserCycle from './UserCycle';
-import { adminFetchUserTile, adminFetchUser } from '../../actions/adminUserActions';
-import { fetchUserTile } from '../../actions/userActions';
+import { adminFetchUserTile } from '../../actions/adminUserActions';
 
 import './userEntries.css';
 
@@ -22,18 +21,15 @@ class UserEntries extends Component {
       showEditForm: false,
       entry: {},
       cycleId: '',
-      userId: this.props.userId,
-      regId: this.props.regId,
-      tileId: this.props.tileId
+      userId: this.props.userId
     }
   }
 
   componentDidMount() {
-    if (this.props.userType == 'admin') {
-      this.props.adminFetchUserTile(this.props.userId, this.props.regId, this.props.tileId);
-    }
-    if (this.props.userType == 'user') {
-      this.props.fetchUserTile(this.props.regId, this.props.tileId);
+    if (this.props.userType === 'admin') {
+      this.props.adminFetchUserTile(this.props.userTileId);
+    } else {
+      console.log('userFetchUserTile');
     }
   }
 
@@ -65,15 +61,11 @@ class UserEntries extends Component {
 
 
   renderCycles() {
-    let tile;
-    if (this.props.userType == 'admin') {
-      tile = this.props.userTile;
-    } else {
-      tile = this.props.tile;
-    }
+    let tile = this.props.userTile;
 
     if (tile) {
-      if (tile.cycles.length !== 0) {
+      if (tile.cycles) {
+
         return tile.cycles.map(cycle => {
           let expanded = (cycle._id === tile.cycles[0]._id) ? true : false;
 
@@ -82,7 +74,6 @@ class UserEntries extends Component {
             key={cycle._id}
             cycle={cycle}
             userId={this.state.userId}
-            regId={this.state.regId}
             tileId={this.state.tileId}
             toggleEditForm={this.toggleEditForm}
             />
@@ -92,43 +83,37 @@ class UserEntries extends Component {
   }
 
   render() {
-    if (this.props.tile) {
-      return (
-        <div className='user-entries'>
-          <div className='user-entries-title'>{this.props.tile && this.props.tile.userTileName}</div>
-          <div className='user-entries-button-container'>
-            <button onClick={this.toggleNewForm.bind(this)}>Add Entry</button>
-          </div>
+    return (
+      <div className='user-entries'>
+        <div className='user-entries-title'>{this.props.tile && this.props.tile.userTileName}</div>
+        <div className='user-entries-button-container'>
+          <button onClick={this.toggleNewForm.bind(this)}>Add Entry</button>
+        </div>
 
-          <div className='user-entries-container'>
-          { this.state.showNewForm ?
-            <UserEntryForm
-              toggleNewForm={this.toggleNewForm.bind(this)}
-              userId={this.state.userId}
-              regId={this.state.regId}
-              tileId={this.state.tileId}
-              closeForm={this.closeForm}
-              /> : null }
+        <div className='user-entries-container'>
+        { this.state.showNewForm ?
+          <EntryForm
+            toggleNewForm={this.toggleNewForm.bind(this)}
+            userId={this.state.userId}
+            userTileId={this.props.userTileId}
+            closeForm={this.closeForm}
+            /> : null }
 
-          { this.state.showEditForm ?
-            <UserEntryForm
-              userId={this.state.userId}
-              regId={this.state.regId}
-              tileId={this.state.tileId}
-              closeForm={this.closeForm}
-              entry={this.state.entry}
-              cycleId={this.state.cycleId}
-              /> : null }
+        { this.state.showEditForm ?
+          <EntryForm
+            userId={this.state.userId}
+            usertileId={this.props.userTileId}
+            closeForm={this.closeForm}
+            entry={this.state.entry}
+            cycleId={this.state.cycleId}
+            /> : null }
 
-            <div className='entries-list'>
-             {this.renderCycles()}
-            </div>
+          <div className='user-entries-list'>
+           {this.renderCycles()}
           </div>
         </div>
-      )
-    } else {
-      return <div></div>
-    }
+      </div>
+    )
   }
 };
 
@@ -136,8 +121,7 @@ function mapStateToProps(state) {
   return {
     userType: state.auth.userType,
     user: state.adminUsers.user,
-    tile: state.user.tile,
-    adminTile: state.adminUsers.tile };
+    userTile: state.adminUsers.userTile };
 }
 
-export default connect(mapStateToProps, { adminFetchUserTile, adminFetchUser, fetchUserTile } )(UserEntries);
+export default connect(mapStateToProps, { adminFetchUserTile } )(UserEntries);

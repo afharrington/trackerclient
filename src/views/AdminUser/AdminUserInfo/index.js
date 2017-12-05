@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import _ from 'lodash';
 import { adminUpdateUser, adminFetchUser, adminDeleteUser } from '../../../actions/adminUserActions';
-import { fetchRegimens } from '../../../actions/adminRegimenActions';
+import { fetchPrograms } from '../../../actions/adminProgramActions';
 import CautionModal from '../../../components/CautionModal';
 import UserInfoTextField from './UserInfoTextField';
 import UserInfoSportsList from './UserInfoSportsList';
@@ -33,11 +33,11 @@ class AdminUserInfo extends Component {
       email: user.email,
       code: user.code,
       sport: user.sport,
-      regimen: user.activeUserRegimen.fromRegimenId
+      program: user.activeUserProgram.fromProgramId
     }
 
     this.props.initialize(initialData);
-    this.props.fetchRegimens();
+    this.props.fetchPrograms();
   }
 
   toggleModal() {
@@ -57,7 +57,7 @@ class AdminUserInfo extends Component {
     if (this.state.redirect) {
       return <Redirect to='/admin/team'/>;
     }
-    const { firstName, lastName, email, code, sport, userRegimens, activeRegimen } = this.props.user;
+    const { firstName, lastName, email, code, sport, userPrograms, activeProgram } = this.props.user;
     const { handleSubmit, submitting } = this.props;
 
     return (
@@ -79,7 +79,7 @@ class AdminUserInfo extends Component {
                 <UserInfoTextField name='email' label='Email' className='email'/>
                 <UserInfoTextField name='code' label='Reset Code' />
                 <UserInfoSportsList name='sport' label='Sport' className='sport' />
-                <UserInfoProgramsList name='regimen' label='Program' regimens={this.props.regimens} className='program'/>
+                <UserInfoProgramsList name='program' label='Program' programs={this.props.programs} className='program'/>
               </div>
               <button onClick={handleSubmit(this.onSubmit.bind(this))} className='user-info-button submit'>Update</button>
           </form>
@@ -103,12 +103,12 @@ function validate(values) {
 function mapStateToProps(state) {
   return {
     user: state.adminUsers.user,
-    regimens: state.adminRegimens.regimens };
+    programs: state.adminPrograms.programs };
 }
 
 export default reduxForm({
   validate,
   form: 'AdminUpdateUserForm'
 })(
-  connect(mapStateToProps, { adminUpdateUser, adminFetchUser, adminDeleteUser, fetchRegimens })(AdminUserInfo)
+  connect(mapStateToProps, { adminUpdateUser, adminFetchUser, adminDeleteUser, fetchPrograms })(AdminUserInfo)
 );

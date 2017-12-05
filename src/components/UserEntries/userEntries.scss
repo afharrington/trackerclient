@@ -1,8 +1,7 @@
 @import '../../styles/styles.scss';
 
 .user-entries {
-  margin-top: 50px;
-  width: 100%;
+  margin-top: 175px;
 }
 
 .user-entries-title {
@@ -18,7 +17,6 @@
 
 .user-entries-button-container {
   text-align: center;
-  margin-bottom: 50px;
 
   button {
     cursor: pointer;
@@ -38,4 +36,8 @@
     color: $brand-color-green;
     border: 1px solid $brand-color-green;
   }
+}
+
+.user-entries-list {
+  margin-top: 25px;
 }

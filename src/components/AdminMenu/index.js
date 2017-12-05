@@ -38,7 +38,7 @@ class AdminMenu extends Component {
           </button>
           <div className="menu-items">
             <NavLink to='/admin'><MenuItem style={{color: '#333' }}><FontAwesome className='menu-icon' name='home'/>Home</MenuItem></NavLink>
-            <MenuItem style={{color: '#333' }}><FontAwesome className='menu-icon' name='list-alt'/>Regimens</MenuItem>
+            <MenuItem style={{color: '#333' }}><FontAwesome className='menu-icon' name='list-alt'/>Programs</MenuItem>
             <MenuItem style={{color: '#333' }}><FontAwesome className='menu-icon' name='users'/>Team</MenuItem>
             <div className='menu-divider'><Divider/></div>
             <MenuItem onClick={this.logout} style={{color: '#333' }}>Log out</MenuItem>

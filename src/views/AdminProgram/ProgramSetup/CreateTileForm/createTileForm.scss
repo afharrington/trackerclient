@@ -5,18 +5,20 @@
   display: flex;
   justify-content: center;
 
-  input {
-    width: 100%;
+  label {
+    font-family: $main-font;
+    font-weight: bold;
+    font-size: 14px;
   }
 }
 
 .create-tile-form-field {
-
   input {
-    height: 25px;
-    padding: 3px;
+    margin-top: 5px;
+    height: 30px;
     font-family: $main-font;
     font-size: 14px;
+    padding: 3px;
   }
 }
 
@@ -30,12 +32,13 @@
     font-weight: bold;
     font-size: 14px;
   }
+
   input {
     height: 20px;
     border: 1px solid $light-gray;
     width: 150px;
     font-family: $main-font;
-    font-size: 16px;
+    font-size: 14px;
     padding: 5px;
     text-transform: capitalize;
   }
@@ -43,6 +46,7 @@
 
 .create-tile-form-hours {
   input {
+    font-size: 14px;
     height: 20px;
     text-align: center;
     width: 30px;
@@ -58,7 +62,7 @@
 
 .create-tile-form-cycle {
   display: flex;
-  margin-top: 0px;
+  margin-top: 2px;
   margin-right: 10px;
 
   select {
@@ -79,7 +83,6 @@
 
 // Entire Activities container
 .tile-activities {
-  margin-left: 10%;
   text-align: center;
 }
 
@@ -88,7 +91,6 @@
   background-color: $dark-gray;
   color: $white;
   margin-top: 30px;
-  margin-left: -10%;
   width: 150px;
   height: 25px;
   border: none;
@@ -100,30 +102,29 @@
 
 // All activities fields
 .activities {
-  width: 100%;
   margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
+  margin: 0 auto;
 
-  input {
-    border: 1px solid $light-gray;
-    text-transform: capitalize;
-    margin-bottom: 5px;
-    font-size: 16px;
-  }
+  // input {
+  //   border: 1px solid $light-gray;
+  //   text-transform: capitalize;
+  //   margin-bottom: 5px;
+  //   font-size: 16px;
+  // }
 }
 
 // Individual activity field with remove button
 .activity-item {
-  display: inline-block;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  width: 50%;
+  display: block;
   height: 35px;
+
   input {
+    margin-left: 5%;
+    width: 180px;
     padding: 5px;
     font-family: $header-font;
-    font-size: 16px;
+    font-size: 14px;
+    text-transform: capitalize;
   }
 
   button {
@@ -140,24 +141,30 @@
 }
 
 .create-tile-form-buttons {
-  margin-top: 15px;
   width: 100%;
+  text-align: center;
   display: flex;
   justify-content: center;
+  margin-top: 25px;
 
   button {
+    font-family: $main-font;
+    height: 30px;
+    width: 100px;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    border: none;
+    font-size: 12px;
+    border-radius: 3px;
     margin: 5px;
   }
-}
 
-
-@media only screen and (max-width: 940px) {
-  .tile-form {
-    padding: 0px 0px 25px 0px;
+  .submit-button {
+    background-color: $brand-color-green;
   }
 
-  .activity-item {
-    width: 100%;
-    grid-template-columns: 5fr 1fr;
+  .clear-button {
+    background-color: $med-gray;
   }
 }

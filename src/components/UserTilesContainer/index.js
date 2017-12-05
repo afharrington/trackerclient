@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import UserTile from './UserTile';
-import RaisedButton from 'material-ui/RaisedButton';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
+import { adminFetchUserProgramTiles } from '../../actions/adminUserActions';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import FaTasks from 'react-icons/lib/fa/tasks';
 import ContentFilter from 'material-ui/svg-icons/content/filter-list';
-import { Link } from 'react-router-dom';
+import RaisedButton from 'material-ui/RaisedButton';
+import UserTile from './UserTile';
 import './userTilesContainer.css';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -19,11 +20,15 @@ class UserTilesContainer extends Component {
 
     this.state = {
       sortType: 'time',
-      sortAscending: true
+      sortAscending: true,
     }
 
     this.handleTimeSort = this.handleTimeSort.bind(this);
     this.handleAlphaSort = this.handleAlphaSort.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.adminFetchUserProgramTiles(this.props.userProgram._id);
   }
 
   handleTimeSort() {
@@ -45,8 +50,7 @@ class UserTilesContainer extends Component {
   }
 
   renderTiles() {
-    let userRegimen = this.props.userRegimen;
-    let tiles = userRegimen.userTiles;
+    let tiles = this.props.tiles;
 
     if (tiles) {
       if (this.state.sortType === 'time' && this.state.sortAscending) {
@@ -79,7 +83,7 @@ class UserTilesContainer extends Component {
   }
 
   render() {
-    if (this.props.userRegimen) {
+    if (this.props.userProgram) {
       return (
         <div className='user-tiles-container'>
           <div className='user-tiles-sort-menu'>
@@ -105,8 +109,8 @@ class UserTilesContainer extends Component {
   }
 };
 
-// function mapStateToProps(state) {
-//   return { user: state.adminUsers.user };
-// }
+function mapStateToProps(state) {
+  return { tiles: state.adminUsers.userProgramTiles };
+}
 
-export default UserTilesContainer;
+export default connect(mapStateToProps, { adminFetchUserProgramTiles })(UserTilesContainer);

@@ -8,7 +8,7 @@ import PageWrapper from '../../components/PageWrapper';
 import UserHeader from '../../components/UserHeader';
 import UserInfo from './UserInfo';
 import ChangePasswordForm from './ChangePasswordForm';
-import { fetchUser, fetchUserRegimen } from '../../actions/userActions';
+import { fetchUser, fetchUserProgram } from '../../actions/userActions';
 import './userHome.css';
 
 // Shows all tiles for a single user
@@ -20,21 +20,21 @@ class UserHome extends Component {
       showNewForm: false,
       showEditForm: false,
       showChangePasswordForm: true,
-      viewType: 'userRegimen',
-      visibleUserRegimen: null,
+      viewType: 'userProgram',
+      visibleUserProgram: null,
       visibleTile: null
     }
 
-  this.setVisibleUserRegimen = this.setVisibleUserRegimen.bind(this);
+  this.setVisibleUserProgram = this.setVisibleUserProgram.bind(this);
   this.setVisibleTile = this.setVisibleTile.bind(this);
   this.toggleChangePasswordForm = this.toggleChangePasswordForm.bind(this);
   }
 
-  setVisibleUserRegimen(regimenId) {
-    this.setState({ visibleUserRegimen: regimenId });
+  setVisibleUserProgram(programId) {
+    this.setState({ visibleUserProgram: programId });
     this.props.fetchUser(this.props.user._id);
-    this.props.fetchUserRegimen(regimenId);
-    this.setState({ viewType: 'userRegimen' })
+    this.props.fetchUserProgram(programId);
+    this.setState({ viewType: 'userProgram' })
   }
 
   setVisibleTile(tile) {
@@ -52,35 +52,35 @@ class UserHome extends Component {
 
   renderHeader() {
     if (this.props.user) {
-      const { firstName, lastName, userRegimens, activeUserRegimen } = this.props.user;
+      const { firstName, lastName, userPrograms, activeUserProgram } = this.props.user;
 
       return (
         <UserHeader
-          visibleUserRegimen={ this.state.visibleUserRegimen || activeUserRegimen._id}
-          setVisibleUserRegimen={this.setVisibleUserRegimen}
+          visibleUserProgram={ this.state.visibleUserProgram || activeUserProgram._id}
+          setVisibleUserProgram={this.setVisibleUserProgram}
           firstName={firstName}
           lastName={lastName}
-          userRegimens={userRegimens}
-          activeUserRegimen={activeUserRegimen}/>
+          userPrograms={userPrograms}
+          activeUserProgram={activeUserProgram}/>
       )
     }
   }
 
   renderView() {
-    if (this.state.visibleUserRegimen === 'info') {
+    if (this.state.visibleUserProgram === 'info') {
       return <UserInfo changePassword={this.toggleChangePasswordForm}/>
 
-    } else if (this.state.viewType === 'userRegimen') {
+    } else if (this.state.viewType === 'userProgram') {
       return (
         <UserTilesContainer
           setVisibleTile={this.setVisibleTile}
-          userRegimen={this.props.userRegimen || this.props.user.activeUserRegimen} />
+          userProgram={this.props.userProgram || this.props.user.activeUserProgram} />
       )
     } else if (this.state.viewType === 'userTile') {
       return (
         <UserEntries
           tileId={this.state.visibleTile}
-          regId={this.state.visibleUserRegimen || this.props.user.activeUserRegimen._id }
+          regId={this.state.visibleUserProgram || this.props.user.activeUserProgram._id }
         />
       )
     }
@@ -108,8 +108,8 @@ class UserHome extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    userRegimen: state.user.userRegimen
+    userProgram: state.user.userProgram
   };
 }
 
-export default connect(mapStateToProps, { fetchUser, fetchUserRegimen })(UserHome);
+export default connect(mapStateToProps, { fetchUser, fetchUserProgram })(UserHome);

@@ -5,12 +5,12 @@ import { Field, reduxForm } from 'redux-form'
 const UserInfoProgramsList = (props) => {
 
   function renderPrograms() {
-    let regimens = props.regimens;
-    if (regimens) {
-      return _.map(regimens, regimen => {
+    let programs = props.programs;
+    if (programs) {
+      return _.map(programs, program => {
         return (
-          <option value={regimen._id} key={regimen._id}>
-            {regimen.regimenName}
+          <option value={program._id} key={program._id}>
+            {program.programName}
           </option>
         )
       });

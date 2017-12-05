@@ -81,12 +81,12 @@ a:visited {
   font-size: 18px;
   margin-bottom: 10px; }
 
-.regimen-list {
+.program-list {
   color: #333;
   width: 90%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap; }
-  .regimen-list h3 {
+  .program-list h3 {
     margin-bottom: 10px;
     margin-left: 10px; }

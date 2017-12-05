@@ -9,7 +9,7 @@ class ProgramHeader extends Component {
     return (
       <div className='program-header'>
         <div className='program-header-name'>
-          <h2>{this.props.regimenName}</h2>
+          <h2>{this.props.programName}</h2>
         </div>
         <div className='program-header-tabs'>
           <ProgramHeaderTab

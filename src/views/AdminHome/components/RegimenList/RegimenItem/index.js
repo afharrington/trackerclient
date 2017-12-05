@@ -4,22 +4,22 @@ import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import CardWrapper from '../../../../../components/CardWrapper';
 
-import './regimenItem.css';
+import './programItem.css';
 
-class RegimenItem extends Component {
+class ProgramItem extends Component {
 
   render() {
-    let regimen = this.props.regimen;
+    let program = this.props.program;
 
     return (
-      <div className='regimen-item'>
-        <CardWrapper color='gray' title={regimen.regimenName}>
-          <p>Created: <Moment format='L'>{regimen.created_date}</Moment></p>
+      <div className='program-item'>
+        <CardWrapper color='gray' title={program.programName}>
+          <p>Created: <Moment format='L'>{program.created_date}</Moment></p>
           <p>Reports</p>
           <p>Settings</p>
-          <Link to={`/admin/regimen/${regimen._id}`}>
-            <div className='regimen-item'>
-              <p>{regimen.regimenName}</p>
+          <Link to={`/admin/program/${program._id}`}>
+            <div className='program-item'>
+              <p>{program.programName}</p>
             </div>
           </Link>
 
@@ -29,4 +29,4 @@ class RegimenItem extends Component {
     }
   };
 
-  export default RegimenItem;
+  export default ProgramItem;

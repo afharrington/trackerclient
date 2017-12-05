@@ -1,0 +1,100 @@
+@import '../../../styles/styles.scss';
+
+.entry-form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+
+.entry-form-date {
+  margin: 15px;
+}
+
+.entry-form-date-field {
+  border: 1px solid $light-gray;
+  margin-top: 10px;
+  padding: 3px;
+  width: 100px;
+}
+
+.entry-form-activity {
+  margin-top: 10px;
+  padding: 3px;
+
+  select {
+    width: 150px;
+    height: 35px;
+    margin-top: 10px;
+    font-size: 14px;
+    border: none;
+    text-transform: capitalize;
+  }
+}
+
+.entry-form-time {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+  select {
+    width: 50px;
+    margin-right: 30px;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 14px;
+    border: none;
+    text-transform: capitalize;
+  }
+
+  label {
+    text-align: left;
+    margin-top: 10px;
+  }
+}
+
+.entry-form-notes {
+  margin-top: -20px;
+  width: 90%;
+
+  .entry-form-text-field {
+    width: 100% !important;
+    height: 100px !important;
+  }
+}
+
+.entry-buttons {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+
+  button {
+    font-family: $main-font;
+    height: 30px;
+    width: 100px;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    border: none;
+    font-size: 12px;
+    border-radius: 3px;
+    margin: 5px;
+  }
+
+  .submit-button {
+    background-color: $brand-color-green;
+  }
+
+  .clear-button {
+    background-color: $med-gray;
+  }
+
+}

@@ -22,12 +22,12 @@ class ProgramItem extends Component {
   render() {
     let program = this.props.program;
     if (program) {
-      let numPlayers = program.users.length;
+
       return (
-        <Link to={`/admin/regimen/${program._id}`}>
+        <Link to={`/admin/program/${program._id}`}>
           <div className='program-item'>
-            <p className='program-item-name'>{program.regimenName}</p>
-            <p className='program-item-program'>{numPlayers}</p>
+            <p className='program-item-name'>{program.programName}</p>
+            <p className='program-item-program'>{program.sport}</p>
             {this.renderLastEntry()}
           </div>
         </Link>

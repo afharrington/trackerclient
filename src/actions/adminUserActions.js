@@ -5,20 +5,23 @@ export const ADMIN_FETCH_USERS = 'admin_fetch_users';
 export const ADMIN_FETCH_USER = 'admin_fetch_user';
 export const ADMIN_UPDATE_USER = 'admin_update_user';
 export const ADMIN_DELETE_USER = 'admin_delete_user';
-export const ADMIN_FETCH_USER_REGIMEN = 'admin_fetch_user_regimen';
+export const ADMIN_FETCH_USER_PROGRAM = 'admin_fetch_user_program';
+export const ADMIN_FETCH_USER_PROGRAM_TILES = 'admin_fetch_user_program_tiles';
+export const ADMIN_FETCH_THIS_USER_PROGRAMS = 'admin_fetch_this_user_programs';
 export const ADMIN_FETCH_USER_TILE = 'admin_fetch_user_tile';
-export const ADMIN_FETCH_USER_REGIMENS = 'admin_fetch_user_regimens';
+export const ADMIN_FETCH_USER_PROGRAMS = 'admin_fetch_user_programs';
 export const ADMIN_CREATE_USER = 'admin_create_user';
 export const ADMIN_CREATE_ENTRY = 'admin_create_entry';
 export const ADMIN_UPDATE_ENTRY = 'admin_update_entry';
 export const ADMIN_DELETE_ENTRY = 'admin_delete_entry';
+export const ADMIN_FETCH_RECENT_USER_ENTRIES = 'admin_fetch_recent_user_entries';
 
 const ROOT = uri.rootUri;
 
 // FETCH_USERS
 export function adminFetchUsers() {
   return function(dispatch) {
-    axios.get(`${ROOT}/admin/user`, {
+    axios.get(`${ROOT}/admin/users`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
@@ -86,13 +89,13 @@ export function adminDeleteUser(userId) {
   }
 }
 
-export function adminFetchUserRegimen(userId, userRegimenId) {
+export function adminFetchUserProgram(userProgramId) {
   return function(dispatch) {
-    axios.get(`${ROOT}/admin/user/${userId}/reg/${userRegimenId}`, {
+    axios.get(`${ROOT}/admin/user/program/${userProgramId}`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
-        dispatch({ type: ADMIN_FETCH_USER_REGIMEN, payload: response.data });
+        dispatch({ type: ADMIN_FETCH_USER_PROGRAM, payload: response.data });
       })
       .catch((err) => {
         console.log(err);
@@ -100,13 +103,41 @@ export function adminFetchUserRegimen(userId, userRegimenId) {
   }
 }
 
-export function adminFetchUserRegimens(regimenId) {
+export function adminFetchUserProgramTiles(userProgramId) {
   return function(dispatch) {
-    axios.get(`${ROOT}/admin/regimen/${regimenId}/users`, {
+    axios.get(`${ROOT}/admin/user/program/${userProgramId}/tiles`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
-        dispatch({ type: ADMIN_FETCH_USER_REGIMENS, payload: response.data });
+        dispatch({ type: ADMIN_FETCH_USER_PROGRAM_TILES, payload: response.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+}
+
+export function adminFetchThisUserPrograms(userId) {
+  return function(dispatch) {
+    axios.get(`${ROOT}/admin/user/${userId}/programs`, {
+      headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
+      })
+      .then(response => {
+        dispatch({ type: ADMIN_FETCH_THIS_USER_PROGRAMS, payload: response.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+}
+
+export function adminFetchUserPrograms(programId) {
+  return function(dispatch) {
+    axios.get(`${ROOT}/admin/program/${programId}/users`, {
+      headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
+      })
+      .then(response => {
+        dispatch({ type: ADMIN_FETCH_USER_PROGRAMS, payload: response.data });
       })
       .catch((err) => {
         console.log(err);
@@ -115,9 +146,9 @@ export function adminFetchUserRegimens(regimenId) {
 }
 
 
-export function adminFetchUserTile(userId, userRegId, userTileId) {
+export function adminFetchUserTile(userTileId) {
   return function(dispatch) {
-    axios.get(`${ROOT}/admin/user/${userId}/reg/${userRegId}/usertile/${userTileId}`, {
+    axios.get(`${ROOT}/admin/user/tile/${userTileId}`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
@@ -129,9 +160,24 @@ export function adminFetchUserTile(userId, userRegId, userTileId) {
   }
 }
 
-export function adminCreateEntry(userId, regId, tileId, values, callback) {
+export function adminFetchRecentUserEntries(userId) {
   return function(dispatch) {
-    axios.post(`${ROOT}/admin/user/${userId}/reg/${regId}/tile/${tileId}`, values, {
+    axios.get(`${ROOT}/admin/user/${userId}/recent`, {
+      headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
+      })
+      .then(response => {
+        dispatch({ type: ADMIN_FETCH_RECENT_USER_ENTRIES, payload: response.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+}
+
+
+export function adminCreateEntry(userTileId, values, callback) {
+  return function(dispatch) {
+    axios.post(`${ROOT}/admin/user/tile/${userTileId}`, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
@@ -144,9 +190,9 @@ export function adminCreateEntry(userId, regId, tileId, values, callback) {
   }
 }
 
-export function adminUpdateEntry(userId, regId, tileId, cycleId, entryId, values, callback) {
+export function adminUpdateEntry(cycleId, entryId, values, callback) {
   return function(dispatch) {
-    axios.put(`${ROOT}/admin/user/${userId}/reg/${regId}/tile/${tileId}/cycle/${cycleId}/entry/${entryId}`, values, {
+    axios.put(`${ROOT}/admin/user/cycle/${cycleId}/entry/${entryId}`, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
@@ -159,9 +205,9 @@ export function adminUpdateEntry(userId, regId, tileId, cycleId, entryId, values
   }
 }
 
-export function adminDeleteEntry(userId, regId, tileId, cycleId, entryId, callback) {
+export function adminDeleteEntry(cycleId, entryId, callback) {
   return function(dispatch) {
-    axios.delete(`${ROOT}/admin/user/${userId}/reg/${regId}/tile/${tileId}/cycle/${cycleId}/entry/${entryId}`, {
+    axios.delete(`${ROOT}/admin/user/cycle/${cycleId}/entry/${entryId}`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {

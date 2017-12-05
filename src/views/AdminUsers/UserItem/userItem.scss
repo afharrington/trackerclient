@@ -13,7 +13,7 @@
   border-bottom: 1px solid $light-gray;
 
   p {
-    font-size: 16px;
+    overflow: hidden;
     padding-left: 10px;
     padding-right: 10px;
     display: inline-block;
@@ -26,15 +26,12 @@
 }
 
 .user-item-name, .user-item-program {
-  width: 125px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 14px !important;
   text-transform: capitalize;
+  font-size: 14px;
 }
 
 .user-item-entry {
-  width: 100px;
-  cursor: pointer;
-  font-size: 14px !important;
+  width: 75px;
+  font-size: 10px;
+  color: $med-gray;
 }

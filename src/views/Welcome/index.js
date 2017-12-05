@@ -18,7 +18,7 @@ class Welcome extends Component {
 
   componentWillMount() {
     if (this.props.authenticated && this.props.userType === 'admin') {
-        this.props.history.push('/admin/recent');
+        this.props.history.push('/admin');
     } else if (this.props.authenticated && this.props.userType === 'user') {
       this.props.history.push('/user');
     }

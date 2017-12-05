@@ -4,12 +4,12 @@ import { Redirect } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
 import _ from 'lodash';
 import { adminCreateUser } from '../../actions/adminUserActions';
-import { fetchRegimens } from '../../actions/adminRegimenActions';
+import { fetchPrograms } from '../../actions/adminProgramActions';
 import FormWrapper from '../../components/FormWrapper';
 import UserInfoTextField from './UserInfoTextField';
 import UserInfoSportsList from './UserInfoSportsList';
 import UserInfoProgramsList from './UserInfoProgramsList';
-import './userInfo.css';
+import './createUserForm.css';
 
 class CreateUserForm extends Component {
 
@@ -22,7 +22,7 @@ class CreateUserForm extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchRegimens();
+    this.props.fetchPrograms();
   }
 
   onSubmit(values) {
@@ -48,7 +48,7 @@ class CreateUserForm extends Component {
               <UserInfoTextField name='email' label='Email' className='email'/>
               <UserInfoTextField name='code' label='Reset Code' />
               <UserInfoSportsList name='sport' label='Sport' className='sport' />
-              <UserInfoProgramsList name='regimen' label='Program' regimens={this.props.regimens} className='program'/>
+              <UserInfoProgramsList name='program' label='Program' programs={this.props.programs} className='program'/>
             </div>
             <button type='submit' className='create-user-button submit'>Submit</button>
           </form>
@@ -69,12 +69,12 @@ function validate(values) {
 
 function mapStateToProps(state) {
   return {
-    regimens: state.adminRegimens.regimens };
+    programs: state.adminPrograms.programs };
 }
 
 export default reduxForm({
   validate,
   form: 'AdminCreateUserForm'
 })(
-  connect(mapStateToProps, { adminCreateUser, fetchRegimens })(CreateUserForm)
+  connect(mapStateToProps, { adminCreateUser, fetchPrograms })(CreateUserForm)
 );

@@ -4,7 +4,7 @@ import uri from '../config/uri.js';
 export const USER_ERROR = 'user_error';
 export const FETCH_USER = 'fetch_user';
 export const UPDATE_USER = 'update_user';
-export const FETCH_USER_REGIMEN = 'fetch_user_regimen';
+export const FETCH_USER_PROGRAM = 'fetch_user_program';
 export const FETCH_USER_TILE = 'fetch_user_tile';
 export const CREATE_ENTRY = 'create_entry';
 export const UPDATE_ENTRY = 'update_entry';
@@ -64,13 +64,13 @@ export function fetchUserTile(regId, tileId) {
   }
 }
 
-export function fetchUserRegimen(userRegimenId) {
+export function fetchUserProgram(userProgramId) {
   return function(dispatch) {
-    axios.get(`${ROOT}/user/reg/${userRegimenId}`, {
+    axios.get(`${ROOT}/user/reg/${userProgramId}`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
-        dispatch({ type: FETCH_USER_REGIMEN, payload: response.data });
+        dispatch({ type: FETCH_USER_PROGRAM, payload: response.data });
       })
       .catch((err) => {
         console.log(err);

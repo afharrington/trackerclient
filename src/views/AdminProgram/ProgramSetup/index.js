@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CreateTileForm from './CreateTileForm';
 import AdminTile from './AdminTile';
 import _ from 'lodash';
-import { adminFetchRegimen } from '../../../actions/adminRegimenActions';
+import { adminFetchProgram, adminFetchProgramTiles } from '../../../actions/adminProgramActions';
 import './programSetup.css';
 
 class ProgramSetup extends Component {
@@ -18,7 +18,8 @@ class ProgramSetup extends Component {
   }
 
   componentDidMount() {
-    this.props.adminFetchRegimen(this.props.regimenId);
+    this.props.adminFetchProgram(this.props.programId);
+    this.props.adminFetchProgramTiles(this.props.programId);
   }
 
 
@@ -48,14 +49,14 @@ class ProgramSetup extends Component {
   }
 
   renderTiles() {
-    let tiles = this.props.regimen.tiles;
+    let tiles = this.props.tiles;
 
     if (tiles) {
-      return tiles.map(tile => {
+      return _.map(tiles, tile => {
         return (
           <AdminTile
             key={tile._id}
-            regimenId={this.props.regimenId}
+            programId={this.props.programId}
             tile={tile} // tile data
             toggleEditForm={this.toggleEditForm.bind(this, tile)}/>
         )
@@ -76,14 +77,14 @@ class ProgramSetup extends Component {
             { this.state.showNewForm ?
                 <CreateTileForm
                   toggleNewForm={this.toggleNewForm.bind(this)}
-                  regimenId={this.props.regimenId}
+                  programId={this.props.programId}
                   exit={this.closeForm.bind(this)}
                   /> : null }
 
             { this.state.showEditForm ?
                 <CreateTileForm
                   tile={this.state.tile}
-                  regimenId={this.props.regimenId}
+                  programId={this.props.programId}
                   toggleEditForm={this.toggleEditForm.bind(this)}
                   exit={this.closeForm.bind(this)}
                   /> : null }
@@ -97,7 +98,7 @@ class ProgramSetup extends Component {
 };
 
 function mapStateToProps(state) {
-  return { regimen: state.adminRegimens.regimen };
+  return { program: state.adminPrograms.program, tiles: state.adminPrograms.tiles };
 }
 
-export default connect(mapStateToProps, { adminFetchRegimen })(ProgramSetup);
+export default connect(mapStateToProps, { adminFetchProgram, adminFetchProgramTiles })(ProgramSetup);

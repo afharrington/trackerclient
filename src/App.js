@@ -9,14 +9,14 @@ import UserMenu from './components/UserMenu';
 import Sidebar from './components/Sidebar';
 
 import Welcome from './views/Welcome';
-import AdminRecentActivity from './views/AdminRecentActivity';
+import AdminRecentEntries from './views/AdminRecentEntries';
 import AdminAuthentication from './components/AdminAuthentication';
 import UserAuthentication from './components/UserAuthentication';
 
 // Admin Dashboard View
 import AdminHome from './views/AdminHome';
 
-// Admin Regimen View
+// Admin Program View
 import AdminProgram from './views/AdminProgram';
 
 import AdminUsers from './views/AdminUsers';
@@ -24,7 +24,7 @@ import AdminPrograms from './views/AdminPrograms';
 // Admin User View
 import AdminUser from './views/AdminUser';
 
-// User Regimen View
+// User Program View
 import UserHome from './views/UserHome';
 
 import './styles/styles.css';
@@ -66,13 +66,14 @@ class App extends Component {
           { this.renderMenu() }
           <Switch>
             <Route exact path='/' render={props => <Welcome {...props} /> } />
-            <Route exact path='/admin/recent' component={AdminAuthentication(AdminRecentActivity)}/>
             <Route exact path='/user' component={UserAuthentication(UserHome)}/>
-            <Route exact path='/admin/regimen/:regimenId' component={AdminAuthentication(AdminProgram)}/>
-            <Route exact path='/admin/regimen/:regimenId/settings' component={AdminAuthentication(AdminProgram)}/>
+            <Route exact path='/admin/program/:programId' component={AdminAuthentication(AdminProgram)}/>
+            <Route exact path='/admin/program/:programId/settings' component={AdminAuthentication(AdminProgram)}/>
             <Route exact path='/admin/team' component={AdminAuthentication(AdminUsers)}/>
             <Route exact path='/admin/programs' component={AdminAuthentication(AdminPrograms)}/>
             <Route exact path='/admin/user/:userId' component={AdminAuthentication(AdminUser)}/>
+            <Route path='/admin' component={AdminAuthentication(AdminRecentEntries)}/>
+            <Route exact path='/admin/recent' component={AdminAuthentication(AdminRecentEntries)}/>
           </Switch>
         </MuiThemeProvider>
       </BrowserRouter>

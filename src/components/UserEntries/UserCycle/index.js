@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FontAwesome from 'react-fontawesome';
 import Moment from 'react-moment';
 import Divider from 'material-ui/Divider';
-import UserEntry from '../UserEntry';
+import Entry from '../Entry';
 import { Line } from 'rc-progress';
 
 import './userCycle.css';
@@ -53,11 +53,10 @@ class UserCycle extends Component {
       return cycle.cycleEntries.map(entry => {
         return (
           <div key={entry._id} >
-            <UserEntry
+            <Entry
               userId={this.props.userId}
               tileId={this.props.tileId}
               cycleId={cycle._id}
-              regId={this.props.regId}
               entry={entry}
               toggleEditForm={this.props.toggleEditForm}
               />
@@ -81,7 +80,7 @@ class UserCycle extends Component {
           <Line className='user-cycle-progress' percent={this.props.cycle.cyclePercent.toString()} strokeWidth='1' strokeColor="#00c7a9" trailWidth="1" strokeLinecap="square" trailColor="#333"/>
 
           <div className='user-cycle-header-text'>
-            <div className='admin-user-cycle-dates'>
+            <div className='user-cycle-dates'>
               <Moment format='M/DD' date={this.props.cycle.cycleStartDate}/> -
               <Moment format='M/DD' date={this.props.cycle.cycleEndDate}/>
             </div>

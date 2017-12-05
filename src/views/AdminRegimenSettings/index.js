@@ -4,10 +4,10 @@ import PageWrapper from '../../components/PageWrapper';
 import NewButton from '../../components/NewButton';
 import CreateTileForm from './components/CreateTileForm';
 import AdminTile from './components/AdminTile';
-import { fetchRegimen } from '../../actions/adminRegimenActions';
-import './adminRegimen.css';
+import { fetchProgram } from '../../actions/adminProgramActions';
+import './adminProgram.css';
 
-class AdminRegimen extends Component {
+class AdminProgram extends Component {
   constructor(props) {
     super(props);
 
@@ -15,12 +15,12 @@ class AdminRegimen extends Component {
       showNewForm: false,
       showEditForm: false,
       tile: {}, // Current tile being edited,
-      regimenId: this.props.match.params.regimenId
+      programId: this.props.match.params.programId
     }
   }
 
   componentDidMount() {
-    this.props.fetchRegimen(this.state.regimenId);
+    this.props.fetchProgram(this.state.programId);
   }
 
 
@@ -54,14 +54,14 @@ class AdminRegimen extends Component {
   }
 
   renderTiles() {
-    let tiles = this.props.regimen.tiles;
+    let tiles = this.props.program.tiles;
 
     if (tiles) {
       return tiles.map(tile => {
         return (
           <AdminTile
             key={tile._id}
-            regimenId={this.state.regimenId}
+            programId={this.state.programId}
             tile={tile} // tile data
             toggleEditForm={this.toggleEditForm.bind(this, tile)}/>
         )
@@ -72,25 +72,25 @@ class AdminRegimen extends Component {
   render() {
     return (
       <PageWrapper>
-        <div className='regimen'>
-          <div className='regimen-title-container'><h1>Program: {this.props.regimen.regimenName}</h1></div>
-          <div className='regimen-button-container'>
+        <div className='program'>
+          <div className='program-title-container'><h1>Program: {this.props.program.programName}</h1></div>
+          <div className='program-button-container'>
             <button onClick={this.toggleNewForm.bind(this)}>Add Tile</button>
           </div>
 
-          <div className='regimen-tiles-container'>
+          <div className='program-tiles-container'>
 
             { this.state.showNewForm ?
                 <CreateTileForm
                   toggleNewForm={this.toggleNewForm.bind(this)}
-                  regimenId={this.state.regimenId}
+                  programId={this.state.programId}
                   exit={this.closeForm.bind(this)}
                   /> : null }
 
             { this.state.showEditForm ?
                 <CreateTileForm
                   tile={this.state.tile}
-                  regimenId={this.state.regimenId}
+                  programId={this.state.programId}
                   toggleEditForm={this.toggleEditForm.bind(this)}
                   exit={this.closeForm.bind(this)}
                   /> : null }
@@ -104,7 +104,7 @@ class AdminRegimen extends Component {
 };
 
 function mapStateToProps(state) {
-  return { regimen: state.adminRegimens };
+  return { program: state.adminPrograms };
 }
 
-export default connect(mapStateToProps, { fetchRegimen })(AdminRegimen);
+export default connect(mapStateToProps, { fetchProgram })(AdminProgram);

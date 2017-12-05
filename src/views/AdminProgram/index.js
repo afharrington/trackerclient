@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PageWrapper from '../../components/PageWrapper';
 import AdminPageHeader from '../../components/AdminPageHeader';
-import PlayerProgress from './PlayerProgress';
+import Reports from './Reports';
 import _ from 'lodash';
 import ProgramHeader from '../../components/ProgramHeader';
 import ProgramSetup from './ProgramSetup';
 import { selectMenuItem } from '../../actions/uiActions';
-import { adminFetchRegimen } from '../../actions/adminRegimenActions';
-import { adminFetchUserRegimens } from '../../actions/adminUserActions';
+import { adminFetchProgram, adminFetchProgramTiles } from '../../actions/adminProgramActions';
+import { adminFetchUserPrograms } from '../../actions/adminUserActions';
 import './adminProgram.css';
 
 class AdminProgram extends Component {
@@ -16,7 +16,7 @@ class AdminProgram extends Component {
     super(props);
 
     this.state = {
-      regimenId: '',
+      programId: '',
       activeTab: 'reports'
     }
 
@@ -32,31 +32,30 @@ class AdminProgram extends Component {
   }
 
   componentDidMount() {
-    let param = this.props.match.params.regimenId;
-    this.props.selectMenuItem(param);
-    this.setState({ regimenId: param });
-    this.props.adminFetchRegimen(this.props.match.params.regimenId);
-    this.props.adminFetchUserRegimens(this.props.match.params.regimenId);
+    this.props.selectMenuItem(this.props.match.params.programId);
+    this.setState({ programId: this.props.match.params.programId });
+    this.props.adminFetchProgram(this.props.match.params.programId);
+    this.props.adminFetchProgramTiles(this.props.match.params.programId)
   }
 
   componentWillReceiveProps(newProps) {
-    let newParam = newProps.match.params.regimenId;
-    this.setState({ regimenId: newParam });
-    if (newParam !== this.state.regimenId) {
-      this.props.selectMenuItem(newProps.match.params.regimenId);
-      this.props.adminFetchRegimen(newProps.match.params.regimenId);
-      this.props.adminFetchUserRegimens(newProps.match.params.regimenId);
+    let newParam = newProps.match.params.programId;
+    this.setState({ programId: newParam });
+    if (newParam !== this.state.programId) {
+      this.props.selectMenuItem(newProps.match.params.programId);
+      this.props.adminFetchProgram(newProps.match.params.programId);
+      this.props.adminFetchProgramTiles(newProps.match.params.programId)
     }
   }
 
   renderHeader() {
-    if (this.props.regimen) {
+    if (this.props.program) {
 
       return (
         <ProgramHeader
           activeTab={this.state.activeTab}
           toggleTab={this.toggleTab}
-          regimenName={this.props.regimen.regimenName}
+          programName={this.props.program.programName}
         />
       )
     }
@@ -64,20 +63,20 @@ class AdminProgram extends Component {
 
   renderView() {
     if (this.state.activeTab === 'reports') {
-      return <PlayerProgress
-        regimenId={this.state.regimenId}
+      return <Reports
+        programId={this.state.programId}
       />
     } else if (this.state.activeTab) {
       return (
         <ProgramSetup
-          regimenId={this.state.regimenId}
+          programId={this.state.programId}
         />
       )
     }
   }
 
   render() {
-    if (this.props.regimen) {
+    if (this.props.program) {
       return (
         <div className='admin-program-view'>
           <AdminPageHeader/>
@@ -94,9 +93,10 @@ class AdminProgram extends Component {
 
 function mapStateToProps(state) {
   return {
-    regimen: state.adminRegimens.regimen,
-    userRegimens: state.adminUsers.userRegimens
+    program: state.adminPrograms.program,
+    tiles: state.adminPrograms.tiles,
+    userPrograms: state.adminUsers.userPrograms
   };
 }
 
-export default connect(mapStateToProps, { adminFetchRegimen, adminFetchUserRegimens, selectMenuItem })(AdminProgram);
+export default connect(mapStateToProps, { adminFetchProgram, adminFetchUserPrograms, adminFetchProgramTiles, selectMenuItem })(AdminProgram);

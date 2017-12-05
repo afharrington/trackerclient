@@ -7,15 +7,15 @@ class UserHeaderTab extends Component {
   constructor(props) {
     super(props);
 
-    this.setVisibleUserRegimen = this.setVisibleUserRegimen.bind(this);
+    this.setViewType = this.setViewType.bind(this);
   }
 
-  setVisibleUserRegimen() {
-    this.props.setVisibleUserRegimen(this.props.view);
+  setViewType() {
+    this.props.setViewType(this.props.viewType);
   }
 
   renderLabel() {
-    if (this.props.title === 'Info') {
+    if (this.props.viewType === 'info') {
       return <FontAwesome name='cog' />
     } else {
       return this.props.title;
@@ -24,14 +24,14 @@ class UserHeaderTab extends Component {
 
   render() {
     let className;
-    if (this.props.visibleUserRegimen == this.props.view) {
+    if (this.props.viewType == this.props.currentView) {
       className = 'user-header-tab active'
     } else {
       className = 'user-header-tab'
     }
 
     return (
-      <div onClick={this.setVisibleUserRegimen} className={className}>
+      <div onClick={this.setViewType} className={className}>
         {this.renderLabel()}
       </div>
     )

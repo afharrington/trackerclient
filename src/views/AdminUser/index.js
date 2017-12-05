@@ -4,10 +4,10 @@ import PageWrapper from '../../components/PageWrapper';
 import _ from 'lodash';
 import UserTilesContainer from '../../components/UserTilesContainer';
 import AdminPageHeader from '../../components/AdminPageHeader';
-import AdminUserEntries from './AdminUserEntries';
+import UserEntries from '../../components/UserEntries';
 import AdminUserInfo from './AdminUserInfo';
 import UserHeader from '../../components/UserHeader';
-import { adminFetchUser, adminFetchUserRegimen } from '../../actions/adminUserActions';
+import { adminFetchUser } from '../../actions/adminUserActions';
 import './adminUser.css';
 
 class AdminUser extends Component {
@@ -16,22 +16,15 @@ class AdminUser extends Component {
 
     this.state = {
       userId: this.props.match.params.userId,
-      visibleUserRegimen: null,
-      viewType: 'userRegimen', // switch between userRegimen and userTile
+      viewType: 'userProgram', // switch between userProgram and userTile
       visibleTile: null, // will have an id value if viewType is entries
     }
-    this.setVisibleUserRegimen = this.setVisibleUserRegimen.bind(this);
     this.setVisibleTile = this.setVisibleTile.bind(this);
-  }
-
-  setVisibleUserRegimen(regimenId) {
-    this.setState({ visibleUserRegimen: regimenId });
-    this.props.adminFetchUserRegimen(this.props.user._id, regimenId);
-    this.setState({ viewType: 'userRegimen' })
+    this.setViewType = this.setViewType.bind(this);
   }
 
   componentDidMount() {
-    this.props.adminFetchUser(this.state.userId);
+    this.props.adminFetchUser(this.props.match.params.userId);
   }
 
   setVisibleTile(tile) {
@@ -39,43 +32,44 @@ class AdminUser extends Component {
     this.setState({ viewType: 'userTile' });
   }
 
+  setViewType(viewType) {
+    this.setState({ viewType: viewType });
+  }
+
   renderHeader() {
     if (this.props.user) {
-      const { firstName, lastName, userRegimens, activeUserRegimen } = this.props.user;
+      const { firstName, lastName, activeUserProgram } = this.props.user;
 
       return (
         <UserHeader
-          visibleUserRegimen={this.state.visibleUserRegimen ||
-            activeUserRegimen._id }
-          setVisibleUserRegimen={this.setVisibleUserRegimen}
           firstName={firstName}
           lastName={lastName}
-          userRegimens={userRegimens}
-          activeUserRegimen={activeUserRegimen}/>
+          activeUserProgram={activeUserProgram}
+          setViewType={this.setViewType}
+          currentView={this.state.viewType}
+        />
       )
     }
   }
 
   renderView() {
-    if (this.state.visibleUserRegimen === 'info') {
+    if (this.state.viewType === 'info') {
       return <AdminUserInfo />
 
-    } else if (this.state.viewType === 'userRegimen') {
+    } else if (this.state.viewType === 'userProgram') {
       return (
         <UserTilesContainer
           setVisibleTile={this.setVisibleTile}
-          userRegimen={this.props.userRegimen || this.props.user.activeUserRegimen} />
+          userProgram={this.props.user.activeUserProgram} />
       )
 
     } else if (this.state.viewType === 'userTile') {
 
       return (
-        <AdminUserEntries
+        <UserEntries
           user={this.props.user}
           userId={this.props.user._id}
-          tileId={this.state.visibleTile}
-          regId={this.props.userRegimen ?
-          this.props.userRegimen._id : this.props.user.activeUserRegimen._id}
+          userTileId={this.state.visibleTile}
         />
       )
     }
@@ -100,9 +94,8 @@ class AdminUser extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.adminUsers.user,
-    userRegimen: state.adminUsers.userRegimen
+    user: state.adminUsers.user
   };
 }
 
-export default connect(mapStateToProps, { adminFetchUser, adminFetchUserRegimen })(AdminUser);
+export default connect(mapStateToProps, { adminFetchUser })(AdminUser);

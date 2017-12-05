@@ -3,22 +3,22 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form'
 import _ from 'lodash';
 
-class UserInfoRegimensChecklist extends Component {
+class UserInfoProgramsChecklist extends Component {
 
-  renderRegimens() {
-    let regimens = this.props.regimens;
+  renderPrograms() {
+    let programs = this.props.programs;
 
-    if (regimens) {
-      return _.map(regimens, regimen => {
+    if (programs) {
+      return _.map(programs, program => {
         return (
-          <div className='checklist-item' key={regimen._id}>
+          <div className='checklist-item' key={program._id}>
             <Field
-             name={`regimens[${regimen._id}]`}
-             id={`${regimen._id}`}
+             name={`programs[${program._id}]`}
+             id={`${program._id}`}
              component="input"
              type="checkbox"
             />
-            <label>{regimen.regimenName}</label>
+            <label>{program.programName}</label>
           </div>
         )
       });
@@ -29,8 +29,8 @@ class UserInfoRegimensChecklist extends Component {
     return (
       <div className='user-info-item'>
         <p className='label'>{this.props.label}:</p>
-        <div className='user-info-regimens'>
-        {this.renderRegimens()}
+        <div className='user-info-programs'>
+        {this.renderPrograms()}
         </div>
       </div>
     )
@@ -38,7 +38,7 @@ class UserInfoRegimensChecklist extends Component {
 }
 
 function mapStateToProps(state) {
-  return { regimens: state.adminRegimens};
+  return { programs: state.adminPrograms};
 }
 
-export default connect(mapStateToProps)(UserInfoRegimensChecklist);
+export default connect(mapStateToProps)(UserInfoProgramsChecklist);

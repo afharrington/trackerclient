@@ -1,11 +1,11 @@
 @import '../../styles/styles.scss';
 
-.regimen {
+.program {
   width: 100%;
   color: $dark-gray;
 }
 
-.regimen-title-container {
+.program-title-container {
   text-align: center;
 
   h1 {
@@ -15,7 +15,7 @@
   }
 }
 
-.regimen-button-container {
+.program-button-container {
   width: 100%;
   text-align: center;
   margin-top: 50px;
@@ -43,14 +43,14 @@
   }
 }
 
-.regimen-header {
+.program-header {
   padding-top: 25px;
   margin-left: 60px;
   margin-right: 60px;
   padding-bottom: 10px;
 }
 
-.regimen-tiles-container {
+.program-tiles-container {
   margin-top: 25px;
   display: flex;
   flex-wrap: wrap;
@@ -61,14 +61,14 @@
 }
 
 @media only screen and (max-width: 806px) {
-  .regimen-tiles-container {
+  .program-tiles-container {
     margin-left: 10px;
     margin-right: 10px;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  .regimen-tiles-container {
+  .program-tiles-container {
     margin-top: 10px !important;
   }
 }

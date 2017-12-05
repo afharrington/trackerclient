@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { selectMenuItem } from '../../actions/uiActions';
-import { adminFetchUsers } from '../../actions/adminUserActions';
+import { adminFetchUsers, adminFetchRecentUserEntries } from '../../actions/adminUserActions';
 import MdKeyboardArrowDown from 'react-icons/lib/md/keyboard-arrow-down';
 import PageTitle from '../../components/PageTitle';
 import AdminPageHeader from '../../components/AdminPageHeader';
@@ -66,7 +66,8 @@ class AdminUsers extends Component {
 
   renderUsers() {
     let users = this.props.users;
-    if (users) {
+    if (users && users.length > 0) {
+
 
       // If sorted in ascending alphabetical order
       if (this.state.sortName === true && this.state.sortNameAscending) {
@@ -85,25 +86,25 @@ class AdminUsers extends Component {
       // If sorted by program in ascending order
       if (this.state.sortProgram === true && this.state.sortProgramAscending) {
         users = users.sort(function(a, b){
-          return a.activeUserRegimen.userRegimenName == b.activeUserRegimen.userRegimenName ? 0 : +(a.activeUserRegimen.userRegimenName > b.activeUserRegimen.userRegimenName) || -1;
+          return a.activeUserProgram.userProgramName == b.activeUserProgram.userProgramName ? 0 : +(a.activeUserProgram.userProgramName > b.activeUserProgram.userProgramName) || -1;
         });
       }
 
       // If sorted by program in descending order
       if (this.state.sortProgram === true && !(this.state.sortProgramAscending)) {
         users = users.sort(function(a, b){
-          return b.activeUserRegimen.userRegimenName == a.activeUserRegimen.userRegimenName ? 0 : +(b.activeUserRegimen.userRegimenName > a.activeUserRegimen.userRegimenName) || -1;
+          return b.activeUserProgram.userProgramName == a.activeUserProgram.userProgramName ? 0 : +(b.activeUserProgram.userProgramName > a.activeUserProgram.userProgramName) || -1;
         });
       }
 
-      // If sorted by program in ascending order
+      // If sorted by entryDate in ascending order
       if (this.state.sortEntry === true && this.state.sortEntryAscending) {
         users = users.sort(function(a, b){
-          return a.activeUserRegimen.userRegimenName == b.activeUserRegimen.userRegimenName ? 0 : +(a.activeUserRegimen.userRegimenName > b.activeUserRegimen.userRegimenName) || -1;
+          return a.activeUserProgram.userProgramName == b.activeUserProgram.userProgramName ? 0 : +(a.activeUserProgram.userProgramName > b.activeUserProgram.userProgramName) || -1;
         });
       }
 
-      // If sorted by program in descending order
+      // If sorted by entryDate in descending order
       if (this.state.sortEntry === true && !(this.state.sortEntryAscending)) {
         users = users.sort(function(a, b){
           return b.recentEntry.entryDate == a.recentEntry.entryDate ? 0 : +(b.recentEntry.entryDate > a.recentEntry.entryDate) || -1;
@@ -111,6 +112,8 @@ class AdminUsers extends Component {
       }
 
       return users.map(user => {
+
+
         return (
           <UserItem key={user._id} user={user} />
         )
@@ -130,7 +133,7 @@ class AdminUsers extends Component {
             <div className='admin-users-labels'>
               <p className='admin-users-labels-name'>Name<span className='sort'><MdKeyboardArrowDown onClick={this.handleNameSort}/></span></p>
               <p className='admin-users-labels-program'>Program<span className='sort'><MdKeyboardArrowDown onClick={this.handleProgramSort}/></span></p>
-              <p className='admin-users-labels-entry'>Last Activity<span className='sort'><MdKeyboardArrowDown onClick={this.handleEntrySort}/></span></p>
+              <p className='admin-users-labels-entry'>Latest<span className='sort'><MdKeyboardArrowDown onClick={this.handleEntrySort}/></span></p>
             </div>
             {this.renderUsers()}
           </div>
@@ -144,4 +147,4 @@ function mapStateToProps(state) {
   return { users: state.adminUsers.users };
 }
 
-export default connect(mapStateToProps, { adminFetchUsers, selectMenuItem })(AdminUsers);
+export default connect(mapStateToProps, { adminFetchUsers, adminFetchRecentUserEntries, selectMenuItem })(AdminUsers);
