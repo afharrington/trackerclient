@@ -21,6 +21,12 @@
   }
 }
 
+.user-item-name {
+  p {
+    width: 125px;
+  }
+}
+
 .user-item:hover {
   background-color: $light-gray;
 }
