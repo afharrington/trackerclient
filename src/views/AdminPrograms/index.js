@@ -105,19 +105,21 @@ class AdminPrograms extends Component {
 
   render() {
     return (
-      <div className='admin-programs'>
+      <div>
         <AdminPageHeader/>
         <PageTitle title='Programs' color='green'/>
-        { this.state.showProgramForm ? <CreateProgramForm exit={this.toggleProgramForm}/> : null }
-        <div className='admin-programs-content'>
-          <NewButton onClick={this.toggleProgramForm} text='Add Program'/>
-          <div className='admin-programs-programs'>
-            <div className='admin-programs-labels'>
-              <p className='admin-programs-labels-name'>Program<span className='sort' onClick={this.handleProgramSort}><MdKeyboardArrowDown/></span></p>
-              <p className='admin-programs-labels-program'>Sport<span className='sort' onClick={this.handleSportSort}><MdKeyboardArrowDown/></span></p>
-              <p className='admin-programs-labels-entry latest'>Latest<span className='sort' onClick={this.handleEntrySort}><MdKeyboardArrowDown/></span></p>
+        <div className='admin-programs'>
+          { this.state.showProgramForm ? <CreateProgramForm exit={this.toggleProgramForm}/> : null }
+          <div className='admin-programs-content'>
+            <NewButton onClick={this.toggleProgramForm} text='Add Program'/>
+            <div className='admin-programs-programs'>
+              <div className='admin-programs-labels'>
+                <p className='admin-programs-labels-name'>Program<span className='sort' onClick={this.handleProgramSort}><MdKeyboardArrowDown/></span></p>
+                <p className='admin-programs-labels-program'>Sport<span className='sort' onClick={this.handleSportSort}><MdKeyboardArrowDown/></span></p>
+                <p className='admin-programs-labels-entry latest'>Latest<span className='sort' onClick={this.handleEntrySort}><MdKeyboardArrowDown/></span></p>
+              </div>
+              {this.renderPrograms()}
             </div>
-            {this.renderPrograms()}
           </div>
         </div>
       </div>

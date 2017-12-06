@@ -2,6 +2,10 @@
 
 .admin-programs {
   z-index: 100;
+
+  @media (min-width: 600px) {
+    margin-left: 55px;
+  }
 }
 
 .admin-programs-labels {
