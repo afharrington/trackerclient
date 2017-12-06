@@ -8,6 +8,10 @@
   background-color: $brand-color-blue;
   border-bottom: 2px solid white;
   width: 100%;
+
+  @media (min-width: 600px) {
+    margin-left: 55px;
+  }
 }
 
 .program-header-name {

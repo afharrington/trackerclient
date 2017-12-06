@@ -5,9 +5,10 @@
   width: 100% !important;
   position: relative;
   z-index: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
   height: 30px;
   background-color: $white;
   border-bottom: 1px solid $light-gray;
@@ -21,12 +22,6 @@
   }
 }
 
-.user-item-name {
-  p {
-    width: 125px;
-  }
-}
-
 .user-item:hover {
   background-color: $light-gray;
 }
@@ -37,7 +32,6 @@
 }
 
 .user-item-entry {
-  width: 75px;
-  font-size: 10px;
-  color: $med-gray;
+  font-size: 14px;
+  text-align: right;
 }

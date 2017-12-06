@@ -8,6 +8,10 @@
   background-color: $dark-gray;
   border-bottom: 2px solid white;
   width: 100%;
+
+  @media (min-width: 600px) {
+    margin-left: 55px;
+  }
 }
 
 .user-header-name {

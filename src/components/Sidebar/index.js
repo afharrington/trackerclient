@@ -6,6 +6,10 @@ import { slide as Menu } from 'react-burger-menu';
 import { selectMenuItem } from '../../actions/uiActions';
 import { logoutAdmin } from '../../actions/authActions';
 import { fetchPrograms } from '../../actions/adminProgramActions';
+import MdAccessTime from 'react-icons/lib/md/access-time';
+import MdAssignment from 'react-icons/lib/md/assignment';
+import MdPeople from 'react-icons/lib/md/people';
+import FaSignOut from 'react-icons/lib/fa/sign-out';
 import SidebarLink from './SidebarLink';
 import CreateProgramForm from '../CreateProgramForm';
 
@@ -50,15 +54,15 @@ class Sidebar extends Component {
             <h1>3UP</h1>
           </div>
 
-          <Link to='/admin/recent'><h3 className={ active == 'Recent Activity' ? 'sidebar-link active' : 'sidebar-link'}>Recent Activity</h3></Link>
+          <Link to='/admin/recent'><h3 className={ active == 'Recent Activity' ? 'sidebar-link active' : 'sidebar-link'}><MdAccessTime/> Recent Activity</h3></Link>
 
-          <Link to='/admin/programs'><h3 className={ active == 'Programs' ? 'sidebar-link active' : 'sidebar-link'}>Programs</h3></Link>
+          <Link to='/admin/programs'><h3 className={ active == 'Programs' ? 'sidebar-link active' : 'sidebar-link'}><MdAssignment/> Programs</h3></Link>
 
           { this.renderProgramLinks() }
           {/* <h3 className='sidebar-button' onClick={this.toggleProgramForm}>+ New Program</h3> */}
-          <Link to='/admin/team'><h3 className={ active == 'Team' ? 'sidebar-link active' : 'sidebar-link'}>Team</h3></Link>
+          <Link to='/admin/team'><h3 className={ active == 'Team' ? 'sidebar-link active' : 'sidebar-link'}><MdPeople/> Team</h3></Link>
 
-          <h3 className='sidebar-logout sidebar-link' onClick={this.props.logoutAdmin}>Log out</h3>
+          <h3 className='sidebar-logout sidebar-link' onClick={this.props.logoutAdmin}><FaSignOut/> Log out</h3>
         </Menu>
       </div>
     );

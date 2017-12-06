@@ -7,7 +7,7 @@ import AdminPageHeader from '../../components/AdminPageHeader';
 import UserEntries from '../../components/UserEntries';
 import AdminUserInfo from './AdminUserInfo';
 import UserHeader from '../../components/UserHeader';
-import { adminFetchUser } from '../../actions/adminUserActions';
+import { adminFetchUser, adminFetchActiveProgramTiles } from '../../actions/adminUserActions';
 import './adminUser.css';
 
 class AdminUser extends Component {
@@ -25,6 +25,16 @@ class AdminUser extends Component {
 
   componentDidMount() {
     this.props.adminFetchUser(this.props.match.params.userId);
+    this.props.adminFetchActiveProgramTiles(this.props.match.params.userId);
+  }
+
+  componentWillReceiveProps(newProps) {
+    let newParam = newProps.match.params.userId;
+    this.setState({ userId: newParam });
+    if (newParam !== this.state.userId) {
+      this.props.adminFetchUser(newParam);
+      this.props.adminFetchActiveProgramTiles(newParam);
+    }
   }
 
   setVisibleTile(tile) {
@@ -60,7 +70,7 @@ class AdminUser extends Component {
       return (
         <UserTilesContainer
           setVisibleTile={this.setVisibleTile}
-          userProgram={this.props.user.activeUserProgram} />
+          user={this.props.user} />
       )
 
     } else if (this.state.viewType === 'userTile') {
@@ -98,4 +108,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { adminFetchUser })(AdminUser);
+export default connect(mapStateToProps, { adminFetchUser, adminFetchActiveProgramTiles })(AdminUser);

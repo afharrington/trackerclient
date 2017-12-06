@@ -3,7 +3,7 @@ import {
   ADMIN_FETCH_USER,
   ADMIN_UPDATE_USER,
   ADMIN_DELETE_USER,
-  ADMIN_FETCH_USER_PROGRAM_TILES,
+  ADMIN_FETCH_ACTIVE_PROGRAM_TILES,
   ADMIN_FETCH_THIS_USER_PROGRAMS,
   ADMIN_FETCH_USER_PROGRAMS,
   ADMIN_FETCH_USER_TILE,
@@ -26,7 +26,7 @@ export default function(state = {}, action) {
       return {...state, user: action.payload };
     case ADMIN_DELETE_USER:
       return {...state, users: action.payload };
-    case ADMIN_FETCH_USER_PROGRAM_TILES:
+    case ADMIN_FETCH_ACTIVE_PROGRAM_TILES:
       return {...state, userProgramTiles: action.payload };
     // case ADMIN_FETCH_THIS_USER_PROGRAMS:
     //   return {...state, _.mapKeys(action.payload, '_id') };

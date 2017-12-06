@@ -1,0 +1,36 @@
+@import '../../styles/styles.scss';
+
+.slim-sidebar {
+  background-color: $dark-gray;
+  width: 55px;
+  position: absolute;
+  top: 0%;
+  z-index: 2;
+  height: 100%;
+  text-align: center;
+
+  @media (max-width: 600px) {
+    visibility: hidden;
+  }
+}
+
+.slim-sidebar-logo {
+  height: 30px;
+  width: 25px;
+}
+
+.slim-sidebar-links {
+  margin-top: 80px;
+}
+
+.slim-sidebar-link {
+  color: white;
+  margin-top: 40px;
+  display: block;
+  text-align: center;
+}
+
+.slim-sidebar-link-active {
+  color: $brand-color-green;
+  margin-top: 40px;
+}

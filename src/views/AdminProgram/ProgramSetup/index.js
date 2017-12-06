@@ -22,7 +22,6 @@ class ProgramSetup extends Component {
     this.props.adminFetchProgramTiles(this.props.programId);
   }
 
-
   // Toggles form for a New Tile
   toggleNewForm() {
     if (this.state.showNewForm === false) {
@@ -50,6 +49,7 @@ class ProgramSetup extends Component {
 
   renderTiles() {
     let tiles = this.props.tiles;
+    tiles = _.sortBy(tiles, 'tileName');
 
     if (tiles) {
       return _.map(tiles, tile => {

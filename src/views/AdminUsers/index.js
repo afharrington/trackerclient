@@ -123,19 +123,22 @@ class AdminUsers extends Component {
 
   render() {
     return (
-      <div className='admin-users'>
-        { this.state.showUserForm ? <CreateUserForm exit={this.toggleUserForm}/> : null }
+      <div>
         <AdminPageHeader/>
         <PageTitle title='Your Team' color='orange'/>
-        <div className='admin-users-content'>
-          <NewButton onClick={this.toggleUserForm} text='Add Player'/>
-          <div className='admin-users-users'>
-            <div className='admin-users-labels'>
-              <p className='admin-users-labels-name'>Name<span className='sort'><MdKeyboardArrowDown onClick={this.handleNameSort}/></span></p>
-              <p className='admin-users-labels-program'>Program<span className='sort'><MdKeyboardArrowDown onClick={this.handleProgramSort}/></span></p>
-              <p className='admin-users-labels-entry'>Latest<span className='sort'><MdKeyboardArrowDown onClick={this.handleEntrySort}/></span></p>
+        <div className='admin-users'>
+          { this.state.showUserForm ? <CreateUserForm exit={this.toggleUserForm}/> : null }
+
+          <div className='admin-users-content'>
+            <NewButton onClick={this.toggleUserForm} text='Add Player'/>
+            <div className='admin-users-users'>
+              <div className='admin-users-labels'>
+                <p className='admin-users-labels-name'>Name<span className='sort'><MdKeyboardArrowDown onClick={this.handleNameSort}/></span></p>
+                <p className='admin-users-labels-program'>Program<span className='sort'><MdKeyboardArrowDown onClick={this.handleProgramSort}/></span></p>
+                <p className='admin-users-labels-entry'>Latest<span className='sort'><MdKeyboardArrowDown onClick={this.handleEntrySort}/></span></p>
+              </div>
+              {this.renderUsers()}
             </div>
-            {this.renderUsers()}
           </div>
         </div>
       </div>

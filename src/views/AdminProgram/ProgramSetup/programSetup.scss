@@ -3,6 +3,9 @@
 .program-setup-button-container {
   text-align: center;
   margin-top: 175px;
+  @media (min-width: 600px) {
+    margin-left: 55px;
+  }
 }
 
 .program-setup-button {
@@ -32,4 +35,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
+  @media (min-width: 600px) {
+    margin-left: 55px;
+  }
 }

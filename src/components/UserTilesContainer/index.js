@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
-import { adminFetchUserProgramTiles } from '../../actions/adminUserActions';
+import { adminFetchActiveProgramTiles } from '../../actions/adminUserActions';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
@@ -28,7 +28,7 @@ class UserTilesContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.adminFetchUserProgramTiles(this.props.userProgram._id);
+
   }
 
   handleTimeSort() {
@@ -83,7 +83,7 @@ class UserTilesContainer extends Component {
   }
 
   render() {
-    if (this.props.userProgram) {
+
       return (
         <div className='user-tiles-container'>
           <div className='user-tiles-sort-menu'>
@@ -102,9 +102,7 @@ class UserTilesContainer extends Component {
           { this.renderTiles() }
         </div>
       )
-    } else {
-      return <div></div>
-    }
+
 
   }
 };
@@ -113,4 +111,4 @@ function mapStateToProps(state) {
   return { tiles: state.adminUsers.userProgramTiles };
 }
 
-export default connect(mapStateToProps, { adminFetchUserProgramTiles })(UserTilesContainer);
+export default connect(mapStateToProps, { adminFetchActiveProgramTiles })(UserTilesContainer);

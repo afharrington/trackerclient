@@ -7,8 +7,8 @@
 .admin-programs-labels {
   background-color: $dark-gray;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 
   p {
     padding-left: 10px;
@@ -28,18 +28,6 @@
   .latest {
     text-align: right;
   }
-}
-
-.admin-programs-labels-name {
-  width: 125px;
-}
-
-.admin-programs-labels-program {
-  width: 125px;
-}
-
-.admin-programs-labels-entry {
-  width: 100px;
 }
 
 .admin-programs-content {

@@ -2,6 +2,9 @@
 
 .user-entries {
   margin-top: 175px;
+  @media (min-width: 600px) {
+    margin-left: 55px;
+  }
 }
 
 .user-entries-title {
@@ -17,6 +20,9 @@
 
 .user-entries-button-container {
   text-align: center;
+  @media (min-width: 600px) {
+    margin-left: 55px;
+  }
 
   button {
     cursor: pointer;

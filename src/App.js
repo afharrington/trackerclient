@@ -7,6 +7,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AdminMenu from './components/AdminMenu';
 import UserMenu from './components/UserMenu';
 import Sidebar from './components/Sidebar';
+import SlimSidebar from './components/SlimSidebar';
 
 import Welcome from './views/Welcome';
 import AdminRecentEntries from './views/AdminRecentEntries';
@@ -53,7 +54,7 @@ class App extends Component {
 
   renderMenu() {
     if (this.props.authenticated && this.props.userType === 'admin') {
-      return <Sidebar/>
+      return (<div><Sidebar/><SlimSidebar/></div>)
     } else if (this.props.authenticated && this.props.userType === 'user') {
       return <UserMenu/>
     }
@@ -67,7 +68,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render={props => <Welcome {...props} /> } />
             <Route exact path='/user' component={UserAuthentication(UserHome)}/>
-            <Route exact path='/admin/program/:programId' component={AdminAuthentication(AdminProgram)}/>
+            <Route path='/admin/program/:programId' component={AdminAuthentication(AdminProgram)}/>
             <Route exact path='/admin/program/:programId/settings' component={AdminAuthentication(AdminProgram)}/>
             <Route exact path='/admin/team' component={AdminAuthentication(AdminUsers)}/>
             <Route exact path='/admin/programs' component={AdminAuthentication(AdminPrograms)}/>

@@ -2,6 +2,9 @@
 
 .admin-users {
   z-index: 100;
+  @media (min-width: 600px) {
+    margin-left: 55px;
+  }
 }
 
 .admin-users-labels {
@@ -27,15 +30,17 @@
 }
 
 .admin-users-labels-name {
-  width: 105px;
+  width: 33%;
+  text-align: left;
 }
 
 .admin-users-labels-program {
-
+  width: 33%;
+  text-align: left;
 }
 
 .admin-users-labels-entry {
-  width: 100px;
+  width: 33%;
   text-align: right;
 }
 

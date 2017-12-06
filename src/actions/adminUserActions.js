@@ -6,7 +6,7 @@ export const ADMIN_FETCH_USER = 'admin_fetch_user';
 export const ADMIN_UPDATE_USER = 'admin_update_user';
 export const ADMIN_DELETE_USER = 'admin_delete_user';
 export const ADMIN_FETCH_USER_PROGRAM = 'admin_fetch_user_program';
-export const ADMIN_FETCH_USER_PROGRAM_TILES = 'admin_fetch_user_program_tiles';
+export const ADMIN_FETCH_ACTIVE_PROGRAM_TILES = 'admin_fetch_active_program_tiles';
 export const ADMIN_FETCH_THIS_USER_PROGRAMS = 'admin_fetch_this_user_programs';
 export const ADMIN_FETCH_USER_TILE = 'admin_fetch_user_tile';
 export const ADMIN_FETCH_USER_PROGRAMS = 'admin_fetch_user_programs';
@@ -103,13 +103,13 @@ export function adminFetchUserProgram(userProgramId) {
   }
 }
 
-export function adminFetchUserProgramTiles(userProgramId) {
+export function adminFetchActiveProgramTiles(userId) {
   return function(dispatch) {
-    axios.get(`${ROOT}/admin/user/program/${userProgramId}/tiles`, {
+    axios.get(`${ROOT}/admin/user/${userId}/tiles`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
-        dispatch({ type: ADMIN_FETCH_USER_PROGRAM_TILES, payload: response.data });
+        dispatch({ type: ADMIN_FETCH_ACTIVE_PROGRAM_TILES, payload: response.data });
       })
       .catch((err) => {
         console.log(err);

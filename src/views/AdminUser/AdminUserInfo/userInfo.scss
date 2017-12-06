@@ -4,6 +4,10 @@
   width: 100%;
   height: 100%;
   margin-top: 175px;
+
+  @media (min-width: 600px) {
+    margin-left: 55px;
+  }
 }
 
 .user-info-button {
