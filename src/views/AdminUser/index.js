@@ -52,6 +52,7 @@ class AdminUser extends Component {
 
       return (
         <UserHeader
+          userType='admin'
           firstName={firstName}
           lastName={lastName}
           activeUserProgram={activeUserProgram}
@@ -70,6 +71,7 @@ class AdminUser extends Component {
       return (
         <UserTilesContainer
           setVisibleTile={this.setVisibleTile}
+          userTiles={this.props.userTiles}
           user={this.props.user} />
       )
 
@@ -104,7 +106,8 @@ class AdminUser extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.adminUsers.user
+    user: state.adminUsers.user,
+    userTiles: state.adminUsers.userProgramTiles
   };
 }
 

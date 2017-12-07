@@ -1,6 +1,8 @@
 import axios from 'axios';
 import uri from '../config/uri.js';
 
+export const ADMIN_ERROR = 'admin_error';
+
 export const ADMIN_FETCH_USERS = 'admin_fetch_users';
 export const ADMIN_FETCH_USER = 'admin_fetch_user';
 export const ADMIN_UPDATE_USER = 'admin_update_user';
@@ -17,6 +19,13 @@ export const ADMIN_DELETE_ENTRY = 'admin_delete_entry';
 export const ADMIN_FETCH_RECENT_USER_ENTRIES = 'admin_fetch_recent_user_entries';
 
 const ROOT = uri.rootUri;
+
+export function adminError(error) {
+  return {
+    type: ADMIN_ERROR,
+    payload: error
+  }
+}
 
 // FETCH_USERS
 export function adminFetchUsers() {
@@ -170,6 +179,7 @@ export function adminFetchRecentUserEntries(userId) {
       })
       .catch((err) => {
         console.log(err);
+        dispatch(adminError(err));
       });
   }
 }
@@ -186,6 +196,7 @@ export function adminCreateEntry(userTileId, values, callback) {
       .then(() => callback())
       .catch((err) => {
         console.log(err);
+        dispatch(adminError(err));
       });
   }
 }
@@ -201,11 +212,12 @@ export function adminUpdateEntry(cycleId, entryId, values, callback) {
       .then(() => callback())
       .catch((err) => {
         console.log(err);
+        dispatch(adminError(err));
       });
   }
 }
 
-export function adminDeleteEntry(cycleId, entryId, callback) {
+export function adminDeleteEntry(cycleId, entryId) {
   return function(dispatch) {
     axios.delete(`${ROOT}/admin/user/cycle/${cycleId}/entry/${entryId}`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
@@ -213,9 +225,9 @@ export function adminDeleteEntry(cycleId, entryId, callback) {
       .then(response => {
         dispatch({ type: ADMIN_DELETE_ENTRY, payload: response.data });
       })
-      .then(() => callback())
       .catch((err) => {
         console.log(err);
+        dispatch(adminError(err));
       });
   }
 }

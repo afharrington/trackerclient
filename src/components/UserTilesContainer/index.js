@@ -27,10 +27,6 @@ class UserTilesContainer extends Component {
     this.handleAlphaSort = this.handleAlphaSort.bind(this);
   }
 
-  componentDidMount() {
-
-  }
-
   handleTimeSort() {
     if (this.state.sortType === 'time') {
       this.setState({ sortAscending: !this.state.sortAscending });
@@ -50,7 +46,7 @@ class UserTilesContainer extends Component {
   }
 
   renderTiles() {
-    let tiles = this.props.tiles;
+    let tiles = this.props.userTiles;
 
     if (tiles) {
       if (this.state.sortType === 'time' && this.state.sortAscending) {
@@ -107,8 +103,8 @@ class UserTilesContainer extends Component {
   }
 };
 
-function mapStateToProps(state) {
-  return { tiles: state.adminUsers.userProgramTiles };
-}
+// function mapStateToProps(state) {
+//   return { tiles: state.adminUsers.userProgramTiles };
+// }
 
-export default connect(mapStateToProps, { adminFetchActiveProgramTiles })(UserTilesContainer);
+export default UserTilesContainer;

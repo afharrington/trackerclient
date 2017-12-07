@@ -10,7 +10,10 @@ import MdAccessTime from 'react-icons/lib/md/access-time';
 import MdAssignment from 'react-icons/lib/md/assignment';
 import MdPeople from 'react-icons/lib/md/people';
 import FaSignOut from 'react-icons/lib/fa/sign-out';
+import MdHome from 'react-icons/lib/md/home';
 import SidebarLink from './SidebarLink';
+import MdHelpOutline from 'react-icons/lib/md/help-outline';
+import MdChatBubble from 'react-icons/lib/md/chat-bubble';
 import CreateProgramForm from '../CreateProgramForm';
 
 import './sideBar.css';
@@ -54,13 +57,29 @@ class Sidebar extends Component {
             <h1>3UP</h1>
           </div>
 
-          <Link to='/admin/recent'><h3 className={ active == 'Recent Activity' ? 'sidebar-link active' : 'sidebar-link'}><MdAccessTime/> Recent Activity</h3></Link>
+          <Link to='/'><h3 className={ active == 'Home' ? 'sidebar-link active' : 'sidebar-link'}><MdHome/> Home</h3></Link>
 
-          <Link to='/admin/programs'><h3 className={ active == 'Programs' ? 'sidebar-link active' : 'sidebar-link'}><MdAssignment/> Programs</h3></Link>
+          { this.props.userType === 'admin' &&
+            <div>
+              <Link to='/admin/recent'><h3 className={ active == 'Recent Activity' ? 'sidebar-link active' : 'sidebar-link'}><MdAccessTime/> Recent Activity</h3></Link>
 
-          { this.renderProgramLinks() }
-          {/* <h3 className='sidebar-button' onClick={this.toggleProgramForm}>+ New Program</h3> */}
-          <Link to='/admin/team'><h3 className={ active == 'Team' ? 'sidebar-link active' : 'sidebar-link'}><MdPeople/> Team</h3></Link>
+              <Link to='/admin/programs'><h3 className={ active == 'Programs' ? 'sidebar-link active' : 'sidebar-link'}><MdAssignment/> Programs</h3></Link>
+
+              { this.renderProgramLinks() }
+
+              <Link to='/admin/team'><h3 className={ active == 'Team' ? 'sidebar-link active' : 'sidebar-link'}><MdPeople/> Team</h3></Link>
+            </div>
+          }
+
+          { this.props.userType === 'user' &&
+            <div>
+              <Link to='/'><h3 className={ active == 'Message' ? 'sidebar-link active' : 'sidebar-link'}><MdChatBubble/> Contact Coach</h3></Link>
+
+              <Link to='/admin/programs'><h3 className={ active == 'Help' ? 'sidebar-link active' : 'sidebar-link'}><MdHelpOutline/> FAQ</h3></Link>
+
+            </div>
+          }
+
 
           <h3 className='sidebar-logout sidebar-link' onClick={this.props.logoutAdmin}><FaSignOut/> Log out</h3>
         </Menu>
@@ -72,7 +91,8 @@ class Sidebar extends Component {
 function mapStateToProps(state) {
   return {
     activeMenuItem: state.ui.activeMenuItem,
-    adminPrograms: state.adminPrograms.programs
+    adminPrograms: state.adminPrograms.programs,
+    userType: state.auth.userType
   };
 }
 

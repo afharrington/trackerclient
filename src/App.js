@@ -53,10 +53,13 @@ const muiTheme = getMuiTheme({
 class App extends Component {
 
   renderMenu() {
-    if (this.props.authenticated && this.props.userType === 'admin') {
-      return (<div><Sidebar/><SlimSidebar/></div>)
-    } else if (this.props.authenticated && this.props.userType === 'user') {
-      return <UserMenu/>
+    if (this.props.authenticated) {
+      return (
+        <div>
+          <Sidebar/>
+          <SlimSidebar/>
+        </div>
+      );
     }
   }
 

@@ -54,6 +54,7 @@ class UserCycle extends Component {
         return (
           <div key={entry._id} >
             <Entry
+              userType={this.props.userType}
               userId={this.props.userId}
               tileId={this.props.tileId}
               cycleId={cycle._id}

@@ -4,6 +4,7 @@ import uri from '../config/uri.js';
 export const USER_ERROR = 'user_error';
 export const FETCH_USER = 'fetch_user';
 export const UPDATE_USER = 'update_user';
+export const FETCH_ACTIVE_PROGRAM_TILES = 'fetch_active_program_tiles';
 export const FETCH_USER_PROGRAM = 'fetch_user_program';
 export const FETCH_USER_TILE = 'fetch_user_tile';
 export const CREATE_ENTRY = 'create_entry';
@@ -49,9 +50,23 @@ export function updateUser(values) {
   }
 }
 
-export function fetchUserTile(regId, tileId) {
+export function fetchActiveProgramTiles() {
   return function(dispatch) {
-    axios.get(`${ROOT}/user/reg/${regId}/tile/${tileId}`, {
+    axios.get(`${ROOT}/user/tiles`, {
+      headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
+      })
+      .then(response => {
+        dispatch({ type: FETCH_ACTIVE_PROGRAM_TILES, payload: response.data });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+}
+
+export function fetchUserTile(userTileId) {
+  return function(dispatch) {
+    axios.get(`${ROOT}/user/tile/${userTileId}`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
@@ -78,9 +93,9 @@ export function fetchUserProgram(userProgramId) {
   }
 }
 
-export function createEntry(regId, tileId, values, callback) {
+export function createEntry(userTileId, values, callback) {
   return function(dispatch) {
-    axios.post(`${ROOT}/user/reg/${regId}/tile/${tileId}`, values, {
+    axios.post(`${ROOT}/user/tile/${userTileId}`, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
@@ -94,9 +109,9 @@ export function createEntry(regId, tileId, values, callback) {
   }
 }
 
-export function updateEntry(regId, tileId, cycleId, entryId, values, callback) {
+export function updateEntry(cycleId, entryId, values, callback) {
   return function(dispatch) {
-    axios.put(`${ROOT}/user/reg/${regId}/tile/${tileId}/cycle/${cycleId}/entry/${entryId}`, values, {
+    axios.put(`${ROOT}/user/cycle/${cycleId}/entry/${entryId}`, values, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {
@@ -111,9 +126,9 @@ export function updateEntry(regId, tileId, cycleId, entryId, values, callback) {
 }
 
 
-export function deleteEntry(regId, tileId, cycleId, entryId) {
+export function deleteEntry(cycleId, entryId) {
   return function(dispatch) {
-    axios.delete(`${ROOT}/user/reg/${regId}/tile/${tileId}/cycle/${cycleId}/entry/${entryId}`, {
+    axios.delete(`${ROOT}/user/cycle/${cycleId}/entry/${entryId}`, {
       headers: { 'Authorization': 'JWT ' + localStorage.getItem('token') }
       })
       .then(response => {

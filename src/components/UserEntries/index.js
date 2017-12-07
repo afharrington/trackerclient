@@ -6,6 +6,7 @@ import EntryForm from './EntryForm';
 import FontAwesome from 'react-fontawesome';
 import UserCycle from './UserCycle';
 import { adminFetchUserTile } from '../../actions/adminUserActions';
+import { fetchUserTile } from '../../actions/userActions';
 
 import './userEntries.css';
 
@@ -29,7 +30,7 @@ class UserEntries extends Component {
     if (this.props.userType === 'admin') {
       this.props.adminFetchUserTile(this.props.userTileId);
     } else {
-      console.log('userFetchUserTile');
+      this.props.fetchUserTile(this.props.userTileId);
     }
   }
 
@@ -61,7 +62,7 @@ class UserEntries extends Component {
 
 
   renderCycles() {
-    let tile = this.props.userTile;
+    let tile = this.props.userType === 'admin' ? this.props.adminUserTile : this.props.userTile;
 
     if (tile) {
       if (tile.cycles) {
@@ -70,6 +71,7 @@ class UserEntries extends Component {
           let expanded = (cycle._id === tile.cycles[0]._id) ? true : false;
 
           return <UserCycle
+            userType={this.props.userType}
             expanded={expanded}
             key={cycle._id}
             cycle={cycle}
@@ -120,8 +122,11 @@ class UserEntries extends Component {
 function mapStateToProps(state) {
   return {
     userType: state.auth.userType,
-    user: state.adminUsers.user,
-    userTile: state.adminUsers.userTile };
+    adminUser: state.adminUsers.user,
+    adminUserTile: state.adminUsers.userTile,
+    user: state.user.user,
+    userTile: state.user.userTile
+  };
 }
 
-export default connect(mapStateToProps, { adminFetchUserTile } )(UserEntries);
+export default connect(mapStateToProps, { adminFetchUserTile, fetchUserTile } )(UserEntries);

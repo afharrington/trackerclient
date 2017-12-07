@@ -11,6 +11,7 @@ import SelectField from 'material-ui/SelectField'
 import Slider from 'material-ui/Slider';
 import FormWrapper from '../../FormWrapper';
 import { adminCreateEntry, adminUpdateEntry, adminFetchUserTile } from '../../../actions/adminUserActions';
+import { createEntry, updateEntry, fetchUserTile } from '../../../actions/userActions';
 import './EntryForm.css';
 
 class EntryForm extends Component {
@@ -62,6 +63,8 @@ class EntryForm extends Component {
   }
 
   onSubmit(values) {
+    let userTile = this.props.userType === 'admin' ? this.props.adminUserTile : this.props.userTile;
+
     let hours = Number(values.hours);
     let minutes = Number(values.minutes);
     let totalMinutes = (hours * 60) + minutes;
@@ -73,29 +76,47 @@ class EntryForm extends Component {
       notes: values.notes
     }
 
-    // Callbacks are necessary for new cycle totals to re-render (calculated on backend)
-    if (!this.props.entry) {
-      this.props.adminCreateEntry(
-        this.props.userTileId,
-        entry, () => this.props.adminFetchUserTile(this.props.userTileId));
-    } else {
-      this.props.adminUpdateEntry(
-        this.props.cycleId,
-        this.props.entry._id,
-        entry, () => this.props.adminFetchUserTile(this.props.userTile._id));
+    if (this.props.userType === 'admin') {
+      // Callbacks are necessary for new cycle totals to re-render (calculated on backend)
+      if (!this.props.entry) {
+        this.props.adminCreateEntry(
+          this.props.userTileId,
+          entry, () => this.props.adminFetchUserTile(this.props.userTileId));
+      } else {
+        this.props.adminUpdateEntry(
+          this.props.cycleId,
+          this.props.entry._id,
+          entry, () => this.props.adminFetchUserTile(userTile._id));
+      }
     }
+
+    if (this.props.userType === 'user') {
+
+      if (!this.props.entry) {
+        this.props.createEntry(
+          this.props.userTileId,
+          entry, () => this.props.fetchUserTile(this.props.userTileId));
+      } else {
+        this.props.updateEntry(
+          this.props.cycleId,
+          this.props.entry._id,
+          entry, () => this.props.fetchUserTile(userTile._id));
+      }
+    }
+
     this.props.closeForm();
   }
 
   render() {
     const { handleSubmit, reset, pristine, submitting } = this.props;
+    let userTile = this.props.userType === 'admin' ? this.props.adminUserTile : this.props.userTile;
 
     return (
       <FormWrapper title='Add an entry' exit={this.props.closeForm}>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <div className='entry-form-fields'>
             <EntryDateField/>
-            <EntryActivitiesList userTile={this.props.userTile}/>
+            <EntryActivitiesList userTile={userTile}/>
 
             <div className='entry-form-time'>
               <EntryTimeField
@@ -143,12 +164,16 @@ function validate(values) {
 }
 
 function mapStateToProps(state) {
-  return { userTile: state.adminUsers.userTile };
+  return {
+    adminUserTile: state.adminUsers.userTile,
+    userTile: state.user.userTile,
+    userType: state.auth.userType
+  };
 }
 
 export default reduxForm({
   validate,
   form: 'EntryForm'
 })(
-  connect(mapStateToProps, { adminCreateEntry, adminUpdateEntry, adminFetchUserTile })(EntryForm)
+  connect(mapStateToProps, { adminCreateEntry, createEntry, adminUpdateEntry, updateEntry, adminFetchUserTile, fetchUserTile })(EntryForm)
 );

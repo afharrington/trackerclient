@@ -6,6 +6,7 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Moment from 'react-moment';
 import { adminDeleteEntry, adminFetchUserTile } from '../../../actions/adminUserActions';
+import { deleteEntry, fetchUserTile } from '../../../actions/userActions';
 
 import './entry.css';
 
@@ -22,9 +23,11 @@ class Entry extends Component {
   }
 
   deleteEntry() {
-    this.props.adminDeleteEntry(this.props.cycleId, this.props.entry._id, () => {
-      this.props.adminFetchUserTile(this.props.entry.userTileId);
-    });
+    if (this.props.userType === 'admin') {
+      this.props.adminDeleteEntry(this.props.cycleId, this.props.entry._id);
+    } else {
+      this.props.deleteEntry(this.props.cycleId, this.props.entry._id);
+    }
   }
 
   render() {
@@ -63,4 +66,4 @@ class Entry extends Component {
   }
 };
 
-export default connect(null, { adminDeleteEntry, adminFetchUserTile } )(Entry);
+export default connect(null, { adminDeleteEntry, adminFetchUserTile, deleteEntry, fetchUserTile } )(Entry);

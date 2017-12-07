@@ -13,18 +13,21 @@ class UserHeader extends Component {
           <h1>{firstName} {lastName}</h1>
           <h2>{activeUserProgram.userProgramName}</h2>
         </div>
-        <div className='user-header-tabs'>
-          <UserHeaderTab
-            currentView={currentView}
-            viewType='userProgram'
-            title='Program'
-            setViewType={this.props.setViewType} />
-          <UserHeaderTab
-            currentView={currentView}
-            viewType='info'
-            title='Info'
-            setViewType={this.props.setViewType} />
-        </div>
+
+        { this.props.userType === 'admin' &&
+          <div className='user-header-tabs'>
+            <UserHeaderTab
+              currentView={currentView}
+              viewType='userProgram'
+              title='Program'
+              setViewType={this.props.setViewType} />
+            <UserHeaderTab
+              currentView={currentView}
+              viewType='info'
+              title='Info'
+              setViewType={this.props.setViewType} />
+          </div>
+        }
       </div>
     )
   }

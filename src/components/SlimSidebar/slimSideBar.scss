@@ -25,10 +25,15 @@
 }
 
 .slim-sidebar-link {
+  cursor: pointer;
   color: white;
   margin-top: 40px;
   display: block;
   text-align: center;
+
+  &&:hover {
+    color: $brand-color-green;
+  }
 }
 
 .slim-sidebar-link-active {

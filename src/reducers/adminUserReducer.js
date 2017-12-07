@@ -38,11 +38,11 @@ export default function(state = {}, action) {
       return {...state, users: state.users.concat(action.payload)};
       // return _.mapKeys(action.payload, '_id');
     case ADMIN_CREATE_ENTRY:
-      return {...state, tile: action.payload };
+      return {...state, userTile: action.payload };
     case ADMIN_UPDATE_ENTRY:
-      return {...state, tile: action.payload };
+      return {...state, userTile: action.payload };
     case ADMIN_DELETE_ENTRY:
-      return {...state, tile: action.payload };
+      return {...state, userTile: action.payload };
     case ADMIN_FETCH_RECENT_USER_ENTRIES:
       return {...state, recentUserEntries: {...state.recentUserEntries, [action.payload[0].userId]: action.payload }};
     default:

@@ -7,8 +7,7 @@ import UserEntries from '../../components/UserEntries';
 import PageWrapper from '../../components/PageWrapper';
 import UserHeader from '../../components/UserHeader';
 import UserInfo from './UserInfo';
-import ChangePasswordForm from './ChangePasswordForm';
-import { fetchUser, fetchUserProgram } from '../../actions/userActions';
+import { fetchUser, fetchActiveProgramTiles } from '../../actions/userActions';
 import './userHome.css';
 
 // Shows all tiles for a single user
@@ -17,24 +16,12 @@ class UserHome extends Component {
     super(props);
     this.state = {
       userId: this.props.match.params.userId,
-      showNewForm: false,
-      showEditForm: false,
-      showChangePasswordForm: true,
       viewType: 'userProgram',
-      visibleUserProgram: null,
       visibleTile: null
     }
 
-  this.setVisibleUserProgram = this.setVisibleUserProgram.bind(this);
+  this.setViewType = this.setViewType.bind(this);
   this.setVisibleTile = this.setVisibleTile.bind(this);
-  this.toggleChangePasswordForm = this.toggleChangePasswordForm.bind(this);
-  }
-
-  setVisibleUserProgram(programId) {
-    this.setState({ visibleUserProgram: programId });
-    this.props.fetchUser(this.props.user._id);
-    this.props.fetchUserProgram(programId);
-    this.setState({ viewType: 'userProgram' })
   }
 
   setVisibleTile(tile) {
@@ -42,12 +29,13 @@ class UserHome extends Component {
     this.setState({ viewType: 'userTile' });
   }
 
-  toggleChangePasswordForm() {
-    this.setState({ showChangePasswordForm: !this.state.showChangePasswordForm });
+  setViewType(viewType) {
+    this.setState({ viewType: viewType });
   }
 
   componentDidMount() {
     this.props.fetchUser();
+    this.props.fetchActiveProgramTiles();
   }
 
   renderHeader() {
@@ -56,32 +44,31 @@ class UserHome extends Component {
 
       return (
         <UserHeader
-          visibleUserProgram={ this.state.visibleUserProgram || activeUserProgram._id}
-          setVisibleUserProgram={this.setVisibleUserProgram}
+          userType='user'
           firstName={firstName}
           lastName={lastName}
-          userPrograms={userPrograms}
-          activeUserProgram={activeUserProgram}/>
+          activeUserProgram={activeUserProgram}
+          setViewType={this.setViewType}
+          currentView={this.state.viewType} />
       )
     }
   }
 
   renderView() {
-    if (this.state.visibleUserProgram === 'info') {
-      return <UserInfo changePassword={this.toggleChangePasswordForm}/>
 
-    } else if (this.state.viewType === 'userProgram') {
+    if (this.state.viewType === 'userProgram') {
       return (
         <UserTilesContainer
           setVisibleTile={this.setVisibleTile}
-          userProgram={this.props.userProgram || this.props.user.activeUserProgram} />
+          userTiles={this.props.userTiles}
+          user={this.props.user} />
       )
     } else if (this.state.viewType === 'userTile') {
       return (
         <UserEntries
-          tileId={this.state.visibleTile}
-          regId={this.state.visibleUserProgram || this.props.user.activeUserProgram._id }
-        />
+          user={this.props.user}
+          userId={this.props.user._id}
+          userTileId={this.state.visibleTile} />
       )
     }
   }
@@ -90,13 +77,10 @@ class UserHome extends Component {
   render() {
     if (_.isEmpty(this.props.user) == false) {
       return (
-        <PageWrapper textColor='white'>
-          { this.state.showChangePasswordForm &&
-            <ChangePasswordForm user={this.props.user} exit={this.toggleChangePasswordForm}/>
-          }
+        <div className='user-home'>
           { this.renderHeader()}
           { this.renderView() }
-        </PageWrapper>
+        </div>
       )
     } else {
       return <div></div>
@@ -107,9 +91,9 @@ class UserHome extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user,
-    userProgram: state.user.userProgram
+    user: state.user.user,
+    userTiles: state.user.userProgramTiles
   };
 }
 
-export default connect(mapStateToProps, { fetchUser, fetchUserProgram })(UserHome);
+export default connect(mapStateToProps, { fetchUser, fetchActiveProgramTiles })(UserHome);
